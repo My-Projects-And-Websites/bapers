@@ -16,14 +16,14 @@
             <img draggable="false" src="images/index-img.jpg" alt="Camera image for the home page of BAPERS system">
         </div>
         <div class="hero-form">
-            <form method="POST" action="">
+            <form method="POST" action="php/login.php">
                 <h1>Sign in to your account</h1>
                 <div class="form-input-email">
                     <label for="login-email">Email:</label>
                     <input type="email" placeholder="Email" name="login-email" id="login-email" required>
                 </div>
                 <div class="form-input-password">
-                    <label for="login-email">Password:</label>
+                    <label for="login-password">Password:</label>
                     <input type="password" placeholder="Password" name="login-password" id="login-password" required>
                 </div>
                 <div class="form-input-submit">
