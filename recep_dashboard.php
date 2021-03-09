@@ -3,11 +3,11 @@
         session_start(); // start the session if not started yet
     }
 
-    if (!isset($_SESSION['email_login']) || $_SESSION['role'] != "Administrator") {
+    if (!isset($_SESSION['email_login']) && $_SESSION['role'] != "Receptionist") {
         header("Location: index.php");
     }
 
-    echo "hello world! i am an admin";
+    echo "hello world! i am a receptionist";
 ?>
 
 <a href="php/logout.php">Log Out</a>

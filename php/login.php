@@ -27,7 +27,12 @@
             $_SESSION['email_login'] = $login;
             $_SESSION['role'] = $row[0];
 
-            header("Location: ../admin_dashboard.php");
+            if ($row[0] == "Administrator") {
+                header("Location: ../admin_dashboard.php");
+            }
+            else if ($row[0] == "Receptionist") {
+                header("Location: ../recep_dashboard.php");
+            }
         }
     }
 ?>
