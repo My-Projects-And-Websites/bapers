@@ -5,6 +5,9 @@
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   grid-gap: 25px;
+  padding-bottom: 30px;
+  overflow: auto;
+  position: relative;
 }
 
 .content .add-account {
@@ -27,7 +30,7 @@
   line-height: 1.5;
   color: #555;
   font-size: 18px;
-  margin: 10px 0px 35px;
+  margin: 10px 0px 25px;
 }
 
 .content .add-account form div[class*="input"] {
@@ -92,6 +95,7 @@
   position: absolute;
   top: 55%;
   right: 15px;
+  color: #d8829f;
 }
 
 .content .add-account form .input-submit-field {
@@ -159,5 +163,11 @@
   background: #d8829f;
   color: #fff;
   border-radius: 5px;
+}
+
+.content::after {
+  content: '';
+  width: 100%;
+  height: 30px;
 }
 /*# sourceMappingURL=accounts.css.map */

@@ -69,7 +69,7 @@
         <section class="header">
             <span><?php echo $_SESSION['fname'] . ' ' . $_SESSION['sname']; ?></span>
         </section>
-        <div class="content">
+        <section class="content">
             <div class="add-account">
                 <form action="" method="POST">
                     <h2>Create A New User</h2>
@@ -114,7 +114,7 @@
                         <input type="password" name="staff-password" id="staff-password">
                     </div>
                     <div class="input-confirm-field">
-                        <label for="staff-confirm">Confirm:</label>
+                        <label for="staff-confirm">Confirm Password:</label>
                         <input type="password" name="staff-confirm" id="staff-confirm">
                     </div>
                     <div class="input-submit-field">
@@ -138,7 +138,7 @@
                 ?>
                 </ul>
             </div>
-        </div>
+        </section>
     </main>
 
     <script src="js/open-sidebar-links.js"></script>
