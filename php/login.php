@@ -13,7 +13,7 @@
         $login = $_POST['login-email'];
         $pass = $_POST['login-password'];
 
-        $sql = "SELECT staff_role, username_login, password_login, staff_fname, staff_sname, staff_id from `Staff` where username_login = '$login' and password_login = '$pass'";
+        $sql = "SELECT staff_role, username_login, password_login, staff_fname, staff_sname, staff_id, count(1) from `Staff` where username_login = '$login' and password_login = '$pass'";
         $result = $connect->query($sql);
         $row = mysqli_fetch_row($result);
 
@@ -29,6 +29,7 @@
             $_SESSION['fname'] = $row[3];
             $_SESSION['sname'] = $row[4];
             $_SESSION['id'] = $row[5];
+            $_SESSION['num_rows'] = $row[6];
 
             if ($row[0] == "Office Manager") {
                 header("Location: ../office_dashboard.php");

@@ -132,8 +132,16 @@
                 </div>
                 <ul class="list-of-users">
                 <?php
-                    while ($row = $result1->fetch_assoc()) {
-                        echo '<li id="user-' . $row['staff_id'] . '"><span>' . $row['staff_fname'] . ' ' . $row['staff_sname'] . '</span><span>' . $row['staff_role'] . '</span></li>';
+                    if ($_SESSION['num_rows'] > 0) {                
+                        while ($row = $result1->fetch_assoc()) {
+                            echo '<li id="user-' . $row['staff_id'] . '">
+                                    <span>' . $row['staff_fname'] . ' ' . $row['staff_sname'] . '</span>
+                                    <span>' . $row['staff_role'] . '</span>
+                                </li>';
+                        }
+                    }
+                    else {
+                        echo '<span>No registered users.</span>';
                     }
                 ?>
                 </ul>
