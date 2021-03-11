@@ -27,12 +27,21 @@
             $_SESSION['email_login'] = $login;
             $_SESSION['role'] = $row[0];
 
-            if ($row[0] == "Administrator") {
+            if ($row[0] == "Office Manager") {
                 header("Location: ../admin_dashboard.php");
             }
             else if ($row[0] == "Receptionist") {
                 header("Location: ../recep_dashboard.php");
             }
+            else if ($row[0] == "Shift Manager") {
+                header("Location: ../shift_dashboard.php");
+            }
+            else if ($row[0] == "Technician") {
+                header("Location: ../tech_dashboard.php");
+            }
+        }
+        else {
+            header("Location: ../index.php");
         }
     }
 ?>
