@@ -1,0 +1,163 @@
+.content {
+  padding: 30px 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
+
+.content .add-account {
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  padding: 30px 40px;
+  border-radius: 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.content .add-account form h2 {
+  font-size: 36px;
+  color: #333;
+}
+
+.content .add-account form p {
+  line-height: 1.5;
+  color: #555;
+  font-size: 18px;
+  margin: 10px 0px 35px;
+}
+
+.content .add-account form div[class*="input"] {
+  margin-bottom: 15px;
+}
+
+.content .add-account form div[class*="input"]:last-child {
+  margin-bottom: 0;
+}
+
+.content .add-account form input, .content .add-account form select {
+  width: 100%;
+  padding: 11px 15px;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  outline: 0;
+  color: #333;
+  border-radius: 5px;
+}
+
+.content .add-account form select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.content .add-account form label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: block;
+  color: #555;
+}
+
+.content .add-account form .input-name-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .add-account form .input-name-field .staff-fname {
+  -ms-flex-preferred-size: 48.5%;
+      flex-basis: 48.5%;
+}
+
+.content .add-account form .input-name-field .staff-lname {
+  -ms-flex-preferred-size: 48.5%;
+      flex-basis: 48.5%;
+}
+
+.content .add-account form .input-role-field, .content .add-account form .input-department-field {
+  position: relative;
+}
+
+.content .add-account form .input-role-field ion-icon, .content .add-account form .input-department-field ion-icon {
+  pointer-events: none;
+  position: absolute;
+  top: 55%;
+  right: 15px;
+}
+
+.content .add-account form .input-submit-field {
+  margin-top: 15px;
+}
+
+.content .add-account form .input-submit-field input[type="submit"] {
+  background: #d8829f;
+  color: #fff;
+  cursor: pointer;
+}
+
+.content .user-list {
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  padding: 30px 40px;
+  border-radius: 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.content .user-list .user-list-text {
+  margin-bottom: 20px;
+}
+
+.content .user-list .user-list-text h2 {
+  font-size: 36px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.content .user-list .user-list-text p {
+  line-height: 1.5;
+  color: #555;
+  font-size: 18px;
+}
+
+.content .user-list ul.list-of-users li {
+  padding: 15px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  color: #555;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .user-list ul.list-of-users li span:nth-child(1) {
+  font-size: 18px;
+}
+
+.content .user-list ul.list-of-users li span:nth-child(2) {
+  font-size: 14px;
+}
+
+.content .user-list ul.list-of-users li:hover {
+  background: #d8829f;
+  color: #fff;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=accounts.css.map */

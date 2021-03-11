@@ -7,7 +7,7 @@
 
     <title>BAPERS | Sign In</title>
 
-    <link rel="stylesheet" href="css/index/index.css">
+    <link rel="stylesheet" href="css/pages/index/index.css">
     <link rel="stylesheet" href="css/global.css">
 </head>
 <body>

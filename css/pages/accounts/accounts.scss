@@ -1,0 +1,143 @@
+.content {
+    padding: 30px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 25px;
+
+    .add-account {
+        background: #fff;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+        padding: 30px 40px;
+        border-radius: 5px;
+        height: fit-content;
+        
+        form {
+
+            h2 {
+                font-size: 36px;
+                color: #333;
+            }
+
+            p {
+                line-height: 1.5;
+                color: #555;
+                font-size: 18px;
+                margin: 10px 0px 35px;
+            }
+
+            div[class*="input"] {
+                margin-bottom: 15px;
+            }
+
+            div[class*="input"]:last-child {
+                margin-bottom: 0;
+            }
+
+            input, select {
+                width: 100%;
+                padding: 11px 15px;
+                font-size: 16px;
+                border: 1px solid #dcdcdc;
+                outline: 0;
+                color: #333;
+                border-radius: 5px;
+            }
+
+            select {
+                appearance: none;
+            }
+
+            label {
+                font-size: 14px;
+                margin-bottom: 4px;
+                display: block;
+                color: #555;
+            }
+
+            .input-name-field {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .staff-fname {
+                    flex-basis: 48.5%;
+                }
+
+                .staff-lname {
+                    flex-basis: 48.5%;
+                }
+            }
+
+            .input-role-field, .input-department-field {
+                position: relative;
+
+                ion-icon {
+                    pointer-events: none;
+                    position: absolute;
+                    top: 55%;
+                    right: 15px;
+                }
+            }
+
+            .input-submit-field {
+                margin-top: 15px;
+
+                input[type="submit"] {
+                    background: #d8829f;
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .user-list {
+        background: #fff;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+        padding: 30px 40px;
+        border-radius: 5px;
+        height: fit-content;
+
+        .user-list-text {
+            margin-bottom: 20px;
+    
+            h2 {
+                font-size: 36px;
+                margin-bottom: 5px;
+                color: #333;
+            }
+    
+            p {
+                line-height: 1.5;
+                color: #555;
+                font-size: 18px;
+            }
+        }
+
+        ul.list-of-users {
+
+            li {
+                padding: 15px;
+                transition: .2s;
+                color: #555;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                span:nth-child(1) {
+                    font-size: 18px;
+                }
+
+                span:nth-child(2) {
+                    font-size: 14px;
+                }
+            }
+
+            li:hover {
+                background: #d8829f;
+                color: #fff;
+                border-radius: 5px;
+            }
+        }
+    }
+}
