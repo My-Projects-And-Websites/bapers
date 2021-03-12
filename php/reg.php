@@ -12,8 +12,10 @@
         exit();
     }
 
+    $hashed_pword = md5($password);
+
     include('../php/connection.php');//connect db
-    $sq="insert into staff(staff_id,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$fname','$sname','$role','$dep',0,'$login','$password')";//insert the new user.
+    $sq="insert into staff(staff_id,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$fname','$sname','$role','$dep',0,'$login','$hashed_pword')";//insert the new user.
     $result=mysqli_query($connect,$sq);//run the insert query
     
 
