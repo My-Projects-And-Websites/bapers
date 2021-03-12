@@ -1,9 +1,23 @@
-<?php
-    include 'connection.php';
+<?php  
 
     if(!isset($_SESSION)) {
         session_start(); // start the session if it still does not exist
     }
+    include 'connection.php';
+    $code=$_SESSION['code'];  
+    $verifycode=$_POST['login-captcha'];
+    checkVerifycode($verifycode,$code);
+
+    function checkVerifycode($verifycode,$code){//check the verifycode
+        if($verifycode==$code){
+        }
+        else{
+            echo '<html><head><Script Language="JavaScript">alert("Sorry,Your Captcha is wrong!");
+            window.history.back();</Script></head></html>';
+            exit();
+        }
+    }
+    
 
     if ($connect->connect_errno) {
         echo "Connection failed! Something went wrong.";
