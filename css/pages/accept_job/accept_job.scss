@@ -106,6 +106,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: auto;
+        padding: 50px 0px;
 
         .create-customer {
             width: 50%;

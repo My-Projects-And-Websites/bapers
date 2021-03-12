@@ -120,28 +120,32 @@
                     <div class="input-name-field">
                         <div class="customer-fname">
                             <label for="fname">First Name:</label>
-                            <input type="text" name="fname" id="fname" autofocus>
+                            <input type="text" name="fname" id="fname" autofocus required>
                         </div>
                         <div class="customer-lname">
                             <label for="sname">Last Name:</label>
-                            <input type="text" name="sname" id="sname">
+                            <input type="text" name="sname" id="sname" required>
                         </div>
                     </div>
                     <div class="input-email-field">
                         <label for="customer-email">Email:</label>
-                        <input type="email" name="customer-email" id="customer-email">
+                        <input type="email" name="customer-email" id="customer-email" required>
                     </div>
                     <div class="input-address-1-field">
                         <label for="customer-address-1">Address Line 1:</label>
-                        <input type="text" name="customer-address-1" id="customer-address-1">
+                        <input type="text" name="customer-address-1" id="customer-address-1" required>
                     </div>
                     <div class="input-address-2-field">
                         <label for="customer-address-2">Address Line 2:</label>
-                        <input type="text" name="customer-address-2" id="customer-address-2">
+                        <input type="text" name="customer-address-2" id="customer-address-2" required>
+                    </div>
+                    <div class="input-zip-code-field">
+                        <label for="customer-zip-code">Zip Code:</label>
+                        <input type="text" name="customer-zip-code" id="customer-zip-code" required>
                     </div>
                     <div class="input-mobile-field">
                         <label for="customer-mobile">Mobile:</label>
-                        <input type="text" name="customer-mobile" id="customer-mobile">
+                        <input type="text" name="customer-mobile" id="customer-mobile" required>
                     </div>
                     <div class="input-submit-field">
                         <input type="submit" name="staff-submit-form" value="Register">
