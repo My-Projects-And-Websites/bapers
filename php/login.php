@@ -5,7 +5,7 @@
         session_start(); // start the session if it still does not exist
     }
 
-    if ($connect->connect_errno) {
+    if (mysqli_connect_errno()) {
         echo "Connection failed! Something went wrong.";
         exit();
     }

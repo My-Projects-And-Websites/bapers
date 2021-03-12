@@ -44,7 +44,7 @@
                     <span>Jobs</span>
                 </button>
                 <div class="job-links">
-                    <a href=""><span>Accept Jobs</span></a>
+                    <a href="accept_job.php"><span>Accept Jobs</span></a>
                     <a href=""><span>Process Jobs</span></a>
                 </div>
             </div>
@@ -58,6 +58,10 @@
                     <a href=""><span>Discounts</span></a>
                 </div>
             </div>
+            <a href="php/logout.php" class="sidebar-link">
+                <ion-icon name="settings-outline"></ion-icon>
+                <span>Sign Out</span>
+            </a>
         </div>
         <div class="header">
             <span><?php echo $_SESSION['fname'] . ' ' . $_SESSION['sname']; ?></span>
