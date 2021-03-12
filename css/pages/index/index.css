@@ -83,4 +83,8 @@ main .hero-form form div[class*="form-input"] input[type="submit"]:hover {
   background: #EE5757;
   color: #fff;
 }
+
+main .hero-form form div[class*="form-input"] img {
+  width: 50%;
+}
 /*# sourceMappingURL=index.css.map */

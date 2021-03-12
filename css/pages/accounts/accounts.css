@@ -95,7 +95,7 @@
   position: absolute;
   top: 55%;
   right: 15px;
-  color: #d8829f;
+  color: #EE5757;
 }
 
 .content .add-account form .input-submit-field {
@@ -103,7 +103,7 @@
 }
 
 .content .add-account form .input-submit-field input[type="submit"] {
-  background: #d8829f;
+  background: #EE5757;
   color: #fff;
   cursor: pointer;
 }
@@ -160,7 +160,7 @@
 }
 
 .content .user-list ul.list-of-users li:hover {
-  background: #d8829f;
+  background: #EE5757;
   color: #fff;
   border-radius: 5px;
 }

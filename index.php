@@ -26,6 +26,12 @@
                     <label for="login-password">Password:</label>
                     <input type="password" placeholder="Password" name="login-password" id="login-password" required>
                 </div>
+                <div class="form-input-text">
+                    <label for="vc-code">Captcha:</label>
+                    <input type="text" placeholder="Please input captcha" name="login-captcha" class="login-captcha" required><br><br>
+                    <img id="captcha_img" src="./php/verification.php?r=<?php echo rand();?>" >
+                    <label><a href="javascript:location.reload();" >Not clear?</a> </label>
+                </div>
                 <div class="form-input-submit">
                     <input type="submit" value="Sign In" name="login-btn" id="login-btn">
                 </div>

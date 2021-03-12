@@ -75,17 +75,17 @@
         </section>
         <section class="content">
             <div class="add-account">
-                <form action="" method="POST">
+                <form action="php/reg.php" method="POST">
                     <h2>Create A New User</h2>
                     <p>If you wish to add a new user in the system, fill out the form below.</p>
                     <div class="input-name-field">
                         <div class="staff-fname">
                             <label for="fname">First Name:</label>
-                            <input type="text" name="fname" id="fname" autofocus>
+                            <input type="text" name="fname" id="fname" autofocus required>
                         </div>
                         <div class="staff-lname">
                             <label for="sname">Last Name:</label>
-                            <input type="text" name="sname" id="sname">
+                            <input type="text" name="sname" id="sname" required>
                         </div>
                     </div>
                     <div class="input-role-field">
@@ -111,15 +111,15 @@
                     </div>
                     <div class="input-email-field">
                         <label for="staff-email">Email:</label>
-                        <input type="email" name="staff-email" id="staff-email">
+                        <input type="email" name="staff-email" id="staff-email" required>
                     </div>
                     <div class="input-password-field">
                         <label for="staff-password">Password:</label>
-                        <input type="password" name="staff-password" id="staff-password">
+                        <input type="password" name="staff-password" id="staff-password" required>
                     </div>
                     <div class="input-confirm-field">
                         <label for="staff-confirm">Confirm Password:</label>
-                        <input type="password" name="staff-confirm" id="staff-confirm">
+                        <input type="password" name="staff-confirm" id="staff-confirm" required>
                     </div>
                     <div class="input-submit-field">
                         <input type="submit" name="staff-submit-form" value="Register">

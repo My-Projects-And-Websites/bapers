@@ -113,6 +113,7 @@
                 </ul>
             </div>
             <div style="display: none;" class="create-customer-form">
+                <!-- TODO: insert php file for action in this form -->
                 <form action="" method="POST" class="create-customer">
                     <h2>Create Customer</h2>
                     <p>Create a new account for a customer with a job order but does not exist in the database.</p>
