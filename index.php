@@ -7,7 +7,7 @@
 
     <title>BAPERS | Sign In</title>
 
-    <link rel="stylesheet" href="css/pages/index/index.css">
+    <link rel="stylesheet" href="css/index/index.css">
     <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
             <img draggable="false" src="images/index-img.jpg" alt="Camera image for the home page of BAPERS system">
         </div>
         <div class="hero-form">
-            <form method="POST" action="php/login.php">
+            <form method="POST" action="../php/login.php">
                 <h1>Sign in to your account</h1>
                 <div class="form-input-email">
                     <label for="login-email">Email:</label>
@@ -25,6 +25,12 @@
                 <div class="form-input-password">
                     <label for="login-password">Password:</label>
                     <input type="password" placeholder="Password" name="login-password" id="login-password" required>
+                </div>
+                <div class="form-input-text">
+                    <label for="vc-code">Captcha:</label>
+                    <input type="text" placeholder="Please input captcha" name="login-captcha" class="login-captcha"><br><br>
+                    <img id="captcha_img" src="./php/verification.php?r=<?php echo rand();?>" >
+                    <label><a href="javascript:location.reload();" >Not clear?</a> </label>
                 </div>
                 <div class="form-input-submit">
                     <input type="submit" value="Sign In" name="login-btn" id="login-btn">
