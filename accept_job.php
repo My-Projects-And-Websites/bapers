@@ -114,7 +114,7 @@
             </div>
             <div style="display: none;" class="create-customer-form">
                 <!-- TODO: insert php file for action in this form -->
-                <form action="" method="POST" class="create-customer">
+                <form action="php/reg_cust.php" method="POST" class="create-customer">
                     <h2>Create Customer</h2>
                     <p>Create a new account for a customer with a job order but does not exist in the database.</p>
                     <div class="input-name-field">
@@ -137,7 +137,7 @@
                     </div>
                     <div class="input-address-2-field">
                         <label for="customer-address-2">Address Line 2:</label>
-                        <input type="text" name="customer-address-2" id="customer-address-2" required>
+                        <input type="text" name="customer-address-2" id="customer-address-2">
                     </div>
                     <div class="input-zip-code-field">
                         <label for="customer-zip-code">Zip Code:</label>
