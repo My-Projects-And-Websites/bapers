@@ -1,10 +1,5 @@
-
 <?php
-session_start();//have to login to view this page
-if (!isset($_SESSION['email_login'])) {
-    echo "Sorry!You are not be allowed to view this page without Login!";
-    exit();
-}
+include('../php/access.php');//have to login to view the page.
 $login=$_SESSION['email_login'];
 include('../php/connection.php');
 $sql="select * from Staff where username_login='$login'";
@@ -13,11 +8,14 @@ $row3=mysqli_fetch_array($rs3);
 $role=$row3['staff_role'];
 if($role != "Administrator"){//make sure the role is Administrator
     header("Location: ../404.php");
+    $_SESSION['admin']=false;
     exit();
     } 
+else{
+    $_SESSION['admin']=true;
+}
 ?> 
   
-
 <?php 
 include('../includes/reg_head.php') ;
 ?>  
