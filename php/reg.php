@@ -1,4 +1,7 @@
 <?php 
+    if(!$_SESSION['admin']){//double check the role is correct.
+        header("Location: 404.php");
+    }
     $fname=$_POST['fname'];//use post get the first name
     $sname=$_POST['sname'];//use post get the last name
     $login=$_POST['staff-email'];//get the email.
