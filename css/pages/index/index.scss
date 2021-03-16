@@ -50,6 +50,33 @@ main {
                     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
                 }
 
+                .captcha-img-link {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    margin-top: 30px;
+                    width: 100%;
+
+                    .captcha-img {
+                        flex-basis: 60%;
+
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    a {
+                        flex-basis: 20%;
+                        background: #EE5757;
+                        padding: 15px 10px;
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 5px;
+                        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+                    }
+                }
+
                 input[type="submit"] {
                     cursor: pointer;
                     transition: .4s;
@@ -59,10 +86,6 @@ main {
                 input[type="submit"]:hover {
                     background: #EE5757;
                     color: #fff;
-                }
-
-                img {
-                    width: 50%;
                 }
             }
         }

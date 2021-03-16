@@ -76,10 +76,14 @@
                         <input type="text" id="search-bar" name="search-bar" placeholder="Search customer email...">
                     </div>
                 </form>
-                <button class="customer-create">Create</button>
+                <div class="form-buttons">
+                    <button class="customer-create">Create New Customer</button>
+                    <button class="job-assign">Assign Job</button>
+                </div>
             </div>
             <div class="customer-details">
                 <div class="customer-detail-tags">
+                    <span>ID</span>
                     <span>Name</span>
                     <span>Valued</span>
                     <span>Mobile</span>
@@ -92,28 +96,31 @@
     
                         if (mysqli_num_rows($cust_result) != 0) {
                             while ($row = mysqli_fetch_assoc($cust_result)) {
-                                if ($row['cust_status'] == 0) {
-                                    $row['cust_status'] = "False";
+                                if ($row['cust_type'] == 0) {
+                                    $row['cust_type'] = "No";
                                 }
                                 else {
-                                    $row['cust_status'] = "True";
+                                    $row['cust_type'] = "Yes";
                                 }
 
                                 echo "<li id=customer-" . $row['cust_id'] . 
-                                "><span>" . $row['cust_fname'] . ' ' . $row['cust_sname'] . 
-                                '</span><span>' . $row['cust_status'] .
+                                "><span>" . $row['cust_id'] .
+                                "</span><span>" . $row['cust_fname'] . ' ' . $row['cust_sname'] . 
+                                '</span><span>' . $row['cust_type'] .
                                 '</span><span>' . $row['cust_mobile'] . 
                                 '</span><span>' . $row['cust_email'] . '</span></li>';
                             }
                         }
                         else {
-                            echo "<li>No registered customers.</li>";
+                            echo "<li><span id='none-registered'>No registered customers.</span></li>";
                         }
                     ?>
                 </ul>
             </div>
+
+            <!-- no display and absolute elements -->
+            <!-- create new customer form -->
             <div style="display: none;" class="create-customer-form">
-                <!-- TODO: insert php file for action in this form -->
                 <form action="php/reg_cust.php" method="POST" class="create-customer">
                     <h2>Create Customer</h2>
                     <p>Create a new account for a customer with a job order but does not exist in the database.</p>
@@ -151,9 +158,59 @@
                         <input type="submit" name="staff-submit-form" value="Register">
                     </div>
                     <div class="close-form">
-                        <button class="close-form-btn" type="button">
+                        <button class="close-form-customer-btn" type="button">
                             <ion-icon name="close-outline"></ion-icon>
                         </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- assign job form -->
+            <div style="display: none;" class="assign-job-form">
+                <form action="php/assign_job.php" method="POST" class="create-job">
+                    <div class="left-part-form">
+                        <h2>Assign a Job</h2>
+                        <p>Assign an upcoming job by filling up this form and prepare it for processing.</p>
+                        <div class="input-customer-id-field">
+                            <label for="job-customer-id">Customer ID:</label>
+                            <input type="text" name="job-customer-id" id="job-customer-id" required>
+                        </div>
+                        <div class="input-instructions-field">
+                            <label for="job-instructions">Instructions</label>
+                            <textarea name="job-instructions" id="job-instructions" required></textarea>
+                        </div>
+                        <div class="input-urgency-field">
+                            <label for="job-urgency">Urgent:</label>
+                            <select name="job-urgency" id="job-urgency" required>
+                                <option value="Yes">Yes</option>
+                                <option value="No" selected>No</option>
+                            </select>
+                            <ion-icon name="caret-down-outline"></ion-icon>
+                        </div>
+                        <div class="input-submit-field">
+                            <input type="submit" name="job-assign-form" value="Assign" id="job-assign-btn">
+                        </div>
+                        <div class="close-form">
+                            <button class="close-form-job-btn" type="button">
+                                <ion-icon name="close-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="right-part-form">
+                        <h2>Select Tasks</h2>
+                        <p>Assign an upcoming job by filling up this form and prepare it for processing.</p>
+                        <?php
+                            $tasks = "SELECT * FROM Task";
+                            $task_result = $connect->query($tasks);
+                            
+                            while ($row = mysqli_fetch_assoc($task_result)) {
+                                echo "<div class=checkbox-task-" . $row['task_id'] . ">
+                                        <label for=chk-task-" . $row['task_id'] . ">" . 
+                                        "<input type=checkbox name=task[]  id=chk-task-" . $row['task_id'] . ">" . 
+                                        "<span>" . $row['task_desc'] . "</span>
+                                      </div>";
+                            }
+                        ?>
                     </div>
                 </form>
             </div>
@@ -162,7 +219,7 @@
 
     <script src="js/open-sidebar-links.js"></script>
     <script src="js/search.js"></script>
-    <script src="js/close-form.js"></script>
+    <script src="js/modal-form.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>

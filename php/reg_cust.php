@@ -6,7 +6,7 @@
     $mobile=$_POST['customer-mobile'];
 
     include('../php/connection.php');//connect db
-    $sq="insert into Customer(cust_id,cust_fname,cust_sname,cust_email,cust_address,cust_status,cust_mobile,discount_plan,payment_type) 
+    $sq="insert into Customer(cust_id,cust_fname,cust_sname,cust_email,cust_address,cust_type,cust_mobile,discount_plan,payment_type) 
     values (null,'$fname','$sname','$email','$address',0,'$mobile',null,0)";//insert the new customer.
     $result=mysqli_query($connect,$sq);//run the insert query
     

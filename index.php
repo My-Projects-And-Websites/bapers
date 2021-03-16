@@ -13,7 +13,7 @@
 <body>
     <main>
         <div class="hero-img">
-            <img draggable="false" src="images/index-img.jpg" alt="Camera image for the home page of BAPERS system">
+            <img draggable="false" src="images/grayscale-index.png" alt="Camera image for the home page of BAPERS system">
         </div>
         <div class="hero-form">
             <form method="POST" action="php/login.php">
@@ -26,11 +26,15 @@
                     <label for="login-password">Password:</label>
                     <input type="password" placeholder="Password" name="login-password" id="login-password" required>
                 </div>
-                <div class="form-input-text">
+                <div class="form-input-captcha">
                     <label for="vc-code">Captcha:</label>
-                    <input type="text" placeholder="Please input captcha" name="login-captcha" class="login-captcha" required><br><br>
-                    <img id="captcha_img" src="./php/verification.php?r=<?php echo rand();?>" >
-                    <label><a href="javascript:location.reload();" >Not clear?</a> </label>
+                    <input type="text" placeholder="Captcha" name="login-captcha" class="login-captcha" id="vc-code" required>
+                    <div class="captcha-img-link">    
+                        <div class="captcha-img">                    
+                            <img id="captcha_img" src="./php/verification.php?r=<?php echo rand();?>" alt="Press reload!">
+                        </div>                
+                        <a href="javascript:location.reload();">Reload</a>
+                    </div>
                 </div>
                 <div class="form-input-submit">
                     <input type="submit" value="Sign In" name="login-btn" id="login-btn">

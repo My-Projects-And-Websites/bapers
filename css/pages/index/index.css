@@ -72,6 +72,43 @@ main .hero-form form div[class*="form-input"] input {
           box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+main .hero-form form div[class*="form-input"] .captcha-img-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+main .hero-form form div[class*="form-input"] .captcha-img-link .captcha-img {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+}
+
+main .hero-form form div[class*="form-input"] .captcha-img-link .captcha-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .hero-form form div[class*="form-input"] .captcha-img-link a {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background: #EE5757;
+  padding: 15px 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
 main .hero-form form div[class*="form-input"] input[type="submit"] {
   cursor: pointer;
   -webkit-transition: .4s;
@@ -82,9 +119,5 @@ main .hero-form form div[class*="form-input"] input[type="submit"] {
 main .hero-form form div[class*="form-input"] input[type="submit"]:hover {
   background: #EE5757;
   color: #fff;
-}
-
-main .hero-form form div[class*="form-input"] img {
-  width: 50%;
 }
 /*# sourceMappingURL=index.css.map */

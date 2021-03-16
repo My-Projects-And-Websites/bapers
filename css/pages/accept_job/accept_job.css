@@ -53,7 +53,7 @@
   color: #333;
 }
 
-.content .form-search-create button.customer-create {
+.content .form-search-create button {
   padding: 15px 25px;
   font-size: 18px;
   border: none;
@@ -68,7 +68,11 @@
   transition: .2s;
 }
 
-.content .form-search-create button.customer-create:hover {
+.content .form-search-create button.job-assign {
+  background: #1f9be2;
+}
+
+.content .form-search-create button:hover {
   opacity: 0.8;
 }
 
@@ -83,8 +87,8 @@
 .content .customer-details .customer-detail-tags {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 40%;
-      grid-template-columns: 1fr 1fr 1fr 40%;
+  -ms-grid-columns: 10% 1fr 1fr 1fr 40%;
+      grid-template-columns: 10% 1fr 1fr 1fr 40%;
   padding: 0 15px 10px;
   text-transform: uppercase;
   color: #9a9a9a;
@@ -99,8 +103,8 @@
 .content .customer-details #customer-list li {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 40%;
-      grid-template-columns: 1fr 1fr 1fr 40%;
+  -ms-grid-columns: 10% 1fr 1fr 1fr 40%;
+      grid-template-columns: 10% 1fr 1fr 1fr 40%;
   padding: 15px;
   -webkit-transition: .2s;
   transition: .2s;
@@ -110,11 +114,17 @@
   color: #333;
 }
 
+.content .customer-details #customer-list li span#none-registered {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1 / 6;
+}
+
 .content .customer-details #customer-list li:hover {
   background: #fafafa;
 }
 
-.content .create-customer-form {
+.content .create-customer-form, .content .assign-job-form {
   position: absolute;
   top: 0;
   left: 0;
@@ -131,10 +141,10 @@
       -ms-flex-align: start;
           align-items: flex-start;
   overflow: auto;
-  padding: 50px 0px;
+  padding: 30px 0px;
 }
 
-.content .create-customer-form .create-customer {
+.content .create-customer-form .create-customer, .content .create-customer-form .create-job, .content .assign-job-form .create-customer, .content .assign-job-form .create-job {
   width: 50%;
   background: #fff;
   padding: 30px 40px;
@@ -144,27 +154,27 @@
   position: relative;
 }
 
-.content .create-customer-form .create-customer h2 {
+.content .create-customer-form .create-customer h2, .content .create-customer-form .create-job h2, .content .assign-job-form .create-customer h2, .content .assign-job-form .create-job h2 {
   font-size: 36px;
   color: #333;
 }
 
-.content .create-customer-form .create-customer p {
+.content .create-customer-form .create-customer p, .content .create-customer-form .create-job p, .content .assign-job-form .create-customer p, .content .assign-job-form .create-job p {
   line-height: 1.5;
   color: #555;
   font-size: 18px;
   margin: 10px 0px 25px;
 }
 
-.content .create-customer-form .create-customer div[class*="input"] {
+.content .create-customer-form .create-customer div[class*="input"], .content .create-customer-form .create-job div[class*="input"], .content .assign-job-form .create-customer div[class*="input"], .content .assign-job-form .create-job div[class*="input"] {
   margin-bottom: 15px;
 }
 
-.content .create-customer-form .create-customer div[class*="input"]:last-child {
+.content .create-customer-form .create-customer div[class*="input"]:last-child, .content .create-customer-form .create-job div[class*="input"]:last-child, .content .assign-job-form .create-customer div[class*="input"]:last-child, .content .assign-job-form .create-job div[class*="input"]:last-child {
   margin-bottom: 0;
 }
 
-.content .create-customer-form .create-customer input {
+.content .create-customer-form .create-customer input, .content .create-customer-form .create-customer textarea, .content .create-customer-form .create-customer select, .content .create-customer-form .create-job input, .content .create-customer-form .create-job textarea, .content .create-customer-form .create-job select, .content .assign-job-form .create-customer input, .content .assign-job-form .create-customer textarea, .content .assign-job-form .create-customer select, .content .assign-job-form .create-job input, .content .assign-job-form .create-job textarea, .content .assign-job-form .create-job select {
   width: 100%;
   padding: 11px 15px;
   font-size: 16px;
@@ -174,14 +184,19 @@
   border-radius: 5px;
 }
 
-.content .create-customer-form .create-customer label {
+.content .create-customer-form .create-customer textarea, .content .create-customer-form .create-job textarea, .content .assign-job-form .create-customer textarea, .content .assign-job-form .create-job textarea {
+  resize: none;
+  height: 200px;
+}
+
+.content .create-customer-form .create-customer label, .content .create-customer-form .create-job label, .content .assign-job-form .create-customer label, .content .assign-job-form .create-job label {
   font-size: 14px;
   margin-bottom: 4px;
   display: block;
   color: #555;
 }
 
-.content .create-customer-form .create-customer .input-name-field {
+.content .create-customer-form .create-customer .input-name-field, .content .create-customer-form .create-job .input-name-field, .content .assign-job-form .create-customer .input-name-field, .content .assign-job-form .create-job .input-name-field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -193,38 +208,126 @@
           align-items: center;
 }
 
-.content .create-customer-form .create-customer .input-name-field .customer-fname {
+.content .create-customer-form .create-customer .input-name-field .customer-fname, .content .create-customer-form .create-job .input-name-field .customer-fname, .content .assign-job-form .create-customer .input-name-field .customer-fname, .content .assign-job-form .create-job .input-name-field .customer-fname {
   -ms-flex-preferred-size: 48.5%;
       flex-basis: 48.5%;
 }
 
-.content .create-customer-form .create-customer .input-name-field .customer-lname {
+.content .create-customer-form .create-customer .input-name-field .customer-lname, .content .create-customer-form .create-job .input-name-field .customer-lname, .content .assign-job-form .create-customer .input-name-field .customer-lname, .content .assign-job-form .create-job .input-name-field .customer-lname {
   -ms-flex-preferred-size: 48.5%;
       flex-basis: 48.5%;
 }
 
-.content .create-customer-form .create-customer .input-submit-field {
+.content .create-customer-form .create-customer .input-urgency-field, .content .create-customer-form .create-customer .input-customer-id-field, .content .create-customer-form .create-job .input-urgency-field, .content .create-customer-form .create-job .input-customer-id-field, .content .assign-job-form .create-customer .input-urgency-field, .content .assign-job-form .create-customer .input-customer-id-field, .content .assign-job-form .create-job .input-urgency-field, .content .assign-job-form .create-job .input-customer-id-field {
+  position: relative;
+}
+
+.content .create-customer-form .create-customer .input-urgency-field select, .content .create-customer-form .create-customer .input-customer-id-field select, .content .create-customer-form .create-job .input-urgency-field select, .content .create-customer-form .create-job .input-customer-id-field select, .content .assign-job-form .create-customer .input-urgency-field select, .content .assign-job-form .create-customer .input-customer-id-field select, .content .assign-job-form .create-job .input-urgency-field select, .content .assign-job-form .create-job .input-customer-id-field select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.content .create-customer-form .create-customer .input-urgency-field ion-icon, .content .create-customer-form .create-customer .input-customer-id-field ion-icon, .content .create-customer-form .create-job .input-urgency-field ion-icon, .content .create-customer-form .create-job .input-customer-id-field ion-icon, .content .assign-job-form .create-customer .input-urgency-field ion-icon, .content .assign-job-form .create-customer .input-customer-id-field ion-icon, .content .assign-job-form .create-job .input-urgency-field ion-icon, .content .assign-job-form .create-job .input-customer-id-field ion-icon {
+  pointer-events: none;
+  position: absolute;
+  top: 55%;
+  right: 15px;
+  color: #1f9be2;
+}
+
+.content .create-customer-form .create-customer .input-submit-field, .content .create-customer-form .create-job .input-submit-field, .content .assign-job-form .create-customer .input-submit-field, .content .assign-job-form .create-job .input-submit-field {
   margin-top: 30px;
 }
 
-.content .create-customer-form .create-customer .input-submit-field input[type="submit"] {
+.content .create-customer-form .create-customer .input-submit-field input[type="submit"], .content .create-customer-form .create-job .input-submit-field input[type="submit"], .content .assign-job-form .create-customer .input-submit-field input[type="submit"], .content .assign-job-form .create-job .input-submit-field input[type="submit"] {
   background: #EE5757;
   color: #fff;
   cursor: pointer;
 }
 
-.content .create-customer-form .create-customer .close-form {
+.content .create-customer-form .create-customer .input-submit-field #job-assign-btn, .content .create-customer-form .create-job .input-submit-field #job-assign-btn, .content .assign-job-form .create-customer .input-submit-field #job-assign-btn, .content .assign-job-form .create-job .input-submit-field #job-assign-btn {
+  background: #1f9be2;
+}
+
+.content .create-customer-form .create-customer .close-form, .content .create-customer-form .create-job .close-form, .content .assign-job-form .create-customer .close-form, .content .assign-job-form .create-job .close-form {
   position: absolute;
   top: 4%;
   right: 5%;
 }
 
-.content .create-customer-form .create-customer .close-form button {
+.content .create-customer-form .create-customer .close-form button, .content .create-customer-form .create-job .close-form button, .content .assign-job-form .create-customer .close-form button, .content .assign-job-form .create-job .close-form button {
   background: none;
   outline: 0;
   border: none;
   cursor: pointer;
   font-size: 26px;
+}
+
+.content .create-customer-form .create-job, .content .assign-job-form .create-job {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+  background: none;
+  width: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.content .create-customer-form .create-job .left-part-form, .content .create-customer-form .create-job .right-part-form, .content .assign-job-form .create-job .left-part-form, .content .assign-job-form .create-job .right-part-form {
+  padding: 30px 40px;
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.content .create-customer-form .create-job .right-part-form, .content .assign-job-form .create-job .right-part-form {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+.content .create-customer-form .create-job .right-part-form [class*="checkbox-task"], .content .assign-job-form .create-job .right-part-form [class*="checkbox-task"] {
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 5px;
+}
+
+.content .create-customer-form .create-job .right-part-form [class*="checkbox-task"] label, .content .assign-job-form .create-job .right-part-form [class*="checkbox-task"] label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 15px;
+}
+
+.content .create-customer-form .create-job .right-part-form [class*="checkbox-task"] input[type="checkbox"], .content .assign-job-form .create-job .right-part-form [class*="checkbox-task"] input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.content .create-customer-form .create-job .right-part-form [class*="checkbox-task"] span, .content .assign-job-form .create-job .right-part-form [class*="checkbox-task"] span {
+  font-size: 16px;
+}
+
+.content .create-customer-form .create-job .right-part-form [class*="checkbox-task"]:hover, .content .assign-job-form .create-job .right-part-form [class*="checkbox-task"]:hover {
+  background: #eee;
+}
+
+.content .create-customer-form .create-job .close-form, .content .assign-job-form .create-job .close-form {
+  top: -5px;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .content::after {
