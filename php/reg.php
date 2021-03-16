@@ -2,6 +2,7 @@
     if(!$_SESSION['admin']){//double check the role is correct.
         header("Location: 404.php");
     }
+    
     $fname=$_POST['fname'];//use post get the first name
     $sname=$_POST['sname'];//use post get the last name
     $login=$_POST['staff-email'];//get the email.
@@ -15,7 +16,7 @@
         exit();
     }
 
-    $hashed_pword = md5($password);
+    $hashed_pword = md5($password); // encrypt password for security
 
     include('../php/connection.php');//connect db
     $sq="insert into staff(staff_id,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$fname','$sname','$role','$dep',0,'$login','$hashed_pword')";//insert the new user.

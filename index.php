@@ -1,11 +1,3 @@
-<?php
-include('../includes/login_head.php');
-
-if (isset($_SESSION['email_login'])) {
-    echo '<script language="JavaScript">;alert("you have been login!!");location.href="../recep_dashboard.php";</script>;';//because have the 'role_check' so just straight away redirect to any of the dashboard.
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
