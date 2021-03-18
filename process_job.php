@@ -118,18 +118,58 @@
                                 '</span><span>' . $row['actual_finish'] . 
                                 '</span><span>' . $row['expected_finish'] . 
                                 '</span><span>' . $row['job_status'] . 
-                                '</span><button class=drop-details-' . $row['job_id'] . ' onclick=()><ion-icon name="caret-down-outline"></ion-icon>' . 
+                                '</span><button class=drop-details-' . $row['job_id'] . ' onclick=toggleJobDetails(' . $row['job_id'] . ')><ion-icon name="caret-down-outline"></ion-icon>' . 
                                 '</button></li>' .
-                                '<div class=job-details-' . $row['job_id'] .
-                                '><form action=php/update-job.php class=form-job-details-' . $row['job_id'] .
-                                '><div class="input-actual-finish"><label for="actual-finish-job">Actual Finish</label><input type=datetime-local name=actual-finish-job id="actual-finish-job"></div>' .
-                                '<div class="input-expected-finish"><label for="expected-finish-job">Expected Finish</label><input type=datetime-local name=expected-finish-job id="expected-finish-job"></div>';
+                                '<div style="display: none;" id=job-details-container-' . $row['job_id'] .
+                                '><form action=php/update_job.php method="POST" id=form-job-details-' . $row['job_id'] .
+                                '><div class="input-field-expected-instructions">
+                                <div class="special-instructions"><h3>Special Instructions</h3><p>' . $row['special_instructions'] . '</p></div>
+                                <div class="expected-finish"><label for="expected-finish-job">Expected Finish</label><input type=datetime-local name=expected-finish-job id="expected-finish-job"></div>
+                                </div>' .
+                                '<div class="tasks-to-do">';
 
                                 while ($task_query_row = mysqli_fetch_assoc($task_query_results)) {
-                                    echo $task_query_row['task_desc'];
+                                    // echo $task_query_row['task_desc'];
+
+                                    echo "<div class='job-relevant-tasks'>" . 
+                                    '<div class="task-details">' .
+                                    '<span>' . $task_query_row['task_desc'] . '</span>' .
+                                    '<span>' . $task_query_row['task_location'] . '</span>' .
+                                    '<select name=task-stati[] id=task-stati-' . $task_query_row['task_id'] . '>';
+
+                                    if ($task_query_row['task_status'] == "Pending") {
+                                        echo '<option value="Pending" selected>Pending</option>' .
+                                        '<option value="Initialised">Initialised</option>' .
+                                        '<option value="In Progress">In Progress</option>' .
+                                        '<option value="Completed">Completed</option>';
+                                    }
+                                    else if ($task_query_row['task_status'] == "Initialised") {
+                                        echo '<option value="Pending">Pending</option>' .
+                                        '<option value="Initialised" selected>Initialised</option>' .
+                                        '<option value="In Progress">In Progress</option>' .
+                                        '<option value="Completed">Completed</option>';
+                                    }
+                                    else if ($task_query_row['task_status'] == "In Progress") {
+                                        echo '<option value="Pending">Pending</option>' .
+                                        '<option value="Initialised">Initialised</option>' .
+                                        '<option value="In Progress" selected>In Progress</option>' .
+                                        '<option value="Completed">Completed</option>';
+                                    }
+                                    else if ($task_query_row['task_status'] == "Completed") {
+                                        echo '<option value="Pending" selected>Pending</option>' .
+                                        '<option value="Initialised">Initialised</option>' .
+                                        '<option value="In Progress">In Progress</option>' .
+                                        '<option value="Completed" selected>Completed</option>';
+                                    }
+                                    
+                                    echo "</select></div>" .
+                                    '</div>'; 
                                 }
 
-                                echo '</form></div>';
+                                echo '</div>' .
+                                '<input type=hidden name=job-identifier value=' . $row['job_id'] . '>' .
+                                '<input type=submit name="job-detail-submit-btn" value=Submit>' .
+                                '</form></div>';
                             }
                         }
                         else {
@@ -143,6 +183,7 @@
 
     <script src="js/open-sidebar-links.js"></script>
     <script src="js/search-job.js"></script>
+    <script src="js/open-job-details.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>

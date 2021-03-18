@@ -82,6 +82,9 @@
   display: grid;
   -ms-grid-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
       grid-template-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 15px;
   -webkit-transition: .2s;
   transition: .2s;
@@ -130,6 +133,143 @@
 
 .content .job-details #job-list li:hover {
   background: #fafafa;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] {
+  padding: 30px 40px;
+  background: #fafafa;
+  border-radius: 5px;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 300px 1fr;
+      grid-template-columns: 300px 1fr;
+  -ms-grid-rows: 1fr 10%;
+      grid-template-rows: 1fr 10%;
+  grid-gap: 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  border-right: 1px solid #dcdcdc;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .expected-finish label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .expected-finish input[type="datetime-local"] {
+  padding: 10px 15px;
+  border: none;
+  outline: 0;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  color: #555;
+  font-size: 16px;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .special-instructions {
+  margin-bottom: 30px;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .special-instructions h3 {
+  color: #333;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .tasks-to-do {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .tasks-to-do .job-relevant-tasks .task-details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 45% 30% 1fr;
+      grid-template-columns: 45% 30% 1fr;
+  -webkit-transition: .2s;
+  transition: .2s;
+  padding: 10px 15px;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .tasks-to-do .job-relevant-tasks .task-details span {
+  display: block;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .tasks-to-do .job-relevant-tasks .task-details select {
+  justify-self: flex-end;
+  padding: 5px;
+  outline: 0;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .tasks-to-do .job-relevant-tasks .task-details:hover {
+  background: #EE5757;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .tasks-to-do .job-relevant-tasks .task-details:hover span {
+  color: #fff;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] input[type="submit"] {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  justify-self: flex-end;
+  background: #EE5757;
+  font-size: 18px;
+  padding: 10px 15px;
+  outline: 0;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  margin: 0px 15px;
+  cursor: pointer;
 }
 
 .content::after {
