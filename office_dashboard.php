@@ -45,7 +45,7 @@
                 </button>
                 <div class="job-links">
                     <a href="accept_job.php"><span>Accept Jobs</span></a>
-                    <a href=""><span>Process Jobs</span></a>
+                    <a href="process_job.php"><span>Process Jobs</span></a>
                 </div>
             </div>
             <div class="open-customer-link">

@@ -11,15 +11,17 @@
 
     if ($urgency == "Yes") {
         $deadline = date('Y-m-d H:i:s', strtotime('+6 hours'));
+        $urgency = 1;
     }
     else {
         $deadline = date('Y-m-d H:i:s', strtotime('+24 hours'));
+        $urgency = 0;
     }
 
-    include('../php/connection.php'); //connect db
+    include('connection.php'); //connect db
 
     $sql = "INSERT INTO Job (job_id, job_urgency, job_deadline, special_instructions, job_status, expected_finish, actual_finish, Customercust_id) 
-    VALUES (null, '$urgency', '$deadline' , '$instructions', '$status', null, null, '$customer_id')"; //insert the new job.
+    VALUES (null, '$urgency', '$deadline' , '$instructions', '$status', null, null, '$customer_id')"; // insert the new job.
     $job_result = mysqli_query($connect, $sql); //run the insert query
 
     $get_job_id_result = mysqli_query($connect, 'SELECT job_id FROM Job ORDER BY job_id DESC LIMIT 1');
