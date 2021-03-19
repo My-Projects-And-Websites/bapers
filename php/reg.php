@@ -1,8 +1,4 @@
-<?php 
-    if(!$_SESSION['admin']){//double check the role is correct.
-        header("Location: 404.php");
-    }
-    
+<?php  
     $fname=$_POST['fname'];//use post get the first name
     $sname=$_POST['sname'];//use post get the last name
     $login=$_POST['staff-email'];//get the email.
@@ -11,7 +7,7 @@
     $role=$_POST['staff-role'];
     $dep=$_POST['staff-department'];
 
-    if($password != $conpassword){
+    if ($password != $conpassword){
         echo "<script>alert('Password Not Matched');window.location.href = document.referrer;</script>";//the password doesnt matched.
         exit();
     }

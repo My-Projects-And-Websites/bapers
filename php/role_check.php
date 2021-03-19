@@ -7,19 +7,19 @@
     $role_redir = "";
     switch($_SESSION['role']) {
         case "Office Manager":
-            $role_redir = '/office_dashboard.php';
+            $role_redir = '../office_dashboard.php';
             break;
         case "Receptionists":
-            $role_redir = '/recep_dashboard.php';
+            $role_redir = '../recep_dashboard.php';
             break;
         case "Administrator":
-            $role_redir = '/admin_dashboard.php';
+            $role_redir = '../admin_dashboard.php';
             break;
         case "Shift Manager":
-            $role_redir = '/shift_dashboard.php';
+            $role_redir = '../shift_dashboard.php';
             break; 
         case "Technicians":
-            $role_redir = '/tech_dashboard.php';
+            $role_redir = '../tech_dashboard.php';
             break; 
     }
 

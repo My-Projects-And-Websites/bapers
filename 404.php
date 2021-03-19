@@ -1,5 +1,5 @@
 <?php
-include('./includes/header.php') ;
+include('./included/header.php') ;
 ?>      
                 <div class="container-fluid">
                     <div class="text-center mt-5">
@@ -7,12 +7,12 @@ include('./includes/header.php') ;
                             <p class="m-0">404</p>
                         </div>
                         <p class="text-dark mb-5 lead">Page Not Found</p>
-                        <p class="text-black-50 mb-0">DON'T KNOW WHY YOU GET HERE,BUT HOPE LET ME HELP YOU BACK!</p><a href=<?php
+                        <p class="text-black-50 mb-0">DON'T KNOW HOW YOU GOT HERE, BUT LET ME HELP YOU BACK!</p><a href=<?php
 //redirect to right page.
 if (!isset($_SESSION['email_login'])) {
-    echo "../index.php";}
+    echo "index.php";}
     else{
-        echo "../recep_dashboard.php";
+        echo "recep_dashboard.php";
     }
 ?>
 ><?php
@@ -30,6 +30,6 @@ if (!isset($_SESSION['email_login'])) { //in case that user not login and get in
 
                 
 <?php 
-include('./includes/scripts.php');
-include('./includes/footer.php');
+include('./included/scripts.php');
+include('./included/footer.php');
 ?>
