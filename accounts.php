@@ -33,17 +33,21 @@
 <body>
     <main class="dash-template">
         <section class="sidebar">
-            <a href="office_dashboard.php" class="sidebar-link">
+            <a href="dashboard.php" class="sidebar-link">
                 <ion-icon name="apps-outline"></ion-icon>
                 <span>Overview</span>
             </a>
-            <a href="" class="sidebar-link">
+            <a href="payments.php" class="sidebar-link">
                 <ion-icon name="card-outline"></ion-icon>
                 <span>Payments</span>
             </a>
             <a href="accounts.php" class="sidebar-link">
                 <ion-icon name="add-circle-outline"></ion-icon>
                 <span>Accounts</span>
+            </a>
+            <a href="reports.php" class="sidebar-link">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <span>Reports</span>
             </a>
             <div class="open-jobs-link">
                 <button class="open-job-collapsed-bar">
@@ -61,7 +65,7 @@
                     <span>Customers</span>
                 </button>
                 <div class="customer-links">
-                    <a href=""><span>Accounts</span></a>
+                    <a href="customer_accounts.php"><span>Accounts</span></a>
                     <a href=""><span>Discounts</span></a>
                 </div>
             </div>
@@ -139,7 +143,7 @@
                     if ($_SESSION['num_rows'] > 0) {                
                         while ($row = $result1->fetch_assoc()) {
                             echo '<li id="user-' . $row['staff_id'] . '">
-                                    <span>' . $row['staff_fname'] . ' ' . $row['staff_sname'] . '</span>
+                                    <span>' . $row['staff_id'] . ' | ' . $row['staff_fname'] . ' ' . $row['staff_sname'] . '</span>
                                     <span>' . $row['staff_role'] . '</span>
                                   </li>';
                         }

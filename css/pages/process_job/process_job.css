@@ -169,6 +169,14 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   border-right: 1px solid #dcdcdc;
+  padding-right: 25px;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .expected-finish {
+  margin: 15px 0px;
+  padding: 15px 0px 25px;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .expected-finish label {
@@ -189,14 +197,14 @@
   font-size: 16px;
 }
 
-.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .special-instructions {
-  margin-bottom: 30px;
-}
-
 .content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .special-instructions h3 {
   color: #333;
   font-size: 22px;
   margin-bottom: 5px;
+}
+
+.content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .input-field-expected-instructions .special-instructions p {
+  line-height: 1.5;
 }
 
 .content .job-details #job-list div[id*="job-details-container-"] form[id*="form-job-details-"] .tasks-to-do {

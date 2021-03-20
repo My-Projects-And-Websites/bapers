@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,QAAQ,CAAC;EACL,OAAO,EAAE,SAAS;CACrB",
     "sources": [
-        "office_dashboard.scss"
+        "dashboard.scss"
     ],
     "names": [],
-    "file": "office_dashboard.css"
+    "file": "dashboard.css"
 }

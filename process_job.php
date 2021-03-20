@@ -28,17 +28,21 @@
 <body>
     <main class="dash-template">
         <section class="sidebar">
-            <a href="office_dashboard.php" class="sidebar-link">
+            <a href="dashboard.php" class="sidebar-link">
                 <ion-icon name="apps-outline"></ion-icon>
                 <span>Overview</span>
             </a>
-            <a href="" class="sidebar-link">
+            <a href="payments.php" class="sidebar-link">
                 <ion-icon name="card-outline"></ion-icon>
                 <span>Payments</span>
             </a>
             <a href="accounts.php" class="sidebar-link">
                 <ion-icon name="add-circle-outline"></ion-icon>
                 <span>Accounts</span>
+            </a>
+            <a href="reports.php" class="sidebar-link">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <span>Reports</span>
             </a>
             <div class="open-jobs-link">
                 <button class="open-job-collapsed-bar">
@@ -56,7 +60,7 @@
                     <span>Customers</span>
                 </button>
                 <div class="customer-links">
-                    <a href=""><span>Accounts</span></a>
+                <a href="customer_accounts.php"><span>Accounts</span></a>
                     <a href=""><span>Discounts</span></a>
                 </div>
             </div>
@@ -124,8 +128,9 @@
                                 '><form action=php/update_job.php method="POST" id=form-job-details-' . $row['job_id'] .
                                 '><div class="input-field-expected-instructions">
                                 <div class="special-instructions"><h3>Special Instructions</h3><p>' . $row['special_instructions'] . '</p></div>
-                                <div class="expected-finish"><label for="expected-finish-job">Expected Finish</label><input type=datetime-local name=expected-finish-job id="expected-finish-job"></div>
-                                </div>' .
+                                <div class="expected-finish"><label for="expected-finish-job">Expected Finish</label><input type=datetime-local name=expected-finish-job id="expected-finish-job"></div>' . 
+                                '<div class="staff-id"><span>Staff ID Assigned: ' . $row['Staffstaff_id'] . '</span></div>' .
+                                '</div>' .
                                 '<div class="tasks-to-do">';
 
                                 while ($task_query_row = mysqli_fetch_assoc($task_query_results)) {
@@ -168,7 +173,7 @@
 
                                 echo '</div>' .
                                 '<input type=hidden name=job-identifier value=' . $row['job_id'] . '>' .
-                                '<input type=submit name="job-detail-submit-btn" value=Submit>' .
+                                '<input type=submit name="job-detail-submit-btn" value=Update>' .
                                 '</form></div>';
                             }
                         }

@@ -1,0 +1,214 @@
+.content {
+    padding: 30px 40px;
+    overflow: auto;
+    position: relative;
+
+    .form-search-create {
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        form.search-field {
+            width: fit-content;
+    
+            .input-search-field {
+                position: relative;
+                width: fit-content;
+    
+                label {
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    font-size: 24px;
+                    top: 55%;
+                    left: 6%;
+                    color: #555;
+                }
+    
+                input[type="text"] {
+                    padding: 15px 25px 15px 60px;
+                    font-size: 18px;
+                    border: none;
+                    outline: 0;
+                    border-radius: 5px;
+                    width: 500px;
+                    background: #fff;
+                    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+                    color: #333;
+                }
+            }
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            outline: 0;
+            background: #EE5757;
+            border-radius: 5px;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+            color: #fff;
+            transition: .2s;
+        }
+
+        button.job-assign {
+            background: #1f9be2;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .customer-details {
+        background: #fff;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        padding: 30px 40px;
+
+        .customer-detail-tags {
+            display: grid;
+            grid-template-columns: 10% 1fr 1fr 1fr 40%;
+            padding: 0 15px 10px;
+            text-transform: uppercase;
+            color: #9a9a9a;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+
+            span {
+                font-size: 12px;
+            }
+        }
+        
+        #customer-list {
+            
+            li {
+                display: grid;
+                grid-template-columns: 10%1fr 1fr 1fr 40%;
+                padding: 15px;
+                transition: .2s;
+
+                span {
+                    color: #333;
+                }
+
+                span#none-registered {
+                    grid-column: 1 / 6;
+                }
+            }
+
+            li:hover {
+                background: #fafafa;
+            }
+        }
+    }
+
+    .create-customer-form {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: auto;
+        padding: 30px 0px;
+
+        .create-customer {
+            width: 50%;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 5px;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+            position: relative;
+
+            h2 {
+                font-size: 36px;
+                color: #333;
+            }
+
+            p {
+                line-height: 1.5;
+                color: #555;
+                font-size: 18px;
+                margin: 10px 0px 25px;
+            }
+
+            div[class*="input"] {
+                margin-bottom: 15px;
+            }
+
+            div[class*="input"]:last-child {
+                margin-bottom: 0;
+            }
+
+            input {
+                width: 100%;
+                padding: 11px 15px;
+                font-size: 16px;
+                border: 1px solid #dcdcdc;
+                outline: 0;
+                color: #333;
+                border-radius: 5px;
+            }
+
+            label {
+                font-size: 14px;
+                margin-bottom: 4px;
+                display: block;
+                color: #555;
+            }
+
+            .input-name-field {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .customer-fname {
+                    flex-basis: 48.5%;
+                }
+
+                .customer-lname {
+                    flex-basis: 48.5%;
+                }
+            }
+
+            .input-submit-field {
+                margin-top: 30px;
+
+                input[type="submit"] {
+                    background: #EE5757;
+                    color: #fff;
+                    cursor: pointer;
+                }
+
+                #job-assign-btn {
+                    background: #1f9be2;
+                }
+            }
+
+            .close-form {
+                position: absolute;
+                top: 4%;
+                right: 5%;
+
+                button {
+                    background: none;
+                    outline: 0;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 26px;
+                }
+            }
+        }
+    }
+}
+
+.content::after {
+    content: '';
+    width: 100%;
+    height: 15px;
+}

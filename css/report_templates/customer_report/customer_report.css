@@ -1,0 +1,99 @@
+body {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+}
+
+body main {
+  background: #fff;
+  margin: 0 auto;
+  width: 100%;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+body main .heading-section {
+  text-align: center;
+}
+
+body main .heading-section h1 {
+  font-size: 46px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+body main .heading-section p {
+  color: #555;
+}
+
+body main .body-section {
+  margin-top: 50px;
+}
+
+body main .body-section .body-section-tags {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 9% 9% 20% 20% 20% 1fr;
+      grid-template-columns: 9% 9% 20% 20% 20% 1fr;
+  grid-column-gap: 10px;
+  padding: 5px 0px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+body main .body-section .body-section-tags span {
+  font-size: 11px;
+  color: #333;
+}
+
+body main .body-section .body-section-tags span:last-child {
+  border-right: none;
+}
+
+body main .body-section ul.list-of-jobs-ordered li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 9% 9% 20% 20% 20% 1fr;
+      grid-template-columns: 9% 9% 20% 20% 20% 1fr;
+  grid-column-gap: 10px;
+  padding: 10px 0px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+body main .body-section ul.list-of-jobs-ordered li span {
+  font-size: 11px;
+  color: #333;
+}
+
+body button {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 25px;
+  padding: 15px 10px;
+  font-size: 16px;
+  border: none;
+  background: #EE5757;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  -webkit-transition: .4s;
+  transition: .4s;
+  outline: 0;
+  cursor: pointer;
+}
+/*# sourceMappingURL=customer_report.css.map */

@@ -44,18 +44,7 @@
             $_SESSION['id'] = $row[5];
             $_SESSION['num_rows'] = $row[6];
 
-            if ($row[0] == "Office Manager") {
-                header("Location: ../office_dashboard.php");
-            }
-            else if ($row[0] == "Receptionist") {
-                header("Location: ../recep_dashboard.php");
-            }
-            else if ($row[0] == "Shift Manager") {
-                header("Location: ../shift_dashboard.php");
-            }
-            else if ($row[0] == "Technician") {
-                header("Location: ../tech_dashboard.php");
-            }
+            header("Location: ../dashboard.php");
         }
         else {
             header("Location: ../index.php");

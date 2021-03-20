@@ -17,7 +17,7 @@
 
     <title>BAPERS | Office Manager</title>
 
-    <link rel="stylesheet" href="css/dash/office_dashboard.css">
+    <link rel="stylesheet" href="css/dash/dashboard.css">
     <link rel="stylesheet" href="css/dashboard/dashboard.css">
     <link rel="stylesheet" href="css/global.css">
 
@@ -26,17 +26,21 @@
 <body>
     <main class="dash-template">
         <div class="sidebar">
-            <a href="office_dashboard.php" class="sidebar-link">
+            <a href="dashboard.php" class="sidebar-link">
                 <ion-icon name="apps-outline"></ion-icon>
                 <span>Overview</span>
             </a>
-            <a href="" class="sidebar-link">
+            <a href="payments.php" class="sidebar-link">
                 <ion-icon name="card-outline"></ion-icon>
                 <span>Payments</span>
             </a>
             <a href="accounts.php" class="sidebar-link">
                 <ion-icon name="add-circle-outline"></ion-icon>
                 <span>Accounts</span>
+            </a>
+            <a href="reports.php" class="sidebar-link">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <span>Reports</span>
             </a>
             <div class="open-jobs-link">
                 <button class="open-job-collapsed-bar">
@@ -54,7 +58,7 @@
                     <span>Customers</span>
                 </button>
                 <div class="customer-links">
-                    <a href=""><span>Accounts</span></a>
+                    <a href="customer_accounts.php"><span>Accounts</span></a>
                     <a href=""><span>Discounts</span></a>
                 </div>
             </div>

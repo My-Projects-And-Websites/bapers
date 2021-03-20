@@ -14,12 +14,4 @@ $(function() {
     closeCustomerForm.on('click', function() {
         modalCustomer.fadeOut(300);
     });
-
-    openJobForm.on('click', function() {
-        modalJob.fadeIn(300);
-    });
-
-    closeJobForm.on('click', function() {
-        modalJob.fadeOut(300);
-    });
 });

@@ -22,7 +22,7 @@
     if (!$result){
         die('Error: ' . mysqli_error($connect));//if sql query error,then output error
     } else {
-        echo '<script language="JavaScript">;alert("Registered successfully!");location.href="../accounts.php";</script>;';
+        // echo '<script language="JavaScript">;alert("Registered successfully!");location.href="../accounts.php";</script>;';
     }
     mysqli_close($connect);//close the db
 

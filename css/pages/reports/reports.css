@@ -1,0 +1,125 @@
+.content {
+  padding: 30px 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 35px;
+}
+
+.content h2 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.content p {
+  line-height: 1.5;
+  color: #555;
+}
+
+.content span {
+  display: block;
+  margin-top: 15px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.content .customer-report {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+}
+
+.content .staff-report {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+}
+
+.content .summary-report {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / 4;
+}
+
+.content .customer-report-generate {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+}
+
+.content .customer-report-generate form.generate-report-for-customer {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.content .customer-report-generate form.generate-report-for-customer label {
+  display: block;
+  margin-bottom: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 16px;
+}
+
+.content .customer-report-generate form.generate-report-for-customer input {
+  padding: 10px 15px;
+  outline: 0;
+  border: 1px solid #dcdcdc;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.content .customer-report-generate form.generate-report-for-customer .input-date-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 25px 0px 40px;
+}
+
+.content .customer-report-generate form.generate-report-for-customer .input-date-field input {
+  width: 100%;
+}
+
+.content .customer-report-generate form.generate-report-for-customer .input-date-field .from-date-field {
+  -ms-flex-preferred-size: 49.5%;
+      flex-basis: 49.5%;
+}
+
+.content .customer-report-generate form.generate-report-for-customer .input-date-field .to-date-field {
+  -ms-flex-preferred-size: 49.5%;
+      flex-basis: 49.5%;
+}
+
+.content .customer-report-generate form.generate-report-for-customer .input-submit-btn input[type="submit"] {
+  cursor: pointer;
+  background: #EE5757;
+  border: none;
+  outline: 0;
+  color: #fff;
+}
+/*# sourceMappingURL=reports.css.map */

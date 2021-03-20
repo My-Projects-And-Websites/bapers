@@ -3,126 +3,12 @@
     overflow: auto;
     position: relative;
 
-    .form-search-create {
-        margin-bottom: 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .assign-job-form {
 
-        form.search-field {
-            width: fit-content;
-    
-            .input-search-field {
-                position: relative;
-                width: fit-content;
-    
-                label {
-                    position: absolute;
-                    transform: translate(-50%, -50%);
-                    font-size: 24px;
-                    top: 55%;
-                    left: 6%;
-                    color: #555;
-                }
-    
-                input[type="text"] {
-                    padding: 15px 25px 15px 60px;
-                    font-size: 18px;
-                    border: none;
-                    outline: 0;
-                    border-radius: 5px;
-                    width: 500px;
-                    background: #fff;
-                    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
-                    color: #333;
-                }
-            }
-        }
-
-        button {
-            padding: 15px 25px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            outline: 0;
-            background: #EE5757;
-            border-radius: 5px;
-            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
-            color: #fff;
-            transition: .2s;
-        }
-
-        button.job-assign {
-            background: #1f9be2;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-    }
-
-    .customer-details {
-        background: #fff;
-        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;
-        padding: 30px 40px;
-
-        .customer-detail-tags {
+        .create-job {
             display: grid;
-            grid-template-columns: 10% 1fr 1fr 1fr 40%;
-            padding: 0 15px 10px;
-            text-transform: uppercase;
-            color: #9a9a9a;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #eee;
-
-            span {
-                font-size: 12px;
-            }
-        }
-        
-        #customer-list {
-            
-            li {
-                display: grid;
-                grid-template-columns: 10%1fr 1fr 1fr 40%;
-                padding: 15px;
-                transition: .2s;
-
-                span {
-                    color: #333;
-                }
-
-                span#none-registered {
-                    grid-column: 1 / 6;
-                }
-            }
-
-            li:hover {
-                background: #fafafa;
-            }
-        }
-    }
-
-    .create-customer-form, .assign-job-form {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.15);
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        overflow: auto;
-        padding: 30px 0px;
-
-        .create-customer, .create-job {
-            width: 50%;
-            background: #fff;
-            padding: 30px 40px;
-            border-radius: 5px;
-            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 25px;
             position: relative;
 
             h2 {
@@ -167,21 +53,7 @@
                 color: #555;
             }
 
-            .input-name-field {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .customer-fname {
-                    flex-basis: 48.5%;
-                }
-
-                .customer-lname {
-                    flex-basis: 48.5%;
-                }
-            }
-
-            .input-urgency-field, .input-customer-id-field {
+            .input-urgency-field, .input-staff-id-field {
                 position: relative;
 
                 select {
@@ -193,89 +65,70 @@
                     position: absolute;
                     top: 55%;
                     right: 15px;
-                    color: #1f9be2;
+                    color: #EE5757;
                 }
             }
-
-            .input-submit-field {
-                margin-top: 30px;
-
-                input[type="submit"] {
-                    background: #EE5757;
-                    color: #fff;
-                    cursor: pointer;
-                }
-
-                #job-assign-btn {
-                    background: #1f9be2;
-                }
-            }
-
-            .close-form {
-                position: absolute;
-                top: 4%;
-                right: 5%;
-
-                button {
-                    background: none;
-                    outline: 0;
-                    border: none;
-                    cursor: pointer;
-                    font-size: 26px;
-                }
-            }
-        }
-
-        .create-job {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 25px;
-            background: none;
-            width: 100%;
-            box-shadow: none;
-
             .left-part-form, .right-part-form {
                 padding: 30px 40px;
                 background: #fff;
                 box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
                 border-radius: 5px;
             }
-
-            .right-part-form {
-                grid-column: 2 / 3;
-
-                [class*="checkbox-task"] {
-                    transition: .2s;
-                    border-radius: 5px;
-
-                    label {
-                        display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-                        padding: 10px 15px;
-                    }
-
-                    input[type="checkbox"] {
-                        width: 20px;
-                        height: 20px;
-                        margin-right: 15px;
-                    }
-
-                    span {
-                        font-size: 16px;
-                    }
-                }
-
-                [class*="checkbox-task"]:hover {
-                    background: #eee;
-                }
+    
+            .left-part-form {
+                grid-column: 1 / 2;
             }
 
-            .close-form {
-                top: -5px;
-                background: #fff;
-                padding: 5px;
-                border-radius: 5px 5px 0px 0px;
+            .right-part-container {
+
+                .right-part-form {
+                    grid-column: 2 / 3;
+                    height: fit-content;
+        
+                    [class*="checkbox-task"] {
+                        transition: .2s;
+                        border-radius: 5px;
+        
+                        label {
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            padding: 10px 15px;
+                        }
+        
+                        input[type="checkbox"] {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 15px;
+                        }
+        
+                        span {
+                            font-size: 16px;
+                        }
+                    }
+        
+                    [class*="checkbox-task"]:hover {
+                        background: #eee;
+                    }
+                }
+        
+                .close-form {
+                    top: -5px;
+                    background: #fff;
+                    padding: 5px;
+                    border-radius: 5px 5px 0px 0px;
+                }
+        
+                .input-submit-field {
+                    grid-column: 2 / 3;
+                    margin-top: 15px;
+        
+                    input[type="submit"] {
+                        background: #EE5757;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
