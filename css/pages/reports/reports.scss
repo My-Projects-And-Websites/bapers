@@ -4,6 +4,9 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 35px;
+    overflow: auto;
+    position: relative;
+    margin-bottom: 30px;
 
     h2 {
         color: #333;
@@ -20,7 +23,7 @@
         display: block;
         margin-top: 15px;
         color: #aaa;
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .customer-report {
@@ -42,7 +45,7 @@
         grid-column: 2 / 3;
         grid-row: 1 / 2;
 
-        form.generate-report-for-customer {
+        form {
             background: #fff;
             padding: 30px 40px;
             border-radius: 5px;
@@ -53,6 +56,13 @@
                 margin-bottom: 10px;
                 width: fit-content;
                 font-size: 16px;
+
+                span.star {
+                    color: #EE5757;
+                    display: inline-block;
+                    margin-top: 0;
+                    font-size: 16px;
+                }
             }
 
             input {
@@ -94,4 +104,15 @@
             }
         }
     }
+
+    .indi-performance-generate {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+}
+
+.content::after {
+    content: '';
+    width: 100%;
+    height: 15px;
 }

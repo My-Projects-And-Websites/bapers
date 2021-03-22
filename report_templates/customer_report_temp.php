@@ -58,15 +58,11 @@
                 <span>Deadline</span>
                 <span>Expected Finish</span>
                 <span>Actual Finish</span>
-                <span>Staff Assigned</span>
             </div>
             <ul class="list-of-jobs-ordered">
                 <?php
                     while ($find_customer_row = mysqli_fetch_assoc($find_customer_result)) {
-                        $staff_id = $find_customer_row['Staffstaff_id'];
-                        $find_staff = "SELECT staff_id, staff_fname, staff_sname FROM Staff WHERE staff_id = '$staff_id'";
-                        $find_staff_result = $connect->query($find_staff);
-                        $find_staff_row = mysqli_fetch_row($find_staff_result);
+                        $job_id_join_task = $find_customer_row['job_id'];
 
                         if ($find_customer_row['job_urgency'] == 0) {
                             $find_customer_row['job_urgency'] = "No";
@@ -75,14 +71,32 @@
                             $find_customer_row['job_urgency'] = "Yes";
                         }
 
-                        echo '<li class=job-' . $find_customer_row['job_id'] . '>' .
-                        '<span>' . $find_customer_row['job_id'] .'</span>' . 
+                        $task_join_query = "SELECT job_task.Tasktask_id, job_task.task_status, task.task_id, task.task_desc, task.task_location, task.task_price, task.task_duration 
+                        FROM Job_Task
+                        INNER JOIN task 
+                        ON job_task.Tasktask_id = task.task_id
+                        WHERE job_task.Jobjob_id = $job_id_join_task";
+                        $task_join_query_results = $connect->query($task_join_query);
+
+                        echo '<li class=job-' . $job_id_join_task . '>' .
+                        '<span>' . $job_id_join_task .'</span>' . 
                         '<span>' . $find_customer_row['job_urgency'] . '</span>' .
                         '<span>' . $find_customer_row['job_deadline'] . '</span>' .
                         '<span>' . $find_customer_row['expected_finish'] . '</span>' .
                         '<span>' . $find_customer_row['actual_finish'] . '</span>' .
-                        '<span>' . $find_staff_row[0] . ' - ' . $find_staff_row[1] . ' ' . $find_staff_row[2] . '</span>' .
-                        '</li>';
+                        '</li>' .
+                        '<div class=task-for-each-job>';
+
+                        while ($task_join_query_row = mysqli_fetch_assoc($task_join_query_results)) {
+                            echo '<span>' . $task_join_query_row['Tasktask_id'] . '</span>' .
+                                 '<span>' . $task_join_query_row['task_desc'] . '</span>' .
+                                 '<span>' . $task_join_query_row['task_status'] . '</span>' .
+                                 '<span>' . $task_join_query_row['task_location'] . '</span>' .
+                                 '<span>£' . $task_join_query_row['task_price'] . '</span>' .
+                                 '<span>' . $task_join_query_row['task_duration'] . ' minutes</span>';
+                        }
+
+                        echo '</div>';
                     }
                 ?>
             </ul>

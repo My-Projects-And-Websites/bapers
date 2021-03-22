@@ -100,6 +100,16 @@
   -webkit-transition: .2s;
   transition: .2s;
   border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 8px;
 }
 
 .content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] label {
@@ -115,14 +125,19 @@
   padding: 10px 15px;
 }
 
-.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] input[type="checkbox"] {
+.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] label input[type="checkbox"] {
   width: 20px;
   height: 20px;
   margin-right: 15px;
 }
 
-.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] span {
+.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] label span {
   font-size: 16px;
+}
+
+.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] select {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
 }
 
 .content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"]:hover {

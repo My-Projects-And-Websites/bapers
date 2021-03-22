@@ -82,20 +82,6 @@
                             <label for="job-customer-id">Customer ID:</label>
                             <input type="text" name="job-customer-id" id="job-customer-id" required>
                         </div>
-                        <div class="input-staff-id-field">
-                            <label for="job-staff-id">Staff ID:</label>
-                            <select name="job-staff-id" id="job-staff-id">
-                                <?php
-                                    $all_staff_query = "SELECT * FROM Staff";
-                                    $all_staff_result = $connect->query($all_staff_query);
-                                    
-                                    while ($all_staff_row = mysqli_fetch_assoc($all_staff_result)) {
-                                        echo "<option value=" . $all_staff_row['staff_id'] . ">" . $all_staff_row['staff_id'] . ' | ' . $all_staff_row['staff_fname'] . ' ' . $all_staff_row['staff_sname'] . "</option>";
-                                    }
-                                ?>
-                            </select>
-                            <ion-icon name="caret-down-outline"></ion-icon>
-                        </div>
                         <div class="input-instructions-field">
                             <label for="job-instructions">Instructions</label>
                             <textarea name="job-instructions" id="job-instructions" required></textarea>
@@ -115,13 +101,24 @@
                             <p>Assign an upcoming job by filling up this form and prepare it for processing.</p>
                             <?php
                                 $tasks = "SELECT * FROM Task";
-                                $task_result = $connect->query($tasks);
-                                
-                                while ($row = mysqli_fetch_assoc($task_result)) {
-                                    echo "<div class=checkbox-task-" . $row['task_id'] . ">
-                                            <label for=chk-task-" . $row['task_id'] . ">" . 
-                                            "<input type=checkbox name=task[]  id=chk-task-" . $row['task_id'] . " value=" . $row['task_id'] . ">" . 
-                                            "<span>" . $row['task_desc'] . "</span></div>";
+                                $tasks_result = $connect->query($tasks);
+
+                                while ($tasks_row = mysqli_fetch_assoc($tasks_result)) {
+                                    echo "<div class=checkbox-task-" . $tasks_row['task_id'] . ">" .
+                                    "<label for=task-id-" . $tasks_row['task_id'] . ">" .
+                                    "<input type=checkbox name=task[] id=task-id-" . $tasks_row['task_id'] . ">" .
+                                    "<span>" . $tasks_row['task_desc'] . "</span>" .
+                                    "</label>" .
+                                    "<select name=assign-task[] id=assign-staff-to-" . $tasks_row['task_id'] . ">";
+
+                                    $staffs = "SELECT * FROM Staff";
+                                    $staffs_result = $connect->query($staffs);
+
+                                    while ($staffs_row = mysqli_fetch_assoc($staffs_result)) {
+                                        echo "<option value=" . $staffs_row['staff_id'] . ">" . $staffs_row['staff_id'] . ' | ' . $staffs_row['staff_fname'] . ' ' . $staffs_row['staff_sname'] . "</option>";
+                                    }
+
+                                    echo "</select></div>";
                                 }
                             ?>
                         </div>

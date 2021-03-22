@@ -37,8 +37,8 @@ body main .body-section {
 body main .body-section .body-section-tags {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 9% 9% 20% 20% 20% 1fr;
-      grid-template-columns: 9% 9% 20% 20% 20% 1fr;
+  -ms-grid-columns: 8% 10% 1fr 1fr 1fr;
+      grid-template-columns: 8% 10% 1fr 1fr 1fr;
   grid-column-gap: 10px;
   padding: 5px 0px;
   border-bottom: 1px solid #f1f1f1;
@@ -56,14 +56,31 @@ body main .body-section .body-section-tags span:last-child {
 body main .body-section ul.list-of-jobs-ordered li {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 9% 9% 20% 20% 20% 1fr;
-      grid-template-columns: 9% 9% 20% 20% 20% 1fr;
+  -ms-grid-columns: 8% 10% 1fr 1fr 1fr;
+      grid-template-columns: 8% 10% 1fr 1fr 1fr;
   grid-column-gap: 10px;
   padding: 10px 0px;
   border-bottom: 1px solid #f1f1f1;
+  width: 100%;
 }
 
 body main .body-section ul.list-of-jobs-ordered li span {
+  font-size: 11px;
+  color: #333;
+}
+
+body main .body-section ul.list-of-jobs-ordered .task-for-each-job {
+  width: 95%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 8% 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 8% 1fr 1fr 1fr 1fr 1fr;
+  padding: 25px 0px;
+}
+
+body main .body-section ul.list-of-jobs-ordered .task-for-each-job span {
+  display: block;
+  margin: 5px;
   font-size: 11px;
   color: #333;
 }

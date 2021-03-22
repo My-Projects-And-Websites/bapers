@@ -30,7 +30,7 @@ body {
             
             .body-section-tags {
                 display: grid;
-                grid-template-columns: 9% 9% 20% 20% 20% 1fr;
+                grid-template-columns: 8% 10% 1fr 1fr 1fr;
                 grid-column-gap: 10px;
                 padding: 5px 0px;
                 border-bottom: 1px solid #f1f1f1;
@@ -49,12 +49,27 @@ body {
 
                 li {
                     display: grid;
-                    grid-template-columns: 9% 9% 20% 20% 20% 1fr;
+                    grid-template-columns: 8% 10% 1fr 1fr 1fr;
                     grid-column-gap: 10px;
                     padding: 10px 0px;
                     border-bottom: 1px solid #f1f1f1;
+                    width: 100%;
 
                     span {
+                        font-size: 11px;
+                        color: #333;
+                    }
+                }
+
+                .task-for-each-job {
+                    width: 95%;
+                    display: grid;
+                    grid-template-columns: 8% 1fr 1fr 1fr 1fr 1fr;
+                    padding: 25px 0px;
+
+                    span {
+                        display: block;
+                        margin: 5px;
                         font-size: 11px;
                         color: #333;
                     }

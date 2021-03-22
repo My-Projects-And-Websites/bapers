@@ -30,7 +30,7 @@
         $result = $connect->query($sql);
         $row = mysqli_fetch_row($result);
 
-        if (!isset($row[1]) || !isset($row[2]) || $login != $row[1] && $pass != $row[2] ) {
+        if (!isset($row[1]) || !isset($row[2]) || $login != $row[1] && $pass != $row[2]) {
             echo "<script language='javascript'>
                       alert('Please enter valid credentials.');
                       window.location.href = 'http://localhost/BAPERS/index.php';

@@ -7,6 +7,9 @@
   -ms-grid-rows: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 35px;
+  overflow: auto;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .content h2 {
@@ -24,7 +27,7 @@
   display: block;
   margin-top: 15px;
   color: #aaa;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .content .customer-report {
@@ -63,7 +66,7 @@
   grid-row: 1 / 2;
 }
 
-.content .customer-report-generate form.generate-report-for-customer {
+.content .customer-report-generate form {
   background: #fff;
   padding: 30px 40px;
   border-radius: 5px;
@@ -71,7 +74,7 @@
           box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-.content .customer-report-generate form.generate-report-for-customer label {
+.content .customer-report-generate form label {
   display: block;
   margin-bottom: 10px;
   width: -webkit-fit-content;
@@ -80,7 +83,14 @@
   font-size: 16px;
 }
 
-.content .customer-report-generate form.generate-report-for-customer input {
+.content .customer-report-generate form label span.star {
+  color: #EE5757;
+  display: inline-block;
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.content .customer-report-generate form input {
   padding: 10px 15px;
   outline: 0;
   border: 1px solid #dcdcdc;
@@ -88,7 +98,7 @@
   border-radius: 5px;
 }
 
-.content .customer-report-generate form.generate-report-for-customer .input-date-field {
+.content .customer-report-generate form .input-date-field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,25 +111,40 @@
   margin: 25px 0px 40px;
 }
 
-.content .customer-report-generate form.generate-report-for-customer .input-date-field input {
+.content .customer-report-generate form .input-date-field input {
   width: 100%;
 }
 
-.content .customer-report-generate form.generate-report-for-customer .input-date-field .from-date-field {
+.content .customer-report-generate form .input-date-field .from-date-field {
   -ms-flex-preferred-size: 49.5%;
       flex-basis: 49.5%;
 }
 
-.content .customer-report-generate form.generate-report-for-customer .input-date-field .to-date-field {
+.content .customer-report-generate form .input-date-field .to-date-field {
   -ms-flex-preferred-size: 49.5%;
       flex-basis: 49.5%;
 }
 
-.content .customer-report-generate form.generate-report-for-customer .input-submit-btn input[type="submit"] {
+.content .customer-report-generate form .input-submit-btn input[type="submit"] {
   cursor: pointer;
   background: #EE5757;
   border: none;
   outline: 0;
   color: #fff;
+}
+
+.content .indi-performance-generate {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+}
+
+.content::after {
+  content: '';
+  width: 100%;
+  height: 15px;
 }
 /*# sourceMappingURL=reports.css.map */

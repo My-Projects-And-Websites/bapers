@@ -98,7 +98,7 @@
             <div class="customer-report-generate">
                 <form action="php/generate_1.php" method="POST" class="generate-report-for-customer">
                     <div class="input-customer-id-field">
-                        <label for="customer-id">Customer ID:</label>
+                        <label for="customer-id"><span class="star">*</span> Customer ID:</label>
                         <input type="text" name="customer-id" id="customer-id" placeholder="Customer ID">
                     </div>
                     <div class="input-date-field">
@@ -115,6 +115,10 @@
                         <input type="submit" value="Generate">
                     </div>
                 </form>
+            </div>
+            <div class="indi-performance-generate">
+                <!-- TODO: complete this section tomorrow, generate report of one BIPL staff -->
+                
             </div>
         </div>
     </main>
