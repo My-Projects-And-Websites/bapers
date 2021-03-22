@@ -129,7 +129,6 @@
                                 '><div class="input-field-expected-instructions">
                                 <div class="special-instructions"><h3>Special Instructions</h3><p>' . $row['special_instructions'] . '</p></div>
                                 <div class="expected-finish"><label for="expected-finish-job">Expected Finish</label><input type=datetime-local name=expected-finish-job id="expected-finish-job"></div>' . 
-                                '<div class="staff-id"><span>Staff ID Assigned: ' . $row['Staffstaff_id'] . '</span></div>' .
                                 '</div>' .
                                 '<div class="tasks-to-do">';
 

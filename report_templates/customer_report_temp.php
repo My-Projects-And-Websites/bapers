@@ -42,11 +42,11 @@
         <div class="heading-section">
             <h1>Customer Report</h1>
             <p>
-                Report for <?php echo $customer_record_row[0] . ' ' . $customer_record_row[1]; ?> | 
+                Report for <?php echo $customer_record_row[0] . ' ' . $customer_record_row[1]; ?>
 
                 <?php
                     if (!empty($_SESSION['from_date']) || !empty($_SESSION['to_date'])) { 
-                        echo $_SESSION['from_date'] . ' - ' . $_SESSION['to_date']; 
+                        echo ' | ' . $_SESSION['from_date'] . ' - ' . $_SESSION['to_date']; 
                     }
                 ?>
             </p>
@@ -58,6 +58,7 @@
                 <span>Deadline</span>
                 <span>Expected Finish</span>
                 <span>Actual Finish</span>
+                <span>Cost</span>
             </div>
             <ul class="list-of-jobs-ordered">
                 <?php
@@ -78,33 +79,32 @@
                         WHERE job_task.Jobjob_id = $job_id_join_task";
                         $task_join_query_results = $connect->query($task_join_query);
 
+                        $task_join_price = 0;
+
                         echo '<li class=job-' . $job_id_join_task . '>' .
                         '<span>' . $job_id_join_task .'</span>' . 
                         '<span>' . $find_customer_row['job_urgency'] . '</span>' .
                         '<span>' . $find_customer_row['job_deadline'] . '</span>' .
                         '<span>' . $find_customer_row['expected_finish'] . '</span>' .
-                        '<span>' . $find_customer_row['actual_finish'] . '</span>' .
-                        '</li>' .
-                        '<div class=task-for-each-job>';
+                        '<span>' . $find_customer_row['actual_finish'] . '</span>';
 
                         while ($task_join_query_row = mysqli_fetch_assoc($task_join_query_results)) {
-                            echo '<span>' . $task_join_query_row['Tasktask_id'] . '</span>' .
-                                 '<span>' . $task_join_query_row['task_desc'] . '</span>' .
-                                 '<span>' . $task_join_query_row['task_status'] . '</span>' .
-                                 '<span>' . $task_join_query_row['task_location'] . '</span>' .
-                                 '<span>£' . $task_join_query_row['task_price'] . '</span>' .
-                                 '<span>' . $task_join_query_row['task_duration'] . ' minutes</span>';
+                            $task_join_price += $task_join_query_row['task_price'];
                         }
 
-                        echo '</div>';
+                        echo "<span class=total-cost>" . number_format((float)$task_join_price, 2, '.', '') . '</span></li>';
                     }
                 ?>
             </ul>
+            <div class="total">
+                <span id="pay-cost"></span>
+            </div>
         </div>
     </main>
 
     <button class="print-btn">Print</button>
 
     <script src="../js/print.js"></script>
+    <script src="../js/calculate-cost.js"></script>
 </body>
 </html>

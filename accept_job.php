@@ -106,7 +106,7 @@
                                 while ($tasks_row = mysqli_fetch_assoc($tasks_result)) {
                                     echo "<div class=checkbox-task-" . $tasks_row['task_id'] . ">" .
                                     "<label for=task-id-" . $tasks_row['task_id'] . ">" .
-                                    "<input type=checkbox name=task[] id=task-id-" . $tasks_row['task_id'] . ">" .
+                                    "<input type=checkbox name=task[] value=" . $tasks_row['task_id'] . " id=task-id-" . $tasks_row['task_id'] . ">" .
                                     "<span>" . $tasks_row['task_desc'] . "</span>" .
                                     "</label>" .
                                     "<select name=assign-task[] id=assign-staff-to-" . $tasks_row['task_id'] . ">";

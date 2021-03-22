@@ -99,7 +99,7 @@
                 <form action="php/generate_1.php" method="POST" class="generate-report-for-customer">
                     <div class="input-customer-id-field">
                         <label for="customer-id"><span class="star">*</span> Customer ID:</label>
-                        <input type="text" name="customer-id" id="customer-id" placeholder="Customer ID">
+                        <input type="text" name="customer-id" id="customer-id" placeholder="Customer ID" required>
                     </div>
                     <div class="input-date-field">
                         <div class="from-date-field">
