@@ -2,11 +2,10 @@
     padding: 30px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, auto-fit);
     grid-gap: 35px;
     overflow: auto;
     position: relative;
-    margin-bottom: 30px;
 
     h2 {
         color: #333;
@@ -41,73 +40,86 @@
         grid-row: 3 / 4;
     }
 
+    form {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 5px;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            width: fit-content;
+            font-size: 16px;
+
+            span.star {
+                color: #EE5757;
+                display: inline-block;
+                margin-top: 0;
+                font-size: 16px;
+            }
+        }
+
+        input {
+            padding: 10px 15px;
+            outline: 0;
+            border: 1px solid #dcdcdc;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .input-date-field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 25px 0px;
+
+            input {
+                width: 100%;
+            }
+
+            .from-date-field {
+                flex-basis: 49.5%;
+            }
+
+            .to-date-field {
+                flex-basis: 49.5%;
+            }
+        }
+
+        .input-submit-btn {
+
+            input[type="submit"] {
+                cursor: pointer;
+                background: #EE5757;
+                border: none;
+                outline: 0;
+                color: #fff;
+            }
+        }
+    }
+
     .customer-report-generate {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
-
-        form {
-            background: #fff;
-            padding: 30px 40px;
-            border-radius: 5px;
-            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
-
-            label {
-                display: block;
-                margin-bottom: 10px;
-                width: fit-content;
-                font-size: 16px;
-
-                span.star {
-                    color: #EE5757;
-                    display: inline-block;
-                    margin-top: 0;
-                    font-size: 16px;
-                }
-            }
-
-            input {
-                padding: 10px 15px;
-                outline: 0;
-                border: 1px solid #dcdcdc;
-                font-size: 16px;
-                border-radius: 5px;
-            }
-
-            .input-date-field {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 25px 0px 40px;
-
-                input {
-                    width: 100%;
-                }
-
-                .from-date-field {
-                    flex-basis: 49.5%;
-                }
-
-                .to-date-field {
-                    flex-basis: 49.5%;
-                }
-            }
-
-            .input-submit-btn {
-
-                input[type="submit"] {
-                    cursor: pointer;
-                    background: #EE5757;
-                    border: none;
-                    outline: 0;
-                    color: #fff;
-                }
-            }
-        }
     }
 
     .indi-performance-generate {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
+
+        .input-date-field {
+            margin-top: 0;
+        }
+    }
+
+    .sum-performance-generate {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+
+        .input-date-field {
+            margin-top: 0;
+        }
     }
 }
 

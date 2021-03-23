@@ -1,0 +1,123 @@
+main {
+    background: #fff;
+    margin: 0 auto;
+    width: 100%;
+    padding: 25px;
+
+    .heading-section {
+        text-align: center;
+
+        h1 {
+            font-size: 46px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+    }
+
+    .body-section {
+        margin-top: 50px;
+        text-align: center;
+        
+        .body-section-tags {
+            display: grid;
+            grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
+            grid-column-gap: 20px;
+            padding: 15px 0px;
+            border-bottom: 1px solid #f1f1f1;
+
+            span {
+                font-size: 11px;
+                color: #333;
+            }
+
+            span:last-child {
+                border-right: none;
+            }
+        }
+
+        ul.body-section-list {
+
+            li {
+                display: grid;
+                grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
+                grid-column-gap: 20px;
+                padding: 15px 0px;
+                border-bottom: 1px solid #f1f1f1;
+                width: 100%;
+
+                span {
+                    font-size: 11px;
+                    color: #333;
+                    display: block;
+                    padding: 5px 0px;
+                }
+
+                .staff-name {
+                    grid-column: 1 / 2;
+                }
+
+                .grid-place-1 {
+                    grid-column: 2 / 3;
+                }
+
+                .grid-place-2 {
+                    grid-column: 3 / 4;
+                }
+
+                .grid-place-3 {
+                    grid-column: 4 / 5;
+                }
+
+                .grid-place-4 {
+                    grid-column: 5 / 6;
+                }
+
+                .grid-place-5 {
+                    grid-column: 6 / 7;
+                }
+
+                .grid-place-6 {
+                    grid-column: 7 / 8;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.utility-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    
+    button {
+        width: 200px;
+        height: fit-content;
+        justify-self: flex-end;
+        align-self: flex-end;
+        padding: 15px 10px;
+        font-size: 16px;
+        border: none;
+        background: #EE5757;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+        transition: .2s;
+        outline: 0;
+        cursor: pointer;
+        z-index: 5;
+    }
+
+    button:hover {
+        transform: translateY(-7px);
+    }
+
+    .back-btn {
+        width: 100px;
+        background: #333;
+    }
+}

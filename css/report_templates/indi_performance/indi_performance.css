@@ -1,1 +1,145 @@
-/* No CSS *//*# sourceMappingURL=indi_performance.css.map */
+main {
+  background: #fff;
+  margin: 0 auto;
+  width: 100%;
+  padding: 25px;
+}
+
+main .heading-section {
+  text-align: center;
+}
+
+main .heading-section h1 {
+  font-size: 46px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+main .heading-section p {
+  color: #555;
+}
+
+main .body-section {
+  margin-top: 50px;
+  text-align: center;
+}
+
+main .body-section .body-section-tags {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  padding: 15px 0px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+main .body-section .body-section-tags span {
+  font-size: 11px;
+  color: #333;
+}
+
+main .body-section .body-section-tags span:last-child {
+  border-right: none;
+}
+
+main .body-section ul.body-section-list li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  padding: 15px 0px;
+  border-bottom: 1px solid #f1f1f1;
+  width: 100%;
+}
+
+main .body-section ul.body-section-list li span {
+  font-size: 11px;
+  color: #333;
+  display: block;
+  padding: 5px 0px;
+}
+
+main .body-section ul.body-section-list li .staff-name {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
+main .body-section ul.body-section-list li .grid-place-1 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+main .body-section ul.body-section-list li .grid-place-2 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+}
+
+main .body-section ul.body-section-list li .grid-place-3 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4 / 5;
+}
+
+main .body-section ul.body-section-list li .grid-place-4 {
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-column: 5 / 6;
+}
+
+main .body-section ul.body-section-list li .grid-place-5 {
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 1;
+  grid-column: 6 / 7;
+}
+
+main .body-section ul.body-section-list li .grid-place-6 {
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 1;
+  grid-column: 7 / 8;
+  font-weight: bold;
+}
+
+.utility-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.utility-btn button {
+  width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 15px 10px;
+  font-size: 16px;
+  border: none;
+  background: #EE5757;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  -webkit-transition: .2s;
+  transition: .2s;
+  outline: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.utility-btn button:hover {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+
+.utility-btn .back-btn {
+  width: 100px;
+  background: #333;
+}
+/*# sourceMappingURL=indi_performance.css.map */

@@ -82,21 +82,21 @@
             <div class="staff-report">
                 <h2>Individual Performance Report</h2>
                 <p>
-                    Generate a report that contains details about a specific BIPL staff.
-                    This report will also contain the work undertaken by the identified
-                    staff.
+                    Generate a report that contains details about a BIPL staff's performance.
+                    All performance of the staff on the specified date will be generated in the
+                    report.
                 </p>
             </div>
             <div class="summary-report">
                 <h2>Summary Performance Report</h2>
                 <p>
-                    Generate a report that contains the summary of all work of BIPL staff.
-                    This will contain the work done by each staff and the total time each
-                    staff has worked for.
+                    Generate a report about BIPL staff day and night shifts and total time spent per shift
+                    in each department. Specify the dates to get the results required for which shifts need
+                    to be monitored.
                 </p>
             </div>
             <div class="customer-report-generate">
-                <form action="php/generate_1.php" method="POST" class="generate-report-for-customer">
+                <form action="report_templates/customer_report_temp.php" method="POST" class="generate-report-for-customer">
                     <div class="input-customer-id-field">
                         <label for="customer-id"><span class="star">*</span> Customer ID:</label>
                         <input type="text" name="customer-id" id="customer-id" placeholder="Customer ID" required>
@@ -117,8 +117,38 @@
                 </form>
             </div>
             <div class="indi-performance-generate">
-                <!-- TODO: complete this section tomorrow, generate report of one BIPL staff -->
-                
+                <form action="report_templates/indi_performance_temp.php" method="POST" class="generate-report-for-staff">
+                    <div class="input-date-field">
+                        <div class="from-date-field">
+                            <label for="from-date"><span class="star">*</span> From:</label>
+                            <input type="date" name="from-date" id="from-date" required>
+                        </div>
+                        <div class="to-date-field">
+                            <label for="to-date"><span class="star">*</span> To:</label>
+                            <input type="date" name="to-date" id="to-date" required>
+                        </div>
+                    </div>
+                    <div class="input-submit-btn">
+                        <input type="submit" value="Generate">
+                    </div>
+                </form>
+            </div>
+            <div class="sum-performance-generate">
+                <form action="report_templates/sum_performance_temp.php" method="POST" class="generate-report-for-staff">
+                    <div class="input-date-field">
+                        <div class="from-date-field">
+                            <label for="from-date"><span class="star">*</span> From:</label>
+                            <input type="date" name="from-date" id="from-date" required>
+                        </div>
+                        <div class="to-date-field">
+                            <label for="to-date"><span class="star">*</span> To:</label>
+                            <input type="date" name="to-date" id="to-date" required>
+                        </div>
+                    </div>
+                    <div class="input-submit-btn">
+                        <input type="submit" value="Generate">
+                    </div>
+                </form>
             </div>
         </div>
     </main>

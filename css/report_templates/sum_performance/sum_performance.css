@@ -1,0 +1,79 @@
+main {
+  background: #fff;
+  margin: 0 auto;
+  width: 100%;
+  padding: 25px;
+}
+
+main .heading-section {
+  text-align: center;
+}
+
+main .heading-section h1 {
+  font-size: 46px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+main .heading-section p {
+  color: #555;
+}
+
+main .body-section {
+  margin-top: 50px;
+  text-align: center;
+}
+
+main .body-section .body-section-tags {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  padding: 15px 0px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+main .body-section .body-section-tags span {
+  font-size: 11px;
+  color: #333;
+}
+
+main .body-section .body-section-tags span:last-child {
+  border-right: none;
+}
+
+.utility-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.utility-btn button {
+  width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 15px 10px;
+  font-size: 16px;
+  border: none;
+  background: #EE5757;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  -webkit-transition: .4s;
+  transition: .4s;
+  outline: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.utility-btn .back-btn {
+  width: 100px;
+  background: #333;
+}
+/*# sourceMappingURL=sum_performance.css.map */

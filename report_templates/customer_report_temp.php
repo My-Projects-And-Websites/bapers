@@ -5,6 +5,12 @@
 
     include '../php/connection.php';
 
+    date_default_timezone_set('Europe/London');
+
+    $_SESSION['cust_id'] = $_POST['customer-id'];
+    $_SESSION['from_date'] = $_POST['from-date'];
+    $_SESSION['to_date'] = $_POST['to-date'];
+
     $customer = $_SESSION['cust_id'];
     $from = $_SESSION['from_date'];
     $to = date('Y-m-d H:i:s', strtotime('+1 day', strtotime($_SESSION['to_date'])));
@@ -102,7 +108,10 @@
         </div>
     </main>
 
-    <button class="print-btn">Print</button>
+    <div class="utility-btn">
+        <button class="back-btn" onclick="window.location.href = '../reports.php';">Return</button>
+        <button class="print-btn">Print</button>
+    </div>
 
     <script src="../js/print.js"></script>
     <script src="../js/calculate-cost.js"></script>

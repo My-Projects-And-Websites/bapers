@@ -108,7 +108,7 @@
                             <option selected>Select a department...</option>
                             <option value="Copy Room">Copy Room</option>
                             <option value="Development">Development</option>
-                            <option value="Packing">Packing</option>
+                            <option value="Packing">Packing Departments</option>
                             <option value="Finishing Room">Finishing Room</option>
                         </select>
                         <ion-icon name="caret-down-outline"></ion-icon>

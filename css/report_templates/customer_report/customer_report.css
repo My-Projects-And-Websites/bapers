@@ -1,19 +1,8 @@
-body {
-  height: 100vh;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-}
-
 body main {
   background: #fff;
   margin: 0 auto;
   width: 100%;
   padding: 25px;
-  border-radius: 5px;
 }
 
 body main .heading-section {
@@ -87,13 +76,13 @@ body main .body-section .total #pay-cost {
   font-weight: bold;
 }
 
-body button {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / 2;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2 / 3;
+body .utility-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+body .utility-btn button {
   width: 200px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -101,7 +90,6 @@ body button {
   justify-self: flex-end;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin: 25px;
   padding: 15px 10px;
   font-size: 16px;
   border: none;
@@ -114,5 +102,11 @@ body button {
   transition: .4s;
   outline: 0;
   cursor: pointer;
+  z-index: 5;
+}
+
+body .utility-btn .back-btn {
+  width: 100px;
+  background: #333;
 }
 /*# sourceMappingURL=customer_report.css.map */

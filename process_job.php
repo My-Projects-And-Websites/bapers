@@ -143,25 +143,16 @@
 
                                     if ($task_query_row['task_status'] == "Pending") {
                                         echo '<option value="Pending" selected>Pending</option>' .
-                                        '<option value="Initialised">Initialised</option>' .
-                                        '<option value="In Progress">In Progress</option>' .
-                                        '<option value="Completed">Completed</option>';
-                                    }
-                                    else if ($task_query_row['task_status'] == "Initialised") {
-                                        echo '<option value="Pending">Pending</option>' .
-                                        '<option value="Initialised" selected>Initialised</option>' .
                                         '<option value="In Progress">In Progress</option>' .
                                         '<option value="Completed">Completed</option>';
                                     }
                                     else if ($task_query_row['task_status'] == "In Progress") {
                                         echo '<option value="Pending">Pending</option>' .
-                                        '<option value="Initialised">Initialised</option>' .
                                         '<option value="In Progress" selected>In Progress</option>' .
                                         '<option value="Completed">Completed</option>';
                                     }
                                     else if ($task_query_row['task_status'] == "Completed") {
                                         echo '<option value="Pending" selected>Pending</option>' .
-                                        '<option value="Initialised">Initialised</option>' .
                                         '<option value="In Progress">In Progress</option>' .
                                         '<option value="Completed" selected>Completed</option>';
                                     }

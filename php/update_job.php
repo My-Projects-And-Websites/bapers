@@ -1,8 +1,12 @@
 <?php
     include 'connection.php';
 
+    date_default_timezone_set('Europe/London');
+
     $job_identifier = $_POST['job-identifier'];
     $expected_finish = $_POST['expected-finish-job'];
+
+    $blank = null;
 
     if (!empty($expected_finish)) {
         $update_expected_time = $connect->prepare("UPDATE Job SET expected_finish = ? WHERE job_id = ?");
@@ -18,7 +22,13 @@
 
     $pending_count = 0;
     $completed_count = 0;
-    $progress_count = 0;
+
+    $curr_time = date('H:i');
+    $curr_date = date('Y-m-d');
+
+    $update_task_task_date = $connect->prepare("UPDATE Job_Task SET task_date = ? WHERE JobTaskID = ?");
+    $update_task_start_time = $connect->prepare("UPDATE Job_Task SET start_time = ? WHERE JobTaskID = ?");
+    $update_task_finish_time = $connect->prepare("UPDATE Job_Task SET finish_time = ? WHERE JobTaskID = ?");
 
     while ($row_spec_jobs = mysqli_fetch_assoc($result_spec_jobs)) {
         $i = $task_status[$count_spec_jobs];
@@ -29,21 +39,45 @@
 
         if ($i == "Pending") {
             $pending_count++;
+
+            $update_task_finish_time->bind_param("si", $blank, $row_spec_jobs['JobTaskID']);
+            $update_task_finish_time->execute();
         }
         else if ($i == "Completed") {
             $completed_count++;
+
+            $update_task_finish_time->bind_param("si", $curr_time, $row_spec_jobs['JobTaskID']);
+            $update_task_finish_time->execute();
+
+            if (!isset($row_spec_jobs['task_date'])) {
+                $update_task_task_date->bind_param("si", $curr_date, $row_spec_jobs['JobTaskID']);
+                $update_task_task_date->execute();
+            }
+
+            if (!isset($row_spec_jobs['start_time'])) {
+                $update_task_start_time->bind_param("si", $curr_time, $row_spec_jobs['JobTaskID']);
+                $update_task_start_time->execute();
+            }
         }
-        else {
-            $progress_count++;
+        else if ($i == "In Progress") {
+            $update_task_finish_time->bind_param("si", $blank, $row_spec_jobs['JobTaskID']);
+            $update_task_finish_time->execute();
+            
+            if (!isset($row_spec_jobs['task_date'])) {
+                $update_task_task_date->bind_param("si", $curr_date, $row_spec_jobs['JobTaskID']);
+                $update_task_task_date->execute();
+            }
+
+            if (!isset($row_spec_jobs['start_time'])) {
+                $update_task_start_time->bind_param("si", $curr_time, $row_spec_jobs['JobTaskID']);
+                $update_task_start_time->execute();
+            }
         }
 
         $count_spec_jobs++;
     }
 
     $status = "";
-    $blank = null;
-
-    date_default_timezone_set('Europe/London');
     $finish = date('Y-m-d H:i:s');
 
     $update_job_status = $connect->prepare("UPDATE Job SET job_status = ? WHERE job_id = ?");
@@ -53,27 +87,22 @@
     if (mysqli_num_rows($result_spec_jobs) == $pending_count) {
         $status = "Pending";
         $update_job_status->bind_param("si", $status, $job_identifier);
-        $update_job_status->execute();
-
         $remove_actual_finish->bind_param("si", $blank, $job_identifier);
-        $remove_actual_finish->execute();
     }
     else if (mysqli_num_rows($result_spec_jobs) == $completed_count) {
         $status = "Completed";
         $update_job_status->bind_param("si", $status, $job_identifier);
-        $update_job_status->execute();
-
         $update_actual_finish->bind_param("si", $finish, $job_identifier);
-        $update_actual_finish->execute();
     }
     else {
         $status = "In Progress";
         $update_job_status->bind_param("si", $status, $job_identifier);
-        $update_job_status->execute();
-
         $remove_actual_finish->bind_param("si", $blank, $job_identifier);
-        $remove_actual_finish->execute();
     }
+
+    $update_job_status->execute();
+    $remove_actual_finish->execute();
+    $update_actual_finish->execute();
 
     mysqli_close($connect);
 
