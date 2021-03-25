@@ -24,11 +24,20 @@ main .body-section {
   text-align: center;
 }
 
+main .body-section h2 {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+main .body-section [class*="day-shift"] {
+  margin-bottom: 50px;
+}
+
 main .body-section .body-section-tags {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 20px;
   padding: 15px 0px;
   border-bottom: 1px solid #f1f1f1;
@@ -41,6 +50,55 @@ main .body-section .body-section-tags span {
 
 main .body-section .body-section-tags span:last-child {
   border-right: none;
+}
+
+main .body-section ul.body-section-shift-one li, main .body-section ul.body-section-shift-two li, main .body-section ul.body-section-shift-three li, main .body-section ul.period-date li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  padding: 8px 0px;
+}
+
+main .body-section ul.body-section-shift-one li span, main .body-section ul.body-section-shift-two li span, main .body-section ul.body-section-shift-three li span, main .body-section ul.period-date li span {
+  font-size: 11px;
+  color: #333;
+}
+
+main .body-section ul.body-section-shift-one li span:last-child, main .body-section ul.body-section-shift-two li span:last-child, main .body-section ul.body-section-shift-three li span:last-child, main .body-section ul.period-date li span:last-child {
+  border-right: none;
+}
+
+main .body-section ul.body-section-shift-one li .grid-place-1, main .body-section ul.body-section-shift-two li .grid-place-1, main .body-section ul.body-section-shift-three li .grid-place-1, main .body-section ul.period-date li .grid-place-1 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+main .body-section ul.body-section-shift-one li .grid-place-2, main .body-section ul.body-section-shift-two li .grid-place-2, main .body-section ul.body-section-shift-three li .grid-place-2, main .body-section ul.period-date li .grid-place-2 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+}
+
+main .body-section ul.body-section-shift-one li .grid-place-3, main .body-section ul.body-section-shift-two li .grid-place-3, main .body-section ul.body-section-shift-three li .grid-place-3, main .body-section ul.period-date li .grid-place-3 {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4 / 5;
+}
+
+main .body-section ul.body-section-shift-one li .grid-place-4, main .body-section ul.body-section-shift-two li .grid-place-4, main .body-section ul.body-section-shift-three li .grid-place-4, main .body-section ul.period-date li .grid-place-4 {
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-column: 5 / 6;
+}
+
+main .body-section ul.body-section-shift-one li .grid-place-5, main .body-section ul.body-section-shift-two li .grid-place-5, main .body-section ul.body-section-shift-three li .grid-place-5, main .body-section ul.period-date li .grid-place-5 {
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 1;
+  grid-column: 6 / 7;
+  font-weight: bold;
 }
 
 .utility-btn {
@@ -65,11 +123,16 @@ main .body-section .body-section-tags span:last-child {
   border-radius: 5px;
   -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
           box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: .2s;
+  transition: .2s;
   outline: 0;
   cursor: pointer;
   z-index: 5;
+}
+
+.utility-btn button:hover {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
 }
 
 .utility-btn .back-btn {

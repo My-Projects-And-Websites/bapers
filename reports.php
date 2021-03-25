@@ -134,7 +134,7 @@
                 </form>
             </div>
             <div class="sum-performance-generate">
-                <form action="report_templates/sum_performance_temp.php" method="POST" class="generate-report-for-staff">
+                <form action="report_templates/sum_performance_temp.php" method="POST" class="generate-report-for-summary">
                     <div class="input-date-field">
                         <div class="from-date-field">
                             <label for="from-date"><span class="star">*</span> From:</label>

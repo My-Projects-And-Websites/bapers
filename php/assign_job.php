@@ -24,7 +24,7 @@
     include('connection.php'); //connect db
 
     $sql = "INSERT INTO Job (job_id, job_urgency, job_deadline, special_instructions, job_status, expected_finish, actual_finish, order_time, alert_flag, Customercust_id) 
-    VALUES (null, '$urgency', '$deadline' , '$instructions', '$status', null, null, '$time_of_order', null, '$customer_id')"; // insert the new job.
+    VALUES (null, '$urgency', '$deadline' , '$instructions', '$status', null, null, '$time_of_order', 0, '$customer_id')"; // insert the new job.
     $job_result = mysqli_query($connect, $sql); //run the insert query
 
     $get_job_id_result = mysqli_query($connect, 'SELECT job_id FROM Job ORDER BY job_id DESC LIMIT 1');

@@ -22,9 +22,18 @@ main {
         margin-top: 50px;
         text-align: center;
 
+        h2 {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        [class*="day-shift"] {
+            margin-bottom: 50px;
+        }
+
         .body-section-tags {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-column-gap: 20px;
             padding: 15px 0px;
             border-bottom: 1px solid #f1f1f1;
@@ -36,6 +45,46 @@ main {
     
             span:last-child {
                 border-right: none;
+            }
+        }
+
+        ul.body-section-shift-one, ul.body-section-shift-two, ul.body-section-shift-three, ul.period-date {
+
+            li {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-column-gap: 20px;
+                padding: 8px 0px;
+
+                span {
+                    font-size: 11px;
+                    color: #333;
+                }
+        
+                span:last-child {
+                    border-right: none;
+                }
+
+                .grid-place-1 {
+                    grid-column: 2 / 3;
+                }
+
+                .grid-place-2 {
+                    grid-column: 3 / 4;
+                }
+
+                .grid-place-3 {
+                    grid-column: 4 / 5;
+                }
+
+                .grid-place-4 {
+                    grid-column: 5 / 6;
+                }
+
+                .grid-place-5 {
+                    grid-column: 6 / 7;
+                    font-weight: bold;
+                }
             }
         }
     }
@@ -58,10 +107,14 @@ main {
         color: #fff;
         border-radius: 5px;
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
-        transition: .4s;
+        transition: .2s;
         outline: 0;
         cursor: pointer;
         z-index: 5;
+    }
+
+    button:hover {
+        transform: translateY(-7px);
     }
 
     .back-btn {
