@@ -52,7 +52,7 @@ main .body-section .body-section-tags span:last-child {
   border-right: none;
 }
 
-main .body-section ul.body-section-shift-one li, main .body-section ul.body-section-shift-two li, main .body-section ul.body-section-shift-three li, main .body-section ul.period-date li {
+main .body-section ul.body-section-shift-one li, main .body-section ul.body-section-shift-two li, main .body-section ul.body-section-shift-three li {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -61,43 +61,117 @@ main .body-section ul.body-section-shift-one li, main .body-section ul.body-sect
   padding: 8px 0px;
 }
 
-main .body-section ul.body-section-shift-one li span, main .body-section ul.body-section-shift-two li span, main .body-section ul.body-section-shift-three li span, main .body-section ul.period-date li span {
+main .body-section ul.body-section-shift-one li span, main .body-section ul.body-section-shift-two li span, main .body-section ul.body-section-shift-three li span {
   font-size: 11px;
   color: #333;
 }
 
-main .body-section ul.body-section-shift-one li span:last-child, main .body-section ul.body-section-shift-two li span:last-child, main .body-section ul.body-section-shift-three li span:last-child, main .body-section ul.period-date li span:last-child {
+main .body-section ul.body-section-shift-one li span:last-child, main .body-section ul.body-section-shift-two li span:last-child, main .body-section ul.body-section-shift-three li span:last-child {
   border-right: none;
 }
 
-main .body-section ul.body-section-shift-one li .grid-place-1, main .body-section ul.body-section-shift-two li .grid-place-1, main .body-section ul.body-section-shift-three li .grid-place-1, main .body-section ul.period-date li .grid-place-1 {
+main .body-section ul.body-section-shift-one li .grid-place-1, main .body-section ul.body-section-shift-two li .grid-place-1, main .body-section ul.body-section-shift-three li .grid-place-1 {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2 / 3;
 }
 
-main .body-section ul.body-section-shift-one li .grid-place-2, main .body-section ul.body-section-shift-two li .grid-place-2, main .body-section ul.body-section-shift-three li .grid-place-2, main .body-section ul.period-date li .grid-place-2 {
+main .body-section ul.body-section-shift-one li .grid-place-2, main .body-section ul.body-section-shift-two li .grid-place-2, main .body-section ul.body-section-shift-three li .grid-place-2 {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3 / 4;
 }
 
-main .body-section ul.body-section-shift-one li .grid-place-3, main .body-section ul.body-section-shift-two li .grid-place-3, main .body-section ul.body-section-shift-three li .grid-place-3, main .body-section ul.period-date li .grid-place-3 {
+main .body-section ul.body-section-shift-one li .grid-place-3, main .body-section ul.body-section-shift-two li .grid-place-3, main .body-section ul.body-section-shift-three li .grid-place-3 {
   -ms-grid-column: 4;
   -ms-grid-column-span: 1;
   grid-column: 4 / 5;
 }
 
-main .body-section ul.body-section-shift-one li .grid-place-4, main .body-section ul.body-section-shift-two li .grid-place-4, main .body-section ul.body-section-shift-three li .grid-place-4, main .body-section ul.period-date li .grid-place-4 {
+main .body-section ul.body-section-shift-one li .grid-place-4, main .body-section ul.body-section-shift-two li .grid-place-4, main .body-section ul.body-section-shift-three li .grid-place-4 {
   -ms-grid-column: 5;
   -ms-grid-column-span: 1;
   grid-column: 5 / 6;
 }
 
-main .body-section ul.body-section-shift-one li .grid-place-5, main .body-section ul.body-section-shift-two li .grid-place-5, main .body-section ul.body-section-shift-three li .grid-place-5, main .body-section ul.period-date li .grid-place-5 {
+main .body-section ul.body-section-shift-one li .grid-place-5, main .body-section ul.body-section-shift-two li .grid-place-5, main .body-section ul.body-section-shift-three li .grid-place-5 {
   -ms-grid-column: 6;
   -ms-grid-column-span: 1;
   grid-column: 6 / 7;
+  font-weight: bold;
+}
+
+main .body-section .body-section-tags-last {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  padding: 15px 0px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+main .body-section .body-section-tags-last span {
+  font-size: 11px;
+  color: #333;
+}
+
+main .body-section .body-section-tags-last span:last-child {
+  border-right: none;
+}
+
+main .body-section ul.period-date {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
+main .body-section ul.period-date li {
+  padding: 8px 0px;
+  font-size: 11px;
+  color: #333;
+  width: 100%;
+}
+
+main .body-section ul.period-date div {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+}
+
+main .body-section ul.period-date div.date-shift {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
+main .body-section ul.period-date div.grid-place-shift-1 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+main .body-section ul.period-date div.grid-place-shift-2 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+}
+
+main .body-section ul.period-date div.grid-place-night-shift {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4 / 5;
+}
+
+main .body-section ul.period-date div.grid-place-total {
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-column: 5 / 6;
+}
+
+main .body-section ul.period-date div.grid-place-total li {
   font-weight: bold;
 }
 

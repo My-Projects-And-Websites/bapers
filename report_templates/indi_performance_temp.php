@@ -14,11 +14,19 @@
     $from_date = $_SESSION['from_date'];
     $to_date = $_SESSION['to_date'];
 
-    $staff_query = "SELECT DISTINCT job_task.Staffstaff_id, job_task.task_date, staff.staff_fname, staff_sname
+    // $staff_query = "SELECT DISTINCT job_task.Staffstaff_id, job_task.task_date, staff.staff_fname, staff_sname
+    // FROM Job_Task
+    // INNER JOIN Staff ON job_task.Staffstaff_id = staff.staff_id
+    // WHERE job_task.task_date >= '$from_date' AND job_task.task_date <= '$to_date'";
+    // $staff_result = $connect->query($staff_query);
+
+    $staff_query = "SELECT job_task.Staffstaff_id, job_task.task_date, staff.staff_fname, staff_sname
     FROM Job_Task
     INNER JOIN Staff ON job_task.Staffstaff_id = staff.staff_id
-    WHERE job_task.task_date >= '$from_date' AND job_task.task_date <= '$to_date'";
+    WHERE job_task.task_date >= '$from_date' AND job_task.task_date <= '$to_date' AND job_task.task_status = 'Completed'
+    GROUP BY job_task.Staffstaff_id";
     $staff_result = $connect->query($staff_query);
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +70,7 @@
             <ul class="body-section-list">
                 <?php
                     while ($staff_row = mysqli_fetch_assoc($staff_result)) {
-                        echo '<li><span class="staff-name">' . $staff_row['staff_fname'] . ' ' . $staff_row['staff_sname'] . '</span>';
+                        echo '<li><span class="staff-name">' . $staff_row['Staffstaff_id'] . ' | ' . $staff_row['staff_fname'] . ' ' . $staff_row['staff_sname'] . '</span>';
 
                         $staff_id = $staff_row['Staffstaff_id'];
 
@@ -70,7 +78,7 @@
                         FROM Job_Task
                         INNER JOIN Task ON job_task.Tasktask_id = task.task_id
                         WHERE job_task.task_date >= ? AND job_task.task_date <= ?
-                        AND job_task.Staffstaff_id = ?
+                        AND job_task.Staffstaff_id = ? AND job_task.task_status = 'Completed'
                         ORDER BY job_task.Tasktask_id";
                         $task_query = $connect->prepare($task_sql);
                         $task_query->bind_param("ssi", $from_date, $to_date, $staff_id);

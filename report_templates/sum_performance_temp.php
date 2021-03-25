@@ -62,7 +62,7 @@
                         $shift_one_get_date_query->execute();
                         $shift_one_get_date_result = $shift_one_get_date_query->get_result();
 
-                        $total_time_arr_one = [];
+                        $temp_array_one = [];
 
                         while ($shift_one_get_date_row = $shift_one_get_date_result->fetch_assoc()) {
                             echo '<li><span>' . $shift_one_get_date_row['task_date'] . '</span>';
@@ -115,7 +115,6 @@
                                 if ($loop_count == mysqli_num_rows($shift_one_get_times_result)) {
 
                                     if ($copy_room_total_time >= 60) {
-
                                         while ($copy_room_total_time >= 60) {
                                             $copy_room_total_time = $copy_room_total_time - 60;
                                             $copy_room_hour_count++;
@@ -179,9 +178,10 @@
                                 for ($i = 0; $i < count($time_arr_one); $i++) {
                                     $total_time += $time_arr_one[$i];
                                 }
+
                             }
 
-                            array_push($total_time_arr_one, $total_time);
+                            array_push($temp_array_one, $total_time);
 
                             if ($total_time >= 60) {
                                 $total_time = $total_time - 60;
@@ -222,6 +222,8 @@
                         $shift_two_get_date_query->bind_param("ss", $from_date, $to_date);
                         $shift_two_get_date_query->execute();
                         $shift_two_get_date_result = $shift_two_get_date_query->get_result();
+
+                        $temp_array_two = [];
 
                         while ($shift_two_get_date_row = $shift_two_get_date_result->fetch_assoc()) {
                             echo '<li><span>' . $shift_two_get_date_row['task_date'] . '</span>';
@@ -340,6 +342,8 @@
                                 }
                             }
 
+                            array_push($temp_array_two, $total_time);
+
                             if ($total_time >= 60) {
                                 $total_time = $total_time - 60;
                                 $total_time_hour_count++;
@@ -379,6 +383,8 @@
                         $shift_three_get_date_query->bind_param("ss", $from_date, $to_date);
                         $shift_three_get_date_query->execute();
                         $shift_three_get_date_result = $shift_three_get_date_query->get_result();
+
+                        $temp_array_three = [];
 
                         while ($shift_three_get_date_row = $shift_three_get_date_result->fetch_assoc()) {
                             echo '<li><span>' . $shift_three_get_date_row['task_date'] . '</span>';
@@ -497,6 +503,8 @@
                                 }
                             }
 
+                            array_push($temp_array_three, $total_time);
+
                             if ($total_time >= 60) {
                                 $total_time = $total_time - 60;
                                 $total_time_hour_count++;
@@ -528,12 +536,11 @@
                     ?>
                     )
                 </h2>
-                <div class="body-section-tags">
+                <div class="body-section-tags-last">
                     <span>Date</span>
-                    <span>Copy Room</span>
-                    <span>Development</span>
-                    <span>Finishing</span>
-                    <span>Packing</span>
+                    <span>Day Shift 1</span>
+                    <span>Day Shift 2</span>
+                    <span>Night Shift 1</span>
                     <span>Total Hours</span>
                 </div>
                 <ul class="period-date">
@@ -544,11 +551,93 @@
                         $period_date_query->execute();
                         $period_date_result = $period_date_query->get_result();
 
+                        echo '<div class=date-shift>';
                         while ($period_date_row = $period_date_result->fetch_assoc()) {
-                            echo '<li><span>' . $period_date_row['task_date'] . '</span>';
-
-                            echo '</li>';
+                            echo '<li>' . $period_date_row['task_date'] . '</li>';
                         }
+                        echo '</div>';
+
+                        $i = 0;
+                        echo '<div class=grid-place-total>';
+                        while ($i != mysqli_num_rows($period_date_result)) {
+                            $shift_total = 0;
+                            $shift_total_hour_count = 0;
+
+                            $shift_total = $temp_array_one[$i] + $temp_array_two[$i] + $temp_array_three[$i];
+
+                            if ($shift_total >= 60) {
+
+                                while ($shift_total >= 60) {
+                                    $shift_total = $shift_total - 60;
+                                    $shift_total_hour_count++;
+                                }
+
+                                echo '<li class="grid-place-5">' . $shift_total_hour_count . ' hr ' . $shift_total . ' min</li>';
+                            }
+                            else {
+                                echo '<li class="grid-place-5">' . $shift_total . ' min</li>';
+                            }
+
+                            $i++;
+                        }
+                        echo '</div>';
+
+                        echo '<div class=grid-place-shift-1>';
+                        for ($i = 0; $i < count($temp_array_one); $i++) {
+                            if ($temp_array_one[$i] >= 60) {
+
+                                $temp_array_one_hour_count = 0;
+
+                                while ($temp_array_one[$i] >= 60) {
+                                    $temp_array_one[$i] = $temp_array_one[$i] - 60;
+                                    $temp_array_one_hour_count++;
+                                }
+
+                                echo '<li>' . $temp_array_one_hour_count . ' hr ' . $temp_array_one[$i] . ' min</li>';
+                            }
+                            else {
+                                echo '<li>' . $temp_array_one[$i] . ' min</li>';
+                            }
+                        }
+                        echo '</div>';
+
+                        echo '<div class=grid-place-shift-2>';
+                        for ($i = 0; $i < count($temp_array_two); $i++) {
+                            if ($temp_array_two[$i] >= 60) {
+
+                                $temp_array_two_hour_count = 0;
+
+                                while ($temp_array_two[$i] >= 60) {
+                                    $temp_array_two[$i] = $temp_array_two[$i] - 60;
+                                    $temp_array_two_hour_count++;
+                                }
+
+                                echo '<li>' . $temp_array_two_hour_count . ' hr ' . $temp_array_two[$i] . ' min</li>';
+                            }
+                            else {
+                                echo '<li>' . $temp_array_two[$i] . ' min</li>';
+                            }
+                        }
+                        echo '</div>';
+
+                        echo '<div class=grid-place-night-shift>';
+                        for ($i = 0; $i < count($temp_array_three); $i++) {
+                            if ($temp_array_three[$i] >= 60) {
+
+                                $temp_array_three_hour_count = 0;
+
+                                while ($temp_array_three[$i] >= 60) {
+                                    $temp_array_three[$i] = $temp_array_three[$i] - 60;
+                                    $temp_array_three_hour_count++;
+                                }
+
+                                echo '<li>' . $temp_array_three_hour_count . ' hr ' . $temp_array_three[$i] . ' min</li>';
+                            }
+                            else {
+                                echo '<li>' . $temp_array_three[$i] . ' min</li>';
+                            }
+                        }
+                        echo '</div>';
                     ?>
                 </ul>
             </div>

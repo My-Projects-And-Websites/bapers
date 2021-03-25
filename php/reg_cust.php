@@ -16,7 +16,7 @@
     } else {
         echo '<script language="JavaScript">;
         alert("Registered successfully!");
-        location.href="../accept_job.php";
+        location.href="../customer_accounts.php";
         </script>;';
     }
     mysqli_close($connect);//close the db
