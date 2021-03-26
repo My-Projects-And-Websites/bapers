@@ -3,9 +3,9 @@ $(function() {
     var closeCustomerForm = $('.close-form-customer-btn');
     var modalCustomer = $('.create-customer-form');
 
-    var openJobForm = $('.job-assign');
-    var closeJobForm = $('.close-form-job-btn');
-    var modalJob = $('.assign-job-form');
+    var openValuedForm = $('.change-valued-btn');
+    var closeValuedForm = $('.close-form-valued-btn');
+    var modalValued = $('.change-valued-form');
 
     openCustomerForm.on('click', function() {
         modalCustomer.fadeIn(300);
@@ -13,5 +13,13 @@ $(function() {
 
     closeCustomerForm.on('click', function() {
         modalCustomer.fadeOut(300);
+    });
+
+    openValuedForm.on('click', function() {
+        modalValued.fadeIn(300);
+    });
+
+    closeValuedForm.on('click', function() {
+        modalValued.fadeOut(300);
     });
 });

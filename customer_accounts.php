@@ -82,15 +82,17 @@
                 </form>
                 <div class="form-buttons">
                     <button class="customer-create">Create New Customer</button>
+                    <button class="change-valued-btn">Change to Valued</button>
                 </div>
             </div>
             <div class="customer-details">
                 <div class="customer-detail-tags">
                     <span>ID</span>
                     <span>Name</span>
-                    <span>Valued</span>
                     <span>Mobile</span>
                     <span>Email</span>
+                    <span>Valued</span>
+                    <span>Discount</span>
                 </div>
                 <ul id="customer-list">
                     <?php
@@ -109,9 +111,46 @@
                                 echo "<li id=customer-" . $row['cust_id'] . 
                                 "><span>" . $row['cust_id'] .
                                 "</span><span>" . $row['cust_fname'] . ' ' . $row['cust_sname'] . 
-                                '</span><span>' . $row['cust_type'] .
                                 '</span><span>' . $row['cust_mobile'] . 
-                                '</span><span>' . $row['cust_email'] . '</span></li>';
+                                '</span><span>' . $row['cust_email'] .
+                                '</span><span>' . $row['cust_type'] .
+                                '</span><form action="php/set_discount.php" method="POST" class=set-discount-to-cust-' . $row['cust_id'] . '>' . 
+                                '<select name=discount id=discount-select-' . $row['cust_id'] .'>';
+
+                                if ($row['discount_plan'] == "Fixed") {
+                                    echo '<option value="">None</option>' .
+                                    '<option value="Fixed" selected>Fixed</option>' .
+                                    '<option value="Variable">Variable</option>' .
+                                    '<option value="Flexible">Flexible</option>';
+                                }
+                                else if ($row['discount_plan'] == "Variable") {
+                                    echo '<option value="">None</option>' .
+                                    '<option value="Fixed">Fixed</option>' .
+                                    '<option value="Variable" selected>Variable</option>' .
+                                    '<option value="Flexible">Flexible</option>';
+                                }
+                                else if ($row['discount_plan'] == "Flexible") {
+                                    echo '<option value="">None</option>' .
+                                    '<option value="Fixed">Fixed</option>' .
+                                    '<option value="Variable">Variable</option>' .
+                                    '<option value="Flexible" selected>Flexible</option>';
+                                }
+                                else {
+                                    echo '<option value="" selected>None</option>' .
+                                    '<option value="Fixed">Fixed</option>' .
+                                    '<option value="Variable">Variable</option>' .
+                                    '<option value="Flexible">Flexible</option>';
+                                }
+
+                                echo '</select>';
+
+                                echo '<button type="submit">' .
+                                '<ion-icon name="checkmark-outline"></ion-icon>' .
+                                '</button>';
+
+                                echo '<input type="hidden" name="customer-id" value=' . $row['cust_id'] . '>';
+
+                                echo '</form></li>';
                             }
                         }
                         else {
@@ -121,7 +160,7 @@
                 </ul>
             </div>
 
-            <!-- no display and absolute elements -->
+            <!-- no display and absolute element -->
             <!-- create new customer form -->
             <div style="display: none;" class="create-customer-form">
                 <form action="php/reg_cust.php" method="POST" class="create-customer">
@@ -162,6 +201,50 @@
                     </div>
                     <div class="close-form">
                         <button class="close-form-customer-btn" type="button">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div style="display: none;" class="change-valued-form">
+                <form action="php/valued_cust.php" method="POST" class="change-valued-customer">
+                    <h2>Change Customer Status</h2>
+                    <p>Upgrade customer accounts to provide access to discounts. Users are also permitted to remove discount privileges through this form.</p>
+                    <div class="input-search-field">
+                        <label for="search-bar-valued"><ion-icon name="search-outline"></ion-icon></label>
+                        <input type="text" id="search-bar-valued" name="search-bar-valued" placeholder="Search customer email...">
+                    </div>
+                    <ul class="valued-customer-list">
+                    <?php
+                        $cust_sql = "SELECT * FROM Customer";
+                        $cust_query = $connect->prepare($cust_sql);
+                        $cust_query->execute();
+                        $cust_result = $cust_query->get_result();
+
+                        while ($cust_row = $cust_result->fetch_assoc()) {
+                            echo '<li class=customer-id-' . $cust_row['cust_id'] . '>' .
+                            '<span class=customer-name-' . $cust_row['cust_id'] . '>'  . $cust_row['cust_id'] . ' | ' . $cust_row['cust_email'] . '</span>' .
+                            '<select name=valued[] class=select-valued>';
+
+                            if ($cust_row['cust_type'] == 0) {
+                                echo '<option value=1>Yes</option>' .
+                                '<option value=0 selected>No</option>';
+                            }
+                            else if ($cust_row['cust_type'] == 1) {
+                                echo '<option value=1 selected>Yes</option>' .
+                                '<option value=0>No</option>';
+                            }
+
+                            echo '</select><input type=hidden name=cust-identifier[] value=' . $cust_row['cust_id'] . '>';
+                            echo '</li>';
+                        }
+                    ?>
+                    </ul>
+                    <div class="input-submit-field">
+                        <input type="submit" name="valued-submit-form" value="Update" id="valued-submit-btn">
+                    </div>
+                    <div class="close-form-valued">
+                        <button class="close-form-valued-btn" type="button">
                             <ion-icon name="close-outline"></ion-icon>
                         </button>
                     </div>

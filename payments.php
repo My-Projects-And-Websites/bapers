@@ -17,7 +17,7 @@
 
     <title>BAPERS | Office Manager</title>
 
-    <link rel="stylesheet" href="css/dash/office_dashboard.css">
+    <link rel="stylesheet" href="css/pages/payments/payments.css">
     <link rel="stylesheet" href="css/dashboard/dashboard.css">
     <link rel="stylesheet" href="css/global.css">
 
@@ -71,11 +71,46 @@
             <span><?php echo $_SESSION['fname'] . ' ' . $_SESSION['sname']; ?></span>
         </div>
         <div class="content">
-            <h2>Payments...</h2>
+            <?php
+                if ($_SESSION['role'] == "Office Manager") {
+                    echo "<div class='payment-alert'>
+                        <div class='modal-late-payment'>
+                            <h2>Late Payment Alert</h2>
+                            <p>
+                                There are overdue payments that needs your attention.
+                            </p>
+                            <button id='close-payment-alert'>View</button>
+                        </div>
+                    </div>";
+                }
+            ?>
+            <div class="form-search-find">
+                <form action="#" method="POST" class="search-field">
+                    <div class="input-search-field">
+                        <label for="search-bar"><ion-icon name="search-outline"></ion-icon></label>
+                        <input type="text" id="search-bar" name="search-bar" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+            <div class="payment-details">
+                <div class="payment-detail-tags">
+                    <span>Payment ID</span>
+                    <span>Job ID</span>
+                    <span>Customer Name</span>
+                    <span>Late</span>
+                    <span>Discount</span>
+                    <span>Total</span>
+                </div>
+                <ul id="payment-list">
+                    
+                </ul>
+            </div>
         </div>
     </main>
 
     <script src="js/open-sidebar-links.js"></script>
+    <script src="js/close-alert.js"></script>
+    <script src="js/search-paym.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>

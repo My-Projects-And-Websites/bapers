@@ -68,7 +68,7 @@
   transition: .2s;
 }
 
-.content .form-search-create button.job-assign {
+.content .form-search-create button.change-valued-btn {
   background: #1f9be2;
 }
 
@@ -87,8 +87,8 @@
 .content .customer-details .customer-detail-tags {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 10% 1fr 1fr 1fr 40%;
-      grid-template-columns: 10% 1fr 1fr 1fr 40%;
+  -ms-grid-columns: 8% 1fr 1fr 30% 10% 1fr;
+      grid-template-columns: 8% 1fr 1fr 30% 10% 1fr;
   padding: 0 15px 10px;
   text-transform: uppercase;
   color: #9a9a9a;
@@ -103,8 +103,11 @@
 .content .customer-details #customer-list li {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 10% 1fr 1fr 1fr 40%;
-      grid-template-columns: 10% 1fr 1fr 1fr 40%;
+  -ms-grid-columns: 8% 1fr 1fr 30% 10% 1fr;
+      grid-template-columns: 8% 1fr 1fr 30% 10% 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 15px;
   -webkit-transition: .2s;
   transition: .2s;
@@ -120,11 +123,37 @@
   grid-column: 1 / 6;
 }
 
+.content .customer-details #customer-list li form[class*="set-discount-to-cust-"] select[id*="discount-select-"] {
+  padding: 5px;
+  border: 1px solid #dcdcdc;
+  color: #333;
+  outline: 0;
+  font-size: 14px;
+}
+
+.content .customer-details #customer-list li form[class*="set-discount-to-cust-"] button {
+  background: #1f9be2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  padding: 5px;
+  cursor: pointer;
+  outline: 0;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.content .customer-details #customer-list li form[class*="set-discount-to-cust-"] button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .content .customer-details #customer-list li:hover {
   background: #fafafa;
 }
 
-.content .create-customer-form {
+.content .create-customer-form, .content .change-valued-form {
   position: absolute;
   top: 0;
   left: 0;
@@ -144,7 +173,7 @@
   padding: 30px 0px;
 }
 
-.content .create-customer-form .create-customer {
+.content .create-customer-form .create-customer, .content .create-customer-form .change-valued-customer, .content .change-valued-form .create-customer, .content .change-valued-form .change-valued-customer {
   width: 50%;
   background: #fff;
   padding: 30px 40px;
@@ -154,27 +183,27 @@
   position: relative;
 }
 
-.content .create-customer-form .create-customer h2 {
+.content .create-customer-form .create-customer h2, .content .create-customer-form .change-valued-customer h2, .content .change-valued-form .create-customer h2, .content .change-valued-form .change-valued-customer h2 {
   font-size: 36px;
   color: #333;
 }
 
-.content .create-customer-form .create-customer p {
+.content .create-customer-form .create-customer p, .content .create-customer-form .change-valued-customer p, .content .change-valued-form .create-customer p, .content .change-valued-form .change-valued-customer p {
   line-height: 1.5;
   color: #555;
   font-size: 18px;
   margin: 10px 0px 25px;
 }
 
-.content .create-customer-form .create-customer div[class*="input"] {
+.content .create-customer-form .create-customer div[class*="input"], .content .create-customer-form .change-valued-customer div[class*="input"], .content .change-valued-form .create-customer div[class*="input"], .content .change-valued-form .change-valued-customer div[class*="input"] {
   margin-bottom: 15px;
 }
 
-.content .create-customer-form .create-customer div[class*="input"]:last-child {
+.content .create-customer-form .create-customer div[class*="input"]:last-child, .content .create-customer-form .change-valued-customer div[class*="input"]:last-child, .content .change-valued-form .create-customer div[class*="input"]:last-child, .content .change-valued-form .change-valued-customer div[class*="input"]:last-child {
   margin-bottom: 0;
 }
 
-.content .create-customer-form .create-customer input {
+.content .create-customer-form .create-customer input, .content .create-customer-form .change-valued-customer input, .content .change-valued-form .create-customer input, .content .change-valued-form .change-valued-customer input {
   width: 100%;
   padding: 11px 15px;
   font-size: 16px;
@@ -184,14 +213,14 @@
   border-radius: 5px;
 }
 
-.content .create-customer-form .create-customer label {
+.content .create-customer-form .create-customer label, .content .create-customer-form .change-valued-customer label, .content .change-valued-form .create-customer label, .content .change-valued-form .change-valued-customer label {
   font-size: 14px;
   margin-bottom: 4px;
   display: block;
   color: #555;
 }
 
-.content .create-customer-form .create-customer .input-name-field {
+.content .create-customer-form .create-customer .input-name-field, .content .create-customer-form .change-valued-customer .input-name-field, .content .change-valued-form .create-customer .input-name-field, .content .change-valued-form .change-valued-customer .input-name-field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -203,42 +232,108 @@
           align-items: center;
 }
 
-.content .create-customer-form .create-customer .input-name-field .customer-fname {
+.content .create-customer-form .create-customer .input-name-field .customer-fname, .content .create-customer-form .change-valued-customer .input-name-field .customer-fname, .content .change-valued-form .create-customer .input-name-field .customer-fname, .content .change-valued-form .change-valued-customer .input-name-field .customer-fname {
   -ms-flex-preferred-size: 48.5%;
       flex-basis: 48.5%;
 }
 
-.content .create-customer-form .create-customer .input-name-field .customer-lname {
+.content .create-customer-form .create-customer .input-name-field .customer-lname, .content .create-customer-form .change-valued-customer .input-name-field .customer-lname, .content .change-valued-form .create-customer .input-name-field .customer-lname, .content .change-valued-form .change-valued-customer .input-name-field .customer-lname {
   -ms-flex-preferred-size: 48.5%;
       flex-basis: 48.5%;
 }
 
-.content .create-customer-form .create-customer .input-submit-field {
+.content .create-customer-form .create-customer .input-submit-field, .content .create-customer-form .change-valued-customer .input-submit-field, .content .change-valued-form .create-customer .input-submit-field, .content .change-valued-form .change-valued-customer .input-submit-field {
   margin-top: 30px;
 }
 
-.content .create-customer-form .create-customer .input-submit-field input[type="submit"] {
+.content .create-customer-form .create-customer .input-submit-field input[type="submit"], .content .create-customer-form .change-valued-customer .input-submit-field input[type="submit"], .content .change-valued-form .create-customer .input-submit-field input[type="submit"], .content .change-valued-form .change-valued-customer .input-submit-field input[type="submit"] {
   background: #EE5757;
   color: #fff;
   cursor: pointer;
 }
 
-.content .create-customer-form .create-customer .input-submit-field #job-assign-btn {
+.content .create-customer-form .create-customer .input-submit-field #valued-submit-btn, .content .create-customer-form .change-valued-customer .input-submit-field #valued-submit-btn, .content .change-valued-form .create-customer .input-submit-field #valued-submit-btn, .content .change-valued-form .change-valued-customer .input-submit-field #valued-submit-btn {
   background: #1f9be2;
 }
 
-.content .create-customer-form .create-customer .close-form {
+.content .create-customer-form .create-customer .close-form, .content .create-customer-form .create-customer .close-form-valued, .content .create-customer-form .change-valued-customer .close-form, .content .create-customer-form .change-valued-customer .close-form-valued, .content .change-valued-form .create-customer .close-form, .content .change-valued-form .create-customer .close-form-valued, .content .change-valued-form .change-valued-customer .close-form, .content .change-valued-form .change-valued-customer .close-form-valued {
   position: absolute;
   top: 4%;
   right: 5%;
 }
 
-.content .create-customer-form .create-customer .close-form button {
+.content .create-customer-form .create-customer .close-form button, .content .create-customer-form .create-customer .close-form-valued button, .content .create-customer-form .change-valued-customer .close-form button, .content .create-customer-form .change-valued-customer .close-form-valued button, .content .change-valued-form .create-customer .close-form button, .content .change-valued-form .create-customer .close-form-valued button, .content .change-valued-form .change-valued-customer .close-form button, .content .change-valued-form .change-valued-customer .close-form-valued button {
   background: none;
   outline: 0;
   border: none;
   cursor: pointer;
   font-size: 26px;
+}
+
+.content .create-customer-form .create-customer .input-search-field, .content .create-customer-form .change-valued-customer .input-search-field, .content .change-valued-form .create-customer .input-search-field, .content .change-valued-form .change-valued-customer .input-search-field {
+  position: relative;
+  width: 100%;
+}
+
+.content .create-customer-form .create-customer .input-search-field label, .content .create-customer-form .change-valued-customer .input-search-field label, .content .change-valued-form .create-customer .input-search-field label, .content .change-valued-form .change-valued-customer .input-search-field label {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 24px;
+  top: 55%;
+  left: 6%;
+  color: #555;
+}
+
+.content .create-customer-form .create-customer .input-search-field input[type="text"], .content .create-customer-form .change-valued-customer .input-search-field input[type="text"], .content .change-valued-form .create-customer .input-search-field input[type="text"], .content .change-valued-form .change-valued-customer .input-search-field input[type="text"] {
+  padding: 15px 25px 15px 60px;
+  font-size: 18px;
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+  width: 100%;
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+.content .create-customer-form .create-customer ul.valued-customer-list, .content .create-customer-form .change-valued-customer ul.valued-customer-list, .content .change-valued-form .create-customer ul.valued-customer-list, .content .change-valued-form .change-valued-customer ul.valued-customer-list {
+  margin: 20px 0px;
+}
+
+.content .create-customer-form .create-customer ul.valued-customer-list select, .content .create-customer-form .change-valued-customer ul.valued-customer-list select, .content .change-valued-form .create-customer ul.valued-customer-list select, .content .change-valued-form .change-valued-customer ul.valued-customer-list select {
+  padding: 5px;
+  outline: 0;
+  border: 1px solid #dcdcdc;
+  outline: 0;
+  color: #333;
+  cursor: pointer;
+}
+
+.content .create-customer-form .create-customer ul.valued-customer-list li[class*="customer-id-"], .content .create-customer-form .change-valued-customer ul.valued-customer-list li[class*="customer-id-"], .content .change-valued-form .create-customer ul.valued-customer-list li[class*="customer-id-"], .content .change-valued-form .change-valued-customer ul.valued-customer-list li[class*="customer-id-"] {
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .create-customer-form .create-customer ul.valued-customer-list li[class*="customer-id-"]:hover, .content .create-customer-form .change-valued-customer ul.valued-customer-list li[class*="customer-id-"]:hover, .content .change-valued-form .create-customer ul.valued-customer-list li[class*="customer-id-"]:hover, .content .change-valued-form .change-valued-customer ul.valued-customer-list li[class*="customer-id-"]:hover {
+  background: #fafafa;
+}
+
+.content .create-customer-form .change-valued-customer, .content .change-valued-form .change-valued-customer {
+  width: 55%;
 }
 
 .content::after {
