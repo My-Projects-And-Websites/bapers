@@ -35,7 +35,7 @@ function discount($customer_id,$discount_percentage){
     $row =  mysqli_fetch_row($result);
     if ($row['cust_type'] == 1 && $row['discount_plan'] != null) {
 
-        if($row['cust_type'] = "Fixed" && $pay_separate = 0) { //Fixed discount calculation 
+        if ($row['cust_type'] = "Fixed" && $pay_separate = 0) { //Fixed discount calculation 
             $get_tasks_price = "SELECT payment_total FROM payment where Customercust_id = '$customer_id'";
             $result2 = $connect->query($get_tasks_price);
             $total_price = mysqli_fetch_row($result2);
@@ -71,7 +71,7 @@ function discount($customer_id,$discount_percentage){
             $total_price2 = mysqli_fetch_row($get_total_price2);
             if ($total_price2 <= 1000) {
                 $discount_percentage = 5;
-                $discount_rate = $discount_percentage =/ 100;
+                $discount_rate = $discount_percentage / 100;
                 $discount_price2 = $total_price2 * $discount_rate;
             }
             else if ($total_price2 <= 2000 and $total_price2 > 1000) {
