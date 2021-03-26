@@ -33,8 +33,9 @@ function discount($customer_id,$discount_percentage){
     
     $result = $connect->query($plan_status_check);
     $row =  mysqli_fetch_row($result);
-    if ($row['cust_type'] = 1 && $row['discount_plan'] != null){
-        if($row['cust_type'] = "Fixed discount" && $pay_separate = 0){//Fixed discount calculation 
+    if ($row['cust_type'] == 1 && $row['discount_plan'] != null) {
+
+        if($row['cust_type'] = "Fixed" && $pay_separate = 0) { //Fixed discount calculation 
             $get_tasks_price = "SELECT payment_total FROM payment where Customercust_id = '$customer_id'";
             $result2 = $connect->query($get_tasks_price);
             $total_price = mysqli_fetch_row($result2);
@@ -42,7 +43,8 @@ function discount($customer_id,$discount_percentage){
             $update_payment = "UPDATE payment set payment_discount = '$discount_price',discount_rate = '$discount_percentage' 
             WHERE Customercust_id = $customer_id and payment_status = 0";
             $connect->query($update_payment);
-        }elseif($row['cust_type'] = "Variable discount" && $pay_separate = 0){ //Variable discount calculation
+        }
+        else if ($row['cust_type'] = "Variable" && $pay_separate = 0) { //Variable discount calculation
 
             //Need to show out the current task list that assigned to customer.
             //and then assigned new discount price into task.(I create an new variable into table task call 'task_discount')
@@ -58,7 +60,8 @@ function discount($customer_id,$discount_percentage){
                 $set_discount="UPDATE task set task_discount = task_price * '$discount_rate' where task_id = '$task_row[$i]'";
                 $connect->query($set_discount);
             }
-        }elseif($row['cust_type'] = "Flexible discount" && $pay_separate = 0){ //Flexible discount(on volume per month)
+        }
+        else if ($row['cust_type'] = "Flexible" && $pay_separate = 0) { //Flexible discount(on volume per month)
             /* discount table */
             /* <=£1000 = 5% 
                 1000<= price <=2000 = 10%
@@ -66,19 +69,22 @@ function discount($customer_id,$discount_percentage){
             $total_price_Q = "SELECT payment_total FROM payment where Customercust_id = $customer_id and payment_status = 0";
             $get_total_price2 = $connect->query($total_price_Q);
             $total_price2 = mysqli_fetch_row($get_total_price2);
-            if($total_price2 <= 1000){
+            if ($total_price2 <= 1000) {
                 $discount_percentage = 5;
-                $discount_rate = $discount_percentage/100;
-                $discount_price2 = $total_price2 * $discount_rate;
-            }elseif($total_price2 <= 2000 and $total_price2>1000 ){
-                $discount_percentage = 10;
-                $discount_rate = $discount_percentage/100;
-                $discount_price2 = $total_price2 * $discount_rate;
-            }elseif($total_price2 > 2000 ){
-                $discount_percentage = 15;
-                $discount_rate = $discount_percentage/100;
+                $discount_rate = $discount_percentage =/ 100;
                 $discount_price2 = $total_price2 * $discount_rate;
             }
+            else if ($total_price2 <= 2000 and $total_price2 > 1000) {
+                $discount_percentage = 10;
+                $discount_rate = $discount_percentage / 100;
+                $discount_price2 = $total_price2 * $discount_rate;
+            }
+            else if ($total_price2 > 2000) {
+                $discount_percentage = 15;
+                $discount_rate = $discount_percentage / 100;
+                $discount_price2 = $total_price2 * $discount_rate;
+            }
+
             $update_payment = "UPDATE payment set payment_discount = '$discount_price2',discount_rate = '$discount_percentage' 
             WHERE Customercust_id = $customer_id and payment_status = 0";
             $connect->query($update_payment);

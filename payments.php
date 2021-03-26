@@ -94,15 +94,16 @@
             </div>
             <div class="payment-details">
                 <div class="payment-detail-tags">
-                    <span>Payment ID</span>
                     <span>Job ID</span>
-                    <span>Customer Name</span>
-                    <span>Late</span>
+                    <span>Customer</span>
                     <span>Discount</span>
                     <span>Total</span>
+                    <span>Late</span>
                 </div>
                 <ul id="payment-list">
-                    
+                    <?php
+
+                    ?>
                 </ul>
             </div>
         </div>
