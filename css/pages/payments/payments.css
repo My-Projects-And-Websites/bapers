@@ -122,8 +122,8 @@
 .content .payment-details .payment-detail-tags {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 0 15px 10px;
   text-transform: uppercase;
   color: #9a9a9a;

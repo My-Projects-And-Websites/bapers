@@ -25,7 +25,13 @@
 
     $get_job_id_result = mysqli_query($connect, 'SELECT job_id FROM Job ORDER BY job_id DESC LIMIT 1');
     $get_job_row = mysqli_fetch_assoc($get_job_id_result);
-    $job_id = $get_job_row['job_id'];
+    
+    if (!isset($get_job_row)) {
+        $job_id = 1;
+    }
+    else {
+        $job_id = $get_job_row['job_id'];
+    }
 
     $job_price = 0;
     foreach ($task_set as $task) {
@@ -50,6 +56,12 @@
     $sql = "INSERT INTO Job (job_id, job_urgency, job_deadline, special_instructions, job_status, expected_finish, actual_finish, order_time, total_price, discount_amount, alert_flag, Customercust_id) 
     VALUES (null, '$urgency', '$deadline' , '$instructions', '$status', null, null, '$time_of_order', $job_price, null, 0, '$customer_id')"; // insert the new job.
     $job_result = mysqli_query($connect, $sql); //run the insert query
+
+    $paym_sql = "INSERT INTO Payment (payment_id, payment_total, payment_late, payment_alert, payment_discount, discount_rate, payment_status, Customercust_id)
+    VALUES (null, ?, 0, 0, null, 0, 'Pending', ?)";
+    $paym_query = $connect->prepare($paym_sql);
+    $paym_query->bind_param("di", $job_price, $customer_id);
+    $paym_query->execute();
 
     if (!$job_result){
         die('Error: ' . mysqli_error($connect)); //if sql query error,then output error

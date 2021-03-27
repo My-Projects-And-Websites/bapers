@@ -4,6 +4,10 @@
     $customer = $_POST['customer-id'];
     $discount = $_POST['discount'];
 
+    if ($discount == "") {
+        $discount = null;
+    }
+
     $discount_sql = "UPDATE Customer SET discount_plan = ? WHERE cust_id = ?";
     $discount_query = $connect->prepare($discount_sql);
     $discount_query->bind_param("si", $discount, $customer);

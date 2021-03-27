@@ -94,8 +94,9 @@
             </div>
             <div class="payment-details">
                 <div class="payment-detail-tags">
-                    <span>Job ID</span>
                     <span>Customer</span>
+                    <span>Job ID</span>
+                    <span>Payment ID</span>
                     <span>Discount</span>
                     <span>Total</span>
                     <span>Late</span>
