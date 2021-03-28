@@ -6,7 +6,7 @@ i.e. if the deadline for the job is not likely to be met; the alerts should be p
 user roles.*/
 function deadline_alert(){
     include ('connection.php');//connect to database
-    $job_status = "SELECT job_id,job_deadline,special_instructions,alert_flag from job where TIMESTAMPDIFF(MINUTE, job_deadline , CURRENT_TIMESTAMP())<=5"; //5 mins left from the deadline 
+    $job_status = "SELECT job_id,job_deadline,special_instructions,alert_flag,job_status,order_time,Customercust_id from job where TIMESTAMPDIFF(MINUTE, job_deadline , CURRENT_TIMESTAMP())<=5"; //5 mins left from the deadline 
 
 
     $result = $connect->query($job_status);
@@ -26,7 +26,14 @@ function deadline_alert(){
                     mysqli_query($connect,$alert_query);
                     }
             }
-        }   
+        }
+        $EMAIL_reciever = "SELECT username_login from staff where staff_role = 'Office Manager' OR staff_role = 'Shift Manager'";// send the email to office manager   
+        $reuslt3 = $connect->query($EMAIL_reciever);
+        $row_email = mysqli_fetch_all($reuslt3,MYSQLI_ASSOC);
+        $email_user = array_column($row_email,'username_login');
+        include('send_email.php');
+        for($i=0;$i<=sizeof($email_user);$i++){ // this part use for test print out, after will do functions.
+         job_deadline_email($email_user[$i],$row['job_id'],$row['job_deadline'],$row['special_instructions'],$row['Customercust_id'],$row['order_time'],$row['job_status']);}
     }
 }
 

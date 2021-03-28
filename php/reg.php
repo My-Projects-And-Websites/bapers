@@ -15,6 +15,7 @@
     $hashed_pword = md5($password); // encrypt password for security
 
     include('../php/connection.php');//connect db
+    include('send_email.php');//SEND INFO EMAIL
     $sq="insert into staff(staff_id,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$fname','$sname','$role','$dep',0,'$login','$hashed_pword')";//insert the new user.
     $result=mysqli_query($connect,$sq);//run the insert query
     
@@ -23,6 +24,7 @@
         die('Error: ' . mysqli_error($connect));//if sql query error,then output error
     } else {
         echo '<script language="JavaScript">;alert("Registered successfully!");location.href="../accounts.php";</script>;';
+        staff_reg_email($login,$sname." ".$fname,$login,$password,$dep,$role);
     }
     mysqli_close($connect);//close the db
 
