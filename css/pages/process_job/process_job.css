@@ -64,8 +64,8 @@
 .content .job-details .job-detail-tags {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
-      grid-template-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
+  -ms-grid-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
+      grid-template-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
   padding: 0 15px 10px;
   text-transform: uppercase;
   color: #9a9a9a;
@@ -80,8 +80,8 @@
 .content .job-details #job-list li {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
-      grid-template-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
+  -ms-grid-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
+      grid-template-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

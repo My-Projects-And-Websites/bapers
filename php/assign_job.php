@@ -35,8 +35,16 @@
         $job_price += $task_row[0];
     }
 
-    $sql = "INSERT INTO Job (job_id, job_urgency, job_deadline, special_instructions, job_status, expected_finish, actual_finish, order_time, total_price, discount_amount, alert_flag, Customercust_id) 
-    VALUES (null, '$urgency', '$deadline' , '$instructions', '$status', null, null, '$time_of_order', $job_price, null, 0, '$customer_id')"; // insert the new job.
+    $job_sql_num_rows = "SELECT job_id FROM Job";
+    $job_query_num_rows = $connect->prepare($job_sql_num_rows);
+    $job_query_num_rows->execute();
+    $job_result_num_rows = $job_query_num_rows->get_result();
+
+    $num_rows = mysqli_num_rows($job_result_num_rows);
+    $job_id_char = "JOB#" . strval($num_rows);
+
+    $sql = "INSERT INTO Job (job_id, job_id_char, job_urgency, job_deadline, special_instructions, job_status, expected_finish, actual_finish, order_time, total_price, discount_amount, alert_flag, Customercust_id) 
+    VALUES (null, '$job_id_char', '$urgency', '$deadline' , '$instructions', '$status', null, null, '$time_of_order', $job_price, null, 0, '$customer_id')"; // insert the new job.
     $job_result = mysqli_query($connect, $sql); //run the insert query
 
     $get_job_id_result = mysqli_query($connect, 'SELECT job_id FROM Job ORDER BY job_id DESC LIMIT 1');
@@ -63,6 +71,7 @@
         die('Error: ' . mysqli_error($connect)); //if sql query error,then output error
     } else {
         echo '<script language="JavaScript">;alert("Job assigned successfully!");location.href="../accept_job.php";</script>;';
+        // echo gettype(mysqli_num_rows($job_result_num_rows));
     }
 
     mysqli_close($connect); //close the db

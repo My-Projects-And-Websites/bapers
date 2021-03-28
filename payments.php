@@ -1,4 +1,6 @@
 <?php
+    include "php/connection.php";
+
     if (!isset($_SESSION)) {
         session_start(); // start the session if not started yet
     }
@@ -99,11 +101,109 @@
                     <span>Payment ID</span>
                     <span>Discount</span>
                     <span>Total</span>
-                    <span>Late</span>
+                    <span>Payment Status</span>
                 </div>
                 <ul id="payment-list">
                     <?php
+                        $job_sql = "SELECT job.*, customer.* 
+                        FROM Job
+                        INNER JOIN Customer ON customer.cust_id = job.Customercust_id";
+                        $job_query = $connect->prepare($job_sql);
+                        $job_query->execute();
+                        $job_result = $job_query->get_result();
 
+                        while ($job_row = $job_result->fetch_assoc()) {
+                            $job_identifier = $job_row['job_id'];
+                            $paym_sql = "SELECT * FROM Payment WHERE payment_id = ?";
+                            $paym_query = $connect->prepare($paym_sql);
+                            $paym_query->bind_param("i", $job_identifier);
+                            $paym_query->execute();
+                            $paym_result = $paym_query->get_result();
+
+                            if ($job_row['job_status'] == "Completed") {
+                                echo '<li><span>' . $job_row['cust_id'] . ' | ' .$job_row['cust_fname'] . ' ' . $job_row['cust_sname'] . '</span>' .
+                                '<span>' . $job_row['job_id'] . '</span>';
+
+                                while ($paym_row = $paym_result->fetch_assoc()) {
+                                    echo '<span>' . $paym_row['payment_id'] . '</span>' .
+                                    '<span>£' . number_format((float)$paym_row['payment_discount'], 2, '.', '') . '</span>' .
+                                    '<span>£' . number_format((float)$paym_row['payment_total'], 2, '.', '') . '</span>' .
+                                    '<span>' . $paym_row['payment_status'] . '</span>';
+                                }
+
+                                echo '<button class="open-jobs-payment" onclick=togglePaym(' . $job_row['job_id'] . ')><ion-icon name="caret-down-outline"></ion-icon></button>';
+                                echo '</li>';
+
+                                if ($job_row['discount_plan'] == "Fixed" || $job_row['discount_plan'] == "Flexible" || !isset($job_row['discount_plan'])) {
+                                    echo '<div class=jobs-payment-details-' . $job_row['job_id'] . '><form class=jobs-payment-form-' . $job_row['job_id'] . ' method=POST action=php/update_paym.php>';
+                                
+                                    echo '<div class=payment-type-details>' .
+                                    '<div class=payment-type>' . '<h2>Payment Type</h2>' . 
+                                    '<select name=payment-type-cash-card class=payment-type-cash-card-' . $job_row['job_id'] . ' onchange=changePaymType(' . $job_row['job_id'] . ')>' .
+                                    '<option value=Cash>Cash</option>' .
+                                    '<option value=Card>Card</option>' .
+                                    '</select>' . '</div>' .
+                                    '<div class=card-num>' . '<h2>Card Number</h2><input disabled type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
+                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input disabled type=text name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
+                                    '<div class=card-cvv>' . '<h2>CVV</h2><input disabled type=text name=card-ccv class=card-cvv-' . $job_row['job_id'] . ' placeholder="CVV"></div>';
+                                    echo '</div>';
+
+                                    echo '<div class=discount-details>';
+
+                                    if (!isset($job_row['discount_plan'])) {
+                                        echo '<div class=discount-plan>' . '<h2>Discount Plan</h2><span class=discount-plan-text-' . $job_row['job_id'] . '>Unavailable</span></div>';
+                                    }
+                                    else {
+                                        echo '<div class=discount-plan>' . '<h2>Discount Plan</h2><span>' . $job_row['discount_plan'] .'</span></div>';
+                                    }
+                                    
+                                    echo '<div class=discount-rate>' . '<h2>Discount Rate</h2><input type=text name=discount-rate class=discount-rate-input-' . $job_row['job_id'] . ' placeholder="Discount Rate"></div>';
+                                    echo '<div class=input-submit-btn><input type=submit value=Submit></div></div>';
+
+                                    echo '</form></div>';
+                                }
+                                else if ($job_row['discount_plan'] == "Variable") {
+                                    echo '<div class=jobs-payment-details-' . $job_row['job_id'] . '><form class=jobs-payment-form-variable-' . $job_row['job_id'] . ' method=POST action=php/update_paym.php>';
+
+                                    echo '<div class=payment-type-details>' .
+                                    '<div class=payment-type>' . '<h2>Payment Type</h2>' . 
+                                    '<select name=payment-type-cash-card class=payment-type-cash-card-' . $job_row['job_id'] . ' onchange=changePaymType(' . $job_row['job_id'] . ')>' .
+                                    '<option value=Cash>Cash</option>' .
+                                    '<option value=Card>Card</option>' .
+                                    '</select>' . '</div>' .
+                                    '<div class=card-num>' . '<h2>Card Number</h2><input disabled type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
+                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input disabled type=text name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
+                                    '<div class=card-cvv>' . '<h2>CVV</h2><input disabled type=text name=card-cvv class=card-cvv-' . $job_row['job_id'] . ' placeholder="CVV"></div>';
+                                    echo '</div>';
+
+                                    echo '<div class=discount-plan-details-paym><div class=discount-plan>' . '<h2>Discount Plan:<span>' . $job_row['discount_plan'] .'</span></h2></div>';
+
+                                    $task_paym_sql = "SELECT job_task.*, task.* 
+                                    FROM Job_Task 
+                                    INNER JOIN Task ON task.task_id = job_task.Tasktask_id
+                                    WHERE job_task.Jobjob_id = ?";
+                                    $task_paym_query = $connect->prepare($task_paym_sql);
+                                    $task_paym_query->bind_param("i", $job_identifier);
+                                    $task_paym_query->execute();
+                                    $task_paym_result = $task_paym_query->get_result();
+
+                                    echo '<div class=discount-task-details>';
+                                    while ($task_paym_row = $task_paym_result->fetch_assoc()) {
+                                        echo '<div class=task-details-discount>' . 
+                                        '<span>' . $task_paym_row['task_id'] . '</span>' .
+                                        '<span>' . $task_paym_row['task_desc'] . '</span>' .
+                                        '<span>£' . number_format((float)$task_paym_row['task_price'], 2, '.', '') . '</span>' .
+                                        '<input type=text name=discount-rate[] placeholder="Discount Rate">' . 
+                                        '</div>';
+                                    }
+                                    echo '</div>';
+
+                                    echo '<div class=input-submit-btn><input type=submit value="Apply"></div></div>';
+
+                                    echo '</form></div>';
+                                }
+                            }
+                        }
                     ?>
                 </ul>
             </div>
@@ -113,6 +213,7 @@
     <script src="js/open-sidebar-links.js"></script>
     <script src="js/close-alert.js"></script>
     <script src="js/search-paym.js"></script>
+    <script src="js/open-paym-details.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>

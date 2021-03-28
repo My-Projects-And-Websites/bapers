@@ -115,7 +115,7 @@
                                 $task_query_results = $connect->query($task_query);
 
                                 echo "<li id=job-" . $row['job_id'] . 
-                                '><span>' . $row['job_id'] .
+                                '><span>' . $row['job_id_char'] .
                                 '</span><span>' . $row['Customercust_id'] .
                                 '</span><span>' . $row['job_urgency'] . 
                                 '</span><span>' . $row['job_deadline'] . 
@@ -143,17 +143,17 @@
 
                                     if ($task_query_row['task_status'] == "Pending") {
                                         echo '<option value="Pending" selected>Pending</option>' .
-                                        '<option value="In Progress">In Progress</option>' .
+                                        '<option value="In Progress">Task In Progress</option>' .
                                         '<option value="Completed">Completed</option>';
                                     }
                                     else if ($task_query_row['task_status'] == "In Progress") {
                                         echo '<option value="Pending">Pending</option>' .
-                                        '<option value="In Progress" selected>In Progress</option>' .
+                                        '<option value="In Progress" selected>Task In Progress</option>' .
                                         '<option value="Completed">Completed</option>';
                                     }
                                     else if ($task_query_row['task_status'] == "Completed") {
                                         echo '<option value="Pending" selected>Pending</option>' .
-                                        '<option value="In Progress">In Progress</option>' .
+                                        '<option value="In Progress">Task In Progress</option>' .
                                         '<option value="Completed" selected>Completed</option>';
                                     }
                                     

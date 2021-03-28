@@ -3,7 +3,7 @@
         session_start(); // start the session if not started yet
     }
 
-    if (!isset($_SESSION['email_login']) || !isset($_SESSION['role']) || $_SESSION['role'] != "Office Manager") {
+    if (!isset($_SESSION['email_login']) || !isset($_SESSION['role'])) {
         header("Location: index.php");
     }
 ?>

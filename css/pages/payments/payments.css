@@ -21,6 +21,7 @@
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
+  display: none;
 }
 
 .content .payment-alert .modal-late-payment {
@@ -122,8 +123,8 @@
 .content .payment-details .payment-detail-tags {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 17% (1fr)[5] 3%;
+      grid-template-columns: 17% repeat(5, 1fr) 3%;
   padding: 0 15px 10px;
   text-transform: uppercase;
   color: #9a9a9a;
@@ -133,6 +134,225 @@
 
 .content .payment-details .payment-detail-tags span {
   font-size: 12px;
+}
+
+.content .payment-details #payment-list li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 17% (1fr)[5] 3%;
+      grid-template-columns: 17% repeat(5, 1fr) 3%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.content .payment-details #payment-list li span {
+  color: #333;
+}
+
+.content .payment-details #payment-list li button.open-jobs-payment {
+  background: #fff;
+  border: none;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: 0;
+}
+
+.content .payment-details #payment-list li button.open-jobs-payment ion-icon {
+  color: #EE5757;
+  font-size: 20px;
+}
+
+.content .payment-details #payment-list li button.open-jobs-payment:hover {
+  background: #EE5757;
+}
+
+.content .payment-details #payment-list li button.open-jobs-payment:hover ion-icon {
+  color: #fff;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] {
+  padding: 30px 40px;
+  background: #fbfbfb;
+  position: relative;
+  border-radius: 5px;
+  display: none;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"], .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 5%;
+  height: 100%;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] h2, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] input, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] select, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] input, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] select {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  outline: 0;
+  border: 1px solid #dcdcdc;
+  color: #555;
+  border-radius: 5px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .payment-type-details, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .payment-type-details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-gap: 25px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .discount-details, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-gap: 25px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .discount-details .discount-plan span, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-details .discount-plan span {
+  display: block;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .discount-details .input-submit-btn, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-details .input-submit-btn {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .discount-details .input-submit-btn input[type="submit"], .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-details .input-submit-btn input[type="submit"] {
+  cursor: pointer;
+  background: #EE5757;
+  color: #fff;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .discount-details .input-submit-btn input[type="submit"]:hover, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-details .input-submit-btn input[type="submit"]:hover {
+  opacity: 0.6;
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] {
+  -ms-grid-columns: 1fr 68%;
+      grid-template-columns: 1fr 68%;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .payment-type-details {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 25px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-plan {
+  padding: 0 10px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-plan h2, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-plan span {
+  display: inline-block;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-plan span {
+  margin-left: 10px;
+  font-weight: 100;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-task-details {
+  margin: 15px 0px 35px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-task-details .task-details-discount {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 50% 15% 1fr;
+      grid-template-columns: 10% 50% 15% 1fr;
+  padding: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-task-details .task-details-discount input[type="text"] {
+  padding: 7px 10px;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .discount-task-details .task-details-discount:hover {
+  background: #EE5757;
+  color: #fff;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .input-submit-btn {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  text-align: right;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .input-submit-btn input[type="submit"] {
+  background: #EE5757;
+  width: 20%;
+  cursor: pointer;
+  color: #fff;
 }
 
 .content::after {

@@ -24,11 +24,12 @@
 
         if ($x == mysqli_num_rows($find_customer_result)) {
             $sq="INSERT INTO Customer(cust_id,cust_fname,cust_sname,cust_email,cust_address,cust_type,cust_mobile,discount_plan,payment_type) 
-            VALUES (null,'$fname','$sname','$email','$address',0,'$mobile',null,0)";//insert the new customer.
+            VALUES (null,'$fname','$sname','$email','$address',0,'$mobile',null, null)";//insert the new customer.
             $result=mysqli_query($connect,$sq);//run the insert query
         }
-    }
 
+        $x++;
+    }
     
     if (!$result){
         die('Error: ' . mysqli_error($connect));//if sql query error,then output error

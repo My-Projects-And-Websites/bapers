@@ -48,7 +48,7 @@
 
         .job-detail-tags {
             display: grid;
-            grid-template-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
+            grid-template-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
             padding: 0 15px 10px;
             text-transform: uppercase;
             color: #9a9a9a;
@@ -64,7 +64,7 @@
             
             li {
                 display: grid;
-                grid-template-columns: 5% 10% 10% 1fr 1fr 1fr 1fr 5%;
+                grid-template-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
                 align-items: center;
                 padding: 15px;
                 transition: .2s;
