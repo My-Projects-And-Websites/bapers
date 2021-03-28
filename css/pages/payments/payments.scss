@@ -207,8 +207,10 @@
                         .input-submit-btn {
                             grid-column: 1 / 3;
                             align-self: flex-end;
+                            text-align: right;
     
                             input[type="submit"] {
+                                width: 200px;
                                 cursor: pointer;
                                 background: #EE5757;
                                 color: #fff;
@@ -278,7 +280,7 @@
 
                             input[type="submit"] {
                                 background: #EE5757;
-                                width: 20%;
+                                width: 200px;
                                 cursor: pointer;
                                 color: #fff;
                             }

@@ -143,9 +143,14 @@
                                     '<option value=Cash>Cash</option>' .
                                     '<option value=Card>Card</option>' .
                                     '</select>' . '</div>' .
-                                    '<div class=card-num>' . '<h2>Card Number</h2><input disabled type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
-                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input disabled type=text name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
-                                    '<div class=card-cvv>' . '<h2>CVV</h2><input disabled type=text name=card-ccv class=card-cvv-' . $job_row['job_id'] . ' placeholder="CVV"></div>';
+                                    '<div class=card-name>' . '<h2>Cardholder Name</h2><input type=text name=card-name class=card-name-' . $job_row['job_id'] . ' placeholder="Cardholder Name"></div>' .
+                                    '<div class=card-num>' . '<h2>Card Number</h2><input type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
+                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input type=text name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
+                                    '<div class=card-type>' . '<h2>Card Type</h2><select name=card-type class=card-type-' . $job_row['job_id'] . '>' .
+                                    '<option value="Visa">Visa</option>' .
+                                    '<option value="Mastercard">Mastercard</option>' .
+                                    '<option value="Maestro">Maestro</option>' .
+                                    '</select></div>';
                                     echo '</div>';
 
                                     echo '<div class=discount-details>';
@@ -158,9 +163,8 @@
                                     }
                                     
                                     echo '<div class=discount-rate>' . '<h2>Discount Rate</h2><input type=text name=discount-rate class=discount-rate-input-' . $job_row['job_id'] . ' placeholder="Discount Rate"></div>';
-                                    echo '<div class=input-submit-btn><input type=submit value=Submit></div></div>';
-
-                                    echo '</form></div>';
+                                    echo '<input type=hidden name=payment-identifier value=' . $job_row['job_id'] . '>';
+                                    echo '<div class=input-submit-btn><input type=submit value=Apply></div></div>';
                                 }
                                 else if ($job_row['discount_plan'] == "Variable") {
                                     echo '<div class=jobs-payment-details-' . $job_row['job_id'] . '><form class=jobs-payment-form-variable-' . $job_row['job_id'] . ' method=POST action=php/update_paym.php>';
@@ -171,9 +175,14 @@
                                     '<option value=Cash>Cash</option>' .
                                     '<option value=Card>Card</option>' .
                                     '</select>' . '</div>' .
-                                    '<div class=card-num>' . '<h2>Card Number</h2><input disabled type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
-                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input disabled type=text name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
-                                    '<div class=card-cvv>' . '<h2>CVV</h2><input disabled type=text name=card-cvv class=card-cvv-' . $job_row['job_id'] . ' placeholder="CVV"></div>';
+                                    '<div class=card-name>' . '<h2>Cardholder Name</h2><input type=text name=card-name class=card-name-' . $job_row['job_id'] . ' placeholder="Cardholder Name"></div>' .
+                                    '<div class=card-num>' . '<h2>Card Number</h2><input type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
+                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input type=month name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
+                                    '<div class=card-type>' . '<h2>Card Type</h2><select name=card-type class=card-type-' . $job_row['job_id'] . '>' .
+                                    '<option value="Visa">Visa</option>' .
+                                    '<option value="Mastercard">Mastercard</option>' .
+                                    '<option value="Maestro">Maestro</option>' .
+                                    '</select></div>';
                                     echo '</div>';
 
                                     echo '<div class=discount-plan-details-paym><div class=discount-plan>' . '<h2>Discount Plan:<span>' . $job_row['discount_plan'] .'</span></h2></div>';
@@ -198,10 +207,12 @@
                                     }
                                     echo '</div>';
 
-                                    echo '<div class=input-submit-btn><input type=submit value="Apply"></div></div>';
+                                    echo '<input type=hidden name=payment-identifier value=' . $job_row['job_id'] . '>';
 
-                                    echo '</form></div>';
+                                    echo '<div class=input-submit-btn><input type=submit value="Apply"></div></div>';
                                 }
+
+                                echo '</form></div>';
                             }
                         }
                     ?>

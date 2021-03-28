@@ -261,9 +261,11 @@
   grid-column: 1 / 3;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  text-align: right;
 }
 
 .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .discount-details .input-submit-btn input[type="submit"], .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-details .input-submit-btn input[type="submit"] {
+  width: 200px;
   cursor: pointer;
   background: #EE5757;
   color: #fff;
@@ -350,7 +352,7 @@
 
 .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-plan-details-paym .input-submit-btn input[type="submit"] {
   background: #EE5757;
-  width: 20%;
+  width: 200px;
   cursor: pointer;
   color: #fff;
 }
