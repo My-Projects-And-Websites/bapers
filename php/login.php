@@ -12,8 +12,7 @@
         if($verifycode==$code){
         }
         else{
-            echo '<html><head><Script Language="JavaScript">alert("Sorry,Your Captcha is wrong!");
-            window.history.back();</Script></head></html>';
+            echo '<script Language="JavaScript">alert("Sorry,Your Captcha is wrong!"); window.history.back();</script>';
             exit();
         }
     }

@@ -143,10 +143,10 @@
                                     '<option value=Cash>Cash</option>' .
                                     '<option value=Card>Card</option>' .
                                     '</select>' . '</div>' .
-                                    '<div class=card-name>' . '<h2>Cardholder Name</h2><input type=text name=card-name class=card-name-' . $job_row['job_id'] . ' placeholder="Cardholder Name"></div>' .
-                                    '<div class=card-num>' . '<h2>Card Number</h2><input type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
-                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input type=text name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
-                                    '<div class=card-type>' . '<h2>Card Type</h2><select name=card-type class=card-type-' . $job_row['job_id'] . '>' .
+                                    '<div class=card-name-' . $job_row['job_id'] . '>' . '<h2>Cardholder Name</h2><input type=text name=card-name class=card-name-details-' . $job_row['job_id'] . ' placeholder="Cardholder Name"></div>' .
+                                    '<div class=card-num-' . $job_row['job_id'] . '>' . '<h2>Card Number</h2><input type=text name=card-num class=card-num-details-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
+                                    '<div class=card-exp-' . $job_row['job_id'] . '>' . '<h2>Expiry Date</h2><input type=month name=exp-date class=exp-date-details-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
+                                    '<div class=card-type-' . $job_row['job_id'] . '>' . '<h2>Card Type</h2><select name=card-type class=card-type-details-' . $job_row['job_id'] . '>' .
                                     '<option value="Visa">Visa</option>' .
                                     '<option value="Mastercard">Mastercard</option>' .
                                     '<option value="Maestro">Maestro</option>' .
@@ -175,10 +175,10 @@
                                     '<option value=Cash>Cash</option>' .
                                     '<option value=Card>Card</option>' .
                                     '</select>' . '</div>' .
-                                    '<div class=card-name>' . '<h2>Cardholder Name</h2><input type=text name=card-name class=card-name-' . $job_row['job_id'] . ' placeholder="Cardholder Name"></div>' .
-                                    '<div class=card-num>' . '<h2>Card Number</h2><input type=text name=card-num class=card-num-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
-                                    '<div class=card-exp>' . '<h2>Expiry Date</h2><input type=month name=exp-date class=exp-date-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
-                                    '<div class=card-type>' . '<h2>Card Type</h2><select name=card-type class=card-type-' . $job_row['job_id'] . '>' .
+                                    '<div class=card-name-' . $job_row['job_id'] . '>' . '<h2>Cardholder Name</h2><input type=text name=card-name class=card-name-details-' . $job_row['job_id'] . ' placeholder="Cardholder Name"></div>' .
+                                    '<div class=card-num-' . $job_row['job_id'] . '>' . '<h2>Card Number</h2><input type=text name=card-num class=card-num-details-' . $job_row['job_id'] . ' placeholder="Card Number"></div>' .
+                                    '<div class=card-exp-' . $job_row['job_id'] . '>' . '<h2>Expiry Date</h2><input type=month name=exp-date class=exp-date-details-' . $job_row['job_id'] . ' placeholder="Expiry Date"></div>' .
+                                    '<div class=card-type-' . $job_row['job_id'] . '>' . '<h2>Card Type</h2><select name=card-type class=card-type-details-' . $job_row['job_id'] . '>' .
                                     '<option value="Visa">Visa</option>' .
                                     '<option value="Mastercard">Mastercard</option>' .
                                     '<option value="Maestro">Maestro</option>' .

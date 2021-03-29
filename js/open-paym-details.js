@@ -15,14 +15,14 @@ function changePaymType(id) {
     var selectPaymType = $('.payment-type-cash-card-' + id);
     var cardName = $('.card-name-' + id);
     var cardNum = $('.card-num-' + id);
-    var cardExp = $('.exp-date-' + id);
+    var cardExp = $('.card-exp-' + id);
     var cardCVV = $('.card-type-' + id);
 
     if (selectPaymType.val() == "Cash") {
-        cardName.prop("disabled", true);
-        cardNum.prop("disabled", true);
-        cardExp.prop("disabled", true);
-        cardCVV.prop("disabled", true);
+        cardName.slideUp(200);
+        cardNum.slideUp(200);
+        cardExp.slideUp(200);
+        cardCVV.slideUp(200);
 
         cardName.val('');
         cardNum.val('');
@@ -30,6 +30,11 @@ function changePaymType(id) {
         cardCVV.val('');
     }
     else {
+        cardName.slideDown(200);
+        cardNum.slideDown(200);
+        cardExp.slideDown(200);
+        cardCVV.slideDown(200);
+
         cardName.prop("disabled", false);
         cardNum.prop("disabled", false);
         cardExp.prop("disabled", false);

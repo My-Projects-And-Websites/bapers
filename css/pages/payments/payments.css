@@ -231,6 +231,14 @@
   grid-gap: 25px;
 }
 
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .payment-type-details > *, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .payment-type-details > * {
+  display: none;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .payment-type-details .payment-type, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .payment-type-details .payment-type {
+  display: block;
+}
+
 .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-"] .discount-details, .content .payment-details #payment-list div[class*="jobs-payment-details-"] form[class*="jobs-payment-form-variable-"] .discount-details {
   display: -ms-grid;
   display: grid;
