@@ -40,8 +40,9 @@
     $job_query_num_rows->execute();
     $job_result_num_rows = $job_query_num_rows->get_result();
 
-    $num_rows = mysqli_num_rows($job_result_num_rows);
+    $num_rows = mysqli_num_rows($job_result_num_rows) + 1;
     $job_id_char = "JOB#" . strval($num_rows);
+    $paym_id_char = "PAY#" . strval($num_rows);
 
     $sql = "INSERT INTO Job (job_id, job_id_char, job_urgency, job_deadline, special_instructions, job_status, expected_finish, actual_finish, order_time, total_price, discount_amount, alert_flag, Customercust_id) 
     VALUES (null, '$job_id_char', '$urgency', '$deadline' , '$instructions', '$status', null, null, '$time_of_order', $job_price, null, 0, '$customer_id')"; // insert the new job.
@@ -61,10 +62,10 @@
         $staff_counter++;
     }
 
-    $paym_sql = "INSERT INTO Payment (payment_id, payment_total, payment_late, payment_alert, payment_discount, discount_rate, payment_status, Customercust_id)
-    VALUES (null, ?, 0, 0, null, 0, 'Pending', ?)";
+    $paym_sql = "INSERT INTO Payment (payment_id, payment_id_char, payment_total, payment_late, payment_alert, payment_discount, discount_rate, payment_status, Customercust_id)
+    VALUES (null, ?, ?, 0, 0, null, 0, 'Pending', ?)";
     $paym_query = $connect->prepare($paym_sql);
-    $paym_query->bind_param("di", $job_price, $customer_id);
+    $paym_query->bind_param("sdi", $paym_id_char, $job_price, $customer_id);
     $paym_query->execute();
 
     if (!$job_result){

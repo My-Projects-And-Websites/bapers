@@ -106,11 +106,15 @@
                             $loop_count++;
 
                             if ($loop_count == mysqli_num_rows($task_result)) {
-                                if ($total_time > 60) {
-                                    $total_time = $total_time - 60;
-                                    $hour_count++;
 
-                                    echo '<span class="grid-place-6">' . $hour_count . ' h ' . $total_time . ' min</span>';
+                                if ($total_time >= 60) {
+                                    
+                                    while ($total_time >= 60) {
+                                        $total_time = $total_time - 60;
+                                        $hour_count++;
+                                    }
+
+                                    echo '<span class="grid-place-6">' . $hour_count . ' hr ' . $total_time . ' min</span>';
                                 }
                                 else {
                                     echo '<span class="grid-place-6">' . $total_time . ' min</span>';

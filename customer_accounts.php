@@ -8,6 +8,8 @@
     if (!isset($_SESSION['email_login']) || !isset($_SESSION['role']) || $_SESSION['role'] != "Office Manager") {
         header("Location: index.php");
     }
+
+    $role = $_SESSION['role'];
 ?>
 
 <!DOCTYPE html>
@@ -27,48 +29,72 @@
 </head>
 <body>
     <main class="dash-template">
-        <section class="sidebar">
-            <a href="dashboard.php" class="sidebar-link">
-                <ion-icon name="apps-outline"></ion-icon>
-                <span>Overview</span>
-            </a>
-            <a href="payments.php" class="sidebar-link">
-                <ion-icon name="card-outline"></ion-icon>
-                <span>Payments</span>
-            </a>
-            <a href="accounts.php" class="sidebar-link">
-                <ion-icon name="add-circle-outline"></ion-icon>
-                <span>Accounts</span>
-            </a>
-            <a href="reports.php" class="sidebar-link">
-                <ion-icon name="document-text-outline"></ion-icon>
-                <span>Reports</span>
-            </a>
-            <div class="open-jobs-link">
-                <button class="open-job-collapsed-bar">
-                    <ion-icon name="caret-forward-outline" class="job-arrow"></ion-icon>
-                    <span>Jobs</span>
-                </button>
-                <div class="job-links">
-                    <a href="accept_job.php"><span>Accept Jobs</span></a>
-                    <a href="process_job.php"><span>Process Jobs</span></a>
-                </div>
-            </div>
-            <div class="open-customer-link">
-                <button class="open-customer-collapsed-bar">
-                    <ion-icon name="caret-forward-outline" class="customer-arrow"></ion-icon>
-                    <span>Customers</span>
-                </button>
-                <div class="customer-links">
-                    <a href="customer_accounts.php"><span>Accounts</span></a>
-                    <a href=""><span>Discounts</span></a>
-                </div>
-            </div>
-            <a href="php/logout.php" class="sidebar-link">
-                <ion-icon name="settings-outline"></ion-icon>
-                <span>Sign Out</span>
-            </a>
-        </section>
+        <div class="sidebar">
+            <?php
+                if ($role == "Office Manager" || $role == "Shift Manager" || $role == "Receptionist" || $role == "Technician") {
+                    echo '<a href="dashboard.php" class="sidebar-link">
+                        <ion-icon name="apps-outline"></ion-icon>
+                        <span>Overview</span>
+                    </a>';
+                }
+
+                if ($role == "Office Manager" || $role == "Shift Manager" || $role == "Receptionist") {
+                    echo '<a href="payments.php" class="sidebar-link">
+                        <ion-icon name="card-outline"></ion-icon>
+                        <span>Payments</span>
+                    </a>';
+                }
+                
+                if ($role == "Office Manager") {
+                    echo '<a href="accounts.php" class="sidebar-link">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                        <span>Accounts</span>
+                    </a>';
+                }
+                
+                if ($role == "Office Manager" || $role == "Shift Manager") {
+                    echo '<a href="reports.php" class="sidebar-link">
+                        <ion-icon name="document-text-outline"></ion-icon>
+                        <span>Reports</span>
+                    </a>';
+                }
+
+                if ($role == "Office Manager") {
+                    echo '<a href="manage_tasks.php" class="sidebar-link">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <span>Tasks</span>
+                    </a>';
+                }
+                
+                if ($role == "Office Manager") {
+                    echo '<a href="customer_accounts.php" class="sidebar-link">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                        <span>Customers</span>
+                    </a>';
+                }
+                
+                echo '<div class="open-jobs-link">';
+                    echo '<button class="open-job-collapsed-bar">
+                        <ion-icon name="caret-forward-outline" class="job-arrow"></ion-icon>
+                        <span>Jobs</span>
+                    </button>';
+                    echo '<div class="job-links">';
+                        if ($role == "Office Manager" || $role == "Shift Manager" || $role == "Receptionist") {
+                            echo '<a href="accept_job.php"><span>Accept Jobs</span></a>';
+                        }
+
+                        if ($role == "Office Manager" || $role == "Shift Manager" || $role == "Technician") {
+                            echo '<a href="process_job.php"><span>Process Jobs</span></a>';
+                        }
+                    echo '</div>';
+                echo '</div>';
+                
+                echo '<a href="php/logout.php" class="sidebar-link">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <span>Sign Out</span>
+                </a>';
+            ?>
+        </div>
         <section class="header">
             <span><?php echo $_SESSION['fname'] . ' ' . $_SESSION['sname']; ?></span>
         </section>
@@ -105,48 +131,52 @@
                                     $row['cust_type'] = "No";
                                 }
                                 else {
-                                    $row['cust_type'] = "Yes";
+                                    $row['cust_type'] = "Valued";
                                 }
 
                                 echo "<li id=customer-" . $row['cust_id'] . 
-                                "><span>" . $row['cust_id'] .
+                                "><span>" . $row['cust_id_char'] .
                                 "</span><span>" . $row['cust_fname'] . ' ' . $row['cust_sname'] . 
                                 '</span><span>' . $row['cust_mobile'] . 
                                 '</span><span>' . $row['cust_email'] .
                                 '</span><span>' . $row['cust_type'] .
-                                '</span><form action="php/set_discount.php" method="POST" class=set-discount-to-cust-' . $row['cust_id'] . '>' . 
-                                '<select name=discount id=discount-select-' . $row['cust_id'] .'>';
+                                '</span><form action="php/set_discount.php" method="POST" class=set-discount-to-cust-' . $row['cust_id'] . '>';
 
-                                if ($row['discount_plan'] == "Fixed") {
-                                    echo '<option value="">None</option>' .
-                                    '<option value="Fixed" selected>Fixed</option>' .
-                                    '<option value="Variable">Variable</option>' .
-                                    '<option value="Flexible">Flexible</option>';
-                                }
-                                else if ($row['discount_plan'] == "Variable") {
-                                    echo '<option value="">None</option>' .
-                                    '<option value="Fixed">Fixed</option>' .
-                                    '<option value="Variable" selected>Variable</option>' .
-                                    '<option value="Flexible">Flexible</option>';
-                                }
-                                else if ($row['discount_plan'] == "Flexible") {
-                                    echo '<option value="">None</option>' .
-                                    '<option value="Fixed">Fixed</option>' .
-                                    '<option value="Variable">Variable</option>' .
-                                    '<option value="Flexible" selected>Flexible</option>';
-                                }
-                                else {
-                                    echo '<option value="" selected>None</option>' .
-                                    '<option value="Fixed">Fixed</option>' .
-                                    '<option value="Variable">Variable</option>' .
-                                    '<option value="Flexible">Flexible</option>';
+                                if ($row['cust_type'] == "Valued") {
+                                    echo '<select name=discount id=discount-select-' . $row['cust_id'] .'>';
+
+                                    if ($row['discount_plan'] == "Fixed") {
+                                        echo '<option value="">None</option>' .
+                                        '<option value="Fixed" selected>Fixed</option>' .
+                                        '<option value="Variable">Variable</option>' .
+                                        '<option value="Flexible">Flexible</option>';
+                                    }
+                                    else if ($row['discount_plan'] == "Variable") {
+                                        echo '<option value="">None</option>' .
+                                        '<option value="Fixed">Fixed</option>' .
+                                        '<option value="Variable" selected>Variable</option>' .
+                                        '<option value="Flexible">Flexible</option>';
+                                    }
+                                    else if ($row['discount_plan'] == "Flexible") {
+                                        echo '<option value="">None</option>' .
+                                        '<option value="Fixed">Fixed</option>' .
+                                        '<option value="Variable">Variable</option>' .
+                                        '<option value="Flexible" selected>Flexible</option>';
+                                    }
+                                    else {
+                                        echo '<option value="" selected>None</option>' .
+                                        '<option value="Fixed">Fixed</option>' .
+                                        '<option value="Variable">Variable</option>' .
+                                        '<option value="Flexible">Flexible</option>';
+                                    }
+
+                                    echo '</select>';
+
+                                    echo '<button type="submit">' .
+                                    '<ion-icon name="checkmark-outline"></ion-icon>' .
+                                    '</button>';
                                 }
 
-                                echo '</select>';
-
-                                echo '<button type="submit">' .
-                                '<ion-icon name="checkmark-outline"></ion-icon>' .
-                                '</button>';
 
                                 echo '<input type="hidden" name="customer-id" value=' . $row['cust_id'] . '>';
 
@@ -223,7 +253,7 @@
 
                         while ($cust_row = $cust_result->fetch_assoc()) {
                             echo '<li class=customer-id-' . $cust_row['cust_id'] . '>' .
-                            '<span class=customer-name-' . $cust_row['cust_id'] . '>'  . $cust_row['cust_id'] . ' | ' . $cust_row['cust_email'] . '</span>' .
+                            '<span class=customer-name-' . $cust_row['cust_id'] . '>'  . $cust_row['cust_id_char'] . ' | ' . $cust_row['cust_email'] . '</span>' .
                             '<select name=valued[] class=select-valued>';
 
                             if ($cust_row['cust_type'] == 0) {

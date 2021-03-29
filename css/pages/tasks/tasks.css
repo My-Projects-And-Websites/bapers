@@ -1,0 +1,355 @@
+.content {
+  padding: 30px 40px;
+  overflow: auto;
+  position: relative;
+}
+
+.content .add-task-btn {
+  margin-bottom: 25px;
+}
+
+.content .add-task-btn button.add-task {
+  padding: 15px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #1f9be2;
+  border: none;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  -webkit-transition: .2s;
+  transition: .2s;
+  outline: 0;
+}
+
+.content .add-task-btn button.add-task ion-icon {
+  margin-right: 10px;
+}
+
+.content .add-task-btn button.add-task:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.content .task-details {
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 30px 40px;
+}
+
+.content .task-details .task-detail-tags {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 28% (1fr)[3] 5%;
+      grid-template-columns: 5% 28% repeat(3, 1fr) 5%;
+  grid-gap: 35px;
+  padding: 0 15px 10px;
+  text-transform: uppercase;
+  color: #9a9a9a;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #eee;
+}
+
+.content .task-details .task-detail-tags span {
+  font-size: 12px;
+}
+
+.content .task-details #task-list li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 28% (1fr)[3] 5%;
+      grid-template-columns: 5% 28% repeat(3, 1fr) 5%;
+  grid-gap: 35px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.content .task-details #task-list li span {
+  color: #333;
+}
+
+.content .task-details #task-list li .utility-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .task-details #task-list li .utility-btn button {
+  padding: 7px;
+  background: #3b9b3b;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .2s;
+  transition: .2s;
+  outline: 0;
+}
+
+.content .task-details #task-list li .utility-btn button ion-icon {
+  font-size: 18px;
+  color: #fff;
+}
+
+.content .task-details #task-list li .utility-btn button.del-btn {
+  background: #EE5757;
+  margin-left: 5px;
+}
+
+.content .task-details #task-list li .utility-btn button:hover {
+  -webkit-transform: scale(1.075);
+          transform: scale(1.075);
+}
+
+.content .task-details #task-list li:hover {
+  background: #fafafa;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"], .content .task-details #task-list div[class*="edit-task-form-"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: auto;
+  padding: 30px 0px;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task {
+  width: 45%;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task h2, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task h2, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task h2, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task h2 {
+  font-size: 36px;
+  color: #333;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task p, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task p, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task p, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task p {
+  line-height: 1.5;
+  color: #555;
+  font-size: 18px;
+  margin: 10px 0px 25px;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task div[class*="input"], .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task div[class*="input"], .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task div[class*="input"], .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task div[class*="input"] {
+  margin-bottom: 15px;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task div[class*="input"]:last-child, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task div[class*="input"]:last-child, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task div[class*="input"]:last-child, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task div[class*="input"]:last-child {
+  margin-bottom: 0;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task input, .content .task-details #task-list div[class*="delete-task-form-"] form.delete-task select, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task input, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task select, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task input, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task select, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task input, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task select {
+  width: 100%;
+  padding: 11px 15px;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  outline: 0;
+  color: #333;
+  border-radius: 5px;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task label, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task label, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task label, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: block;
+  color: #555;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task .input-submit-field, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task .input-submit-field, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task .input-submit-field, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task .input-submit-field {
+  margin-top: 30px;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task .input-submit-field input[type="submit"], .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task .input-submit-field input[type="submit"], .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task .input-submit-field input[type="submit"], .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task .input-submit-field input[type="submit"] {
+  background: #3b9b3b;
+  color: #fff;
+  cursor: pointer;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task .delete-cancel-btn, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task .delete-cancel-btn, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task .delete-cancel-btn, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task .delete-cancel-btn {
+  text-align: right;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task .delete-cancel-btn button, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task .delete-cancel-btn button, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task .delete-cancel-btn button, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task .delete-cancel-btn button {
+  padding: 10px 20px;
+  background: #EE5757;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  outline: 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task .delete-cancel-btn button[class*="cancel-deletion"], .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task .delete-cancel-btn button[class*="cancel-deletion"], .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task .delete-cancel-btn button[class*="cancel-deletion"], .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task .delete-cancel-btn button[class*="cancel-deletion"] {
+  background: #1f9be2;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task .close-form, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task .close-form, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task .close-form, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task .close-form {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.content .task-details #task-list div[class*="delete-task-form-"] form.delete-task .close-form button, .content .task-details #task-list div[class*="delete-task-form-"] form.edit-task .close-form button, .content .task-details #task-list div[class*="edit-task-form-"] form.delete-task .close-form button, .content .task-details #task-list div[class*="edit-task-form-"] form.edit-task .close-form button {
+  background: none;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+.content .add-task-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  overflow: auto;
+}
+
+.content .add-task-form .create-task {
+  width: 50%;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.content .add-task-form .create-task h2 {
+  font-size: 36px;
+  color: #333;
+}
+
+.content .add-task-form .create-task p {
+  line-height: 1.5;
+  color: #555;
+  font-size: 18px;
+  margin: 10px 0px 25px;
+}
+
+.content .add-task-form .create-task div[class*="input"] {
+  margin-bottom: 15px;
+}
+
+.content .add-task-form .create-task div[class*="input"]:last-child {
+  margin-bottom: 0;
+}
+
+.content .add-task-form .create-task input, .content .add-task-form .create-task select {
+  width: 100%;
+  padding: 11px 15px;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  outline: 0;
+  color: #333;
+  border-radius: 5px;
+}
+
+.content .add-task-form .create-task label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: block;
+  color: #555;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.content .add-task-form .create-task .input-submit-field {
+  margin-top: 30px;
+}
+
+.content .add-task-form .create-task .input-submit-field input[type="submit"] {
+  background: #1f9be2;
+  color: #fff;
+  cursor: pointer;
+}
+
+.content .add-task-form .create-task .input-submit-field #valued-submit-btn {
+  background: #1f9be2;
+}
+
+.content .add-task-form .create-task .close-form {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.content .add-task-form .create-task .close-form button {
+  background: none;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+.content::after {
+  content: '';
+  width: 100%;
+  height: 15px;
+}
+/*# sourceMappingURL=tasks.css.map */

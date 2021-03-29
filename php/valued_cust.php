@@ -1,7 +1,10 @@
 <?php
     include "connection.php";
 
-    $valued = $_POST['valued'];
+    if (isset($_POST['valued'])) {
+        $valued = $_POST['valued'];
+    }
+    
     $customers = $_POST['cust-identifier'];
 
     $i = 0;
