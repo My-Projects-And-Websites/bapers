@@ -22,7 +22,6 @@
         window.location.href = "../../manage_tasks.php";
         </script>';
     }
-    
 
     // header("Location: ../../manage_tasks.php");
 ?>
