@@ -44,7 +44,7 @@ at regular intervals of 15 minutes until the Office Manager acknowledges the rec
 No refunds are to be implemented in BAPERS.*/
 function late_payment_alert(){
     include ('connection.php');//connect to database
-    $payment_status = "SELECT payment.payment_id,payment.payment_total,payment_alert,customer.cust_id,customer.cust_fname,cust_sname,cust_email,cust_address,cust_mobile from 
+    $payment_status = "SELECT payment.payment_id,payment.payment_total,payment_alert,customer.cust_id,customer.cust_fname,cust_sname,cust_email,cust_address,cust_mobile,payment.payment_type from 
     payment,customer where payment.payment_late = 1 and customer.cust_id = payment.	Customercust_id"; //The flag of payment is late.
     $payment_result = $connect->query($payment_status);
     $payment_row = mysqli_fetch_all($payment_result,MYSQLI_ASSOC);
@@ -64,6 +64,15 @@ function late_payment_alert(){
                     mysqli_query($connect,$alert_query);
                     }
                 }
+            }
+            $EMAIL_reciever = "SELECT username_login from staff where staff_role = 'Office Manager' ";// send the email to office manager   
+            $reuslt3 = $connect->query($EMAIL_reciever);
+            $row_email = mysqli_fetch_all($reuslt3,MYSQLI_ASSOC);
+            $email_user = array_column($row_email,'username_login');
+            include('send_email.php');
+            for($i=0;$i<=sizeof($email_user);$i++){ // this part use for test print out, after will do functions.
+             late_payment_email($email_user[$i],$payment_row['payment_id'],$payment_row['cust_id'],$payment_row['cust_fname']." ".$payment_row['cust_sname'],$payment_row['cust_email'],$payment_row['cust_mobile']
+             ,$payment_row['cust_address'],$payment_row['payment_total'],date("d/m/Y"),$payment_row['payment_type']);
             }
         }
     }
