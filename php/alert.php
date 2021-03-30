@@ -32,9 +32,8 @@ function deadline_alert(){
         $row_email = mysqli_fetch_all($reuslt3,MYSQLI_ASSOC);
         $email_user = array_column($row_email,'username_login');
         include('send_email.php');
-        for($i=0;$i<=sizeof($email_user);$i++){ // this part use for test print out, after will do functions.
-         job_deadline_email($email_user[$i],$row['job_id'],$row['job_deadline'],$row['special_instructions'],$row['Customercust_id'],$row['order_time'],$row['job_status']);}
-    }
+        job_deadline_email($email_user,$row[0]['job_id'],$row[0]['job_deadline'],$row[0]['special_instructions'],$row[0]['Customercust_id'],$row[0]['order_time'],$row[0]['job_status']);}
+    
 }
 
 /*Requirement 2:*/
@@ -69,11 +68,9 @@ function late_payment_alert(){
             $reuslt3 = $connect->query($EMAIL_reciever);
             $row_email = mysqli_fetch_all($reuslt3,MYSQLI_ASSOC);
             $email_user = array_column($row_email,'username_login');
-            include('send_email.php');
-            for($i=0;$i<=sizeof($email_user);$i++){ // this part use for test print out, after will do functions.
-             late_payment_email($email_user[$i],$payment_row['payment_id'],$payment_row['cust_id'],$payment_row['cust_fname']." ".$payment_row['cust_sname'],$payment_row['cust_email'],$payment_row['cust_mobile']
-             ,$payment_row['cust_address'],$payment_row['payment_total'],date("d/m/Y"),$payment_row['payment_type']);
-            }
+            include('send_email.php'); 
+            late_payment_email($email_user,$payment_row[0]['payment_id'],$payment_row[0]['cust_id'],$payment_row[0]['cust_fname']." ".$payment_row[0]['cust_sname'],$payment_row[0]['cust_email'],$payment_row[0]['cust_mobile']
+           ,$payment_row[0]['cust_address'],$payment_row[0]['payment_total'],date("d/m/Y"),$payment_row[0]['payment_type']);
         }
     }
 ?>
