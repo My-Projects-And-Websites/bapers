@@ -1,5 +1,6 @@
 <?php
     include "php/connection.php";
+    include "php/late.php";
 
     if (!isset($_SESSION)) {
         session_start(); // start the session if not started yet

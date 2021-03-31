@@ -1,4 +1,5 @@
 <?php  
+    include "late.php";
 
     if(!isset($_SESSION)) {
         session_start(); // start the session if it still does not exist

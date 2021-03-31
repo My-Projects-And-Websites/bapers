@@ -1,5 +1,6 @@
 <?php
     include "php/connection.php";
+    include "php/late.php";
 
     if (!isset($_SESSION)) {
         session_start(); // start the session if not started yet
@@ -110,7 +111,7 @@
                     $late_count = 0;
                     while ($payment_row = $payment_result->fetch_assoc()) {
 
-                        if ($payment_row['payment_late'] == 1) {
+                        if ($payment_row['payment_status'] != "Paid" && $payment_row['payment_late'] == 1) {
                             $late_count++;
                         }
                     }
@@ -247,7 +248,7 @@
                                             '<span>' . $task_paym_row['task_id'] . '</span>' .
                                             '<span>' . $task_paym_row['task_desc'] . '</span>' .
                                             '<span>£' . number_format((float)$task_paym_row['task_price'], 2, '.', '') . '</span>' .
-                                            '<input type=text name=discount-rate[] placeholder="Discount Rate">' . 
+                                            '<input type=text name=discount-rate-var[] placeholder="Discount Rate">' . 
                                             '</div>';
                                         }
                                         echo '</div>';

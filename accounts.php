@@ -1,5 +1,6 @@
 <?php
     include "php/connection.php";
+    include "php/late.php";
 
     if (!isset($_SESSION)) {
         session_start(); // start the session if not started yet
@@ -119,7 +120,7 @@
                     </div>
                     <div class="input-role-field">
                         <label for="staff-role">Role:</label>
-                        <select name="staff-role" id="staff-role">
+                        <select name="staff-role" id="staff-role" required>
                             <option selected>Select a role...</option>
                             <option value="Office Manager">Office Manager</option>
                             <option value="Receptionist">Receptionist</option>

@@ -2,7 +2,14 @@
     include('connection.php');
 
     $cust_identifier = $_POST['payment-identifier'];
-    $discount_rate = $_POST['discount-rate'];
+
+    if (isset($_POST['discount-rate'])) {
+        $discount_rate = $_POST['discount-rate'];
+    }
+
+    if (isset($_POST['discount-rate-var'])) {
+        $discount_rate_var = $_POST['discount-rate-var'];
+    }
 
     $paym_type = $_POST['payment-type-cash-card'];
     $paym_card_name = $_POST['card-name'];
