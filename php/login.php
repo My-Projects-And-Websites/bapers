@@ -12,7 +12,7 @@
         if($verifycode==$code){
         }
         else{
-            echo '<script Language="JavaScript">alert("Sorry,Your Captcha is wrong!"); window.history.back();</script>';
+            echo '<script Language="JavaScript">alert("Sorry,Your Captcha is wrong!");self.location=document.referrer;</script>';
             exit();
         }
     }
@@ -32,7 +32,7 @@
         if (!isset($row[1]) || !isset($row[2]) || $login != $row[1] && $pass != $row[2]) {
             echo "<script language='javascript'>
                       alert('Please enter valid credentials.');
-                      window.location.href = 'http://localhost/BAPERS/index.php';
+                      self.location=document.referrer;
                   </script>";
         }
         else if ($login == $row[1] && $pass == $row[2]) {

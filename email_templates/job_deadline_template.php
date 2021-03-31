@@ -478,7 +478,7 @@
                                 <tr>
                                   <td class="attributes_item">
                                     <span class="f-fallback">
-              <strong>Job ID:</strong><div align="left">
+              <strong>Job ID</strong><div align="left">
                 {{Job_id}}
               </div>
             </span>
@@ -487,7 +487,7 @@
                                 <tr>
                                   <td class="attributes_item">
                                     <span class="f-fallback">
-              <strong>Job deadline:</strong><div align="left">
+              <strong>Job deadline</strong><div align="left">
                 {{Job_deadline}}
               </div>
             </span>
@@ -496,7 +496,7 @@
                           <tr>
                             <td class="attributes_item">
                               <span class="f-fallback">
-        <strong>Job Special Instructions:</strong> <div align="left">
+        <strong>Job Special Instructions</strong> <div align="left">
           {{Job_SI}}
         </div>
       </span>
@@ -506,7 +506,7 @@
                             <tr>
                               <td class="attributes_item">
                                 <span class="f-fallback">
-          <strong>Customer ID of Job:</strong> <div align="left">
+          <strong>Customer ID of Job</strong> <div align="left">
             {{customer_id}}
           </div>
         </span>
@@ -516,7 +516,7 @@
                               <tr>
                                 <td class="attributes_item">
                                   <span class="f-fallback">
-            <strong>Order Time:</strong> <div align="left">
+            <strong>Order Time</strong> <div align="left">
               {{order_time}}
             </div>
           </span></td>
@@ -525,7 +525,7 @@
                               <tr>
                                 <td class="attributes_item">
                                   <span class="f-fallback">
-            <strong>Last Status:</strong> <div align="left">
+            <strong>Last Status</strong> <div align="left">
               {{last_status}}
             </div>
           </span>
