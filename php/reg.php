@@ -50,7 +50,7 @@
         die('Error: ' . mysqli_error($connect));//if sql query error,then output error
     } else {
         echo '<script language="JavaScript">;alert("Registered successfully!");location.href="../accounts.php";</script>;';
-        staff_reg_email($login,$sname." ".$fname,$login,$password,$dep,$role);
+        staff_reg_email($login,$fname." ".$sname,$login,$password,$dep,$role);
     }
     mysqli_close($connect);//close the db
 
