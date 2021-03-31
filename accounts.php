@@ -121,6 +121,7 @@
                         <label for="staff-role">Role:</label>
                         <select name="staff-role" id="staff-role">
                             <option selected>Select a role...</option>
+                            <option value="Office Manager">Office Manager</option>
                             <option value="Receptionist">Receptionist</option>
                             <option value="Shift Manager">Shift Manager</option>
                             <option value="Technician">Technician</option>

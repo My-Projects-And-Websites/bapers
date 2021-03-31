@@ -28,9 +28,8 @@ CREATE TABLE `customer` (
   `discount_plan` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `payment_type` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`cust_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO customer VALUES("1","ACC#1","Jimm","Inciong","jimminciong163@gmail.com","North Lodge, Lebus Street, , N17 9FQ","0","02034123456","","0");
 
 
 
@@ -123,21 +122,9 @@ CREATE TABLE `staff` (
   `username_login` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password_login` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`staff_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO staff VALUES("1","","Office","Manager","Office Manager"," NULL","00:00:00","office@test.com","office");
-INSERT INTO staff VALUES("2","","Recep","Tionist","Receptionist"," NULL","00:00:00","receptionist@test.com","receptionist");
-INSERT INTO staff VALUES("3","","Shift","Manager","Shift Manager"," NULL","00:00:00","shift@test.com","shift");
-INSERT INTO staff VALUES("4","","Tech","Nician","Technician"," NULL","00:00:00","tech@test.com","tech");
-INSERT INTO staff VALUES("5","","Jimm","Inciong","Technician","Development","00:00:00","jimminciong163@gmail.com","398f986dd3d0e7eb18a924a437d05a27");
-INSERT INTO staff VALUES("6","","Jimm","Inciong","Technician","Development","00:00:00","jimminciong163@gmail.com","398f986dd3d0e7eb18a924a437d05a27");
-INSERT INTO staff VALUES("7","","Jimm","Inciong","Shift Manager","Development","00:00:00","jimminciong163@gmail.com","82ef94554e725e79716e03ff1b138c98");
-INSERT INTO staff VALUES("8","","Stewart","Golding","Receptionist","Finishing Room","00:00:00","stewartgolding@gmail.com","ae463243b033f797858668b931591f92");
-INSERT INTO staff VALUES("9","","Some","One","Shift Manager","Packing","00:00:00","some_one@gmail.com","$1$vpW5k8Wx$DUksGvR1jygcPChRjULr6.");
-INSERT INTO staff VALUES("10","","Some","Thing","Receptionist","Copy Room","00:00:00","some_thing@gmail.com","$1$bf1tmTSk$LSTw1k.cTuYUMZF6EcOiI/");
-INSERT INTO staff VALUES("11","","Wag","Wan","Shift Manager","Packing","00:00:00","wagwan@gmail.com","73e82da1584f81a0c72e1c7316c901c7");
-INSERT INTO staff VALUES("12","","Jimm","Inciong","Shift Manager","Packing","00:00:00","jimminciong163@gmail.com","06d80eb0c50b49a509b49f2424e8c805");
-INSERT INTO staff VALUES("13","STAFF#13","Jimm","Inciong","Receptionist","Development","00:00:00","jimminciong1@gmail.com","7ed201fa20d25d22b291dc85ae9e5ced");
 
 
 
