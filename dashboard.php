@@ -7,10 +7,12 @@
         session_start(); // start the session if not started yet
     }
 
+    // if these session variables do not exist, redirect user to login page
     if (!isset($_SESSION['email_login']) || !isset($_SESSION['role'])) {
         header("Location: index.php");
     }
 
+    // variables used as reference for the 
     $role = $_SESSION['role'];
     $staff_id = $_SESSION['id'];
 ?>
