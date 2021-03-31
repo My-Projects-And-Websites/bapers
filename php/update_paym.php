@@ -1,6 +1,6 @@
 <?php
     include('connection.php');
-
+    include('discount.php');
     $cust_identifier = $_POST['payment-identifier'];
 
     if (isset($_POST['discount-rate'])) {
@@ -16,6 +16,7 @@
     $paym_card_num = $_POST['card-num'];
     $paym_card_exp = $_POST['exp-date'];
     $paym_card_type = $_POST['card-type'];
+    $discount_plan = $_POST['discount_plan'];
 
     $last_four_digits = substr((string)$paym_card_num, -4);
 
@@ -48,6 +49,12 @@
 
         mysqli_close($connect);
 
+        if($discount_rate>100){
+            echo '<script/>alert("Discount Rate cannot be over 100");<script>';
+        }else{
+            discount($discount_plan,$cust_identifier,$discount_rate,$discount_rate_var);
+        }
+
         if (!$update_payment_query || !$insert_card_query) {
             echo '<script>
             alert("Payment unsuccessful. Try again!");
@@ -73,6 +80,12 @@
         $update_paym_status_query = $connect->prepare($update_paym_status_sql);
         $update_paym_status_query->bind_param("i", $cust_identifier);
         $update_paym_status_query->execute();
+
+        if($discount_rate>100){
+            echo '<script/>alert("Discount Rate cannot be over 100");<script>';
+        }else{
+            discount($discount_plan,$cust_identifier,$discount_rate,$discount_rate_var);
+        }
 
         if (!$update_payment_query) {
             echo '<script>
