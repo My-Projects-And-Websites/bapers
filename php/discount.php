@@ -14,6 +14,7 @@ function discount($discount_plan,$payment_id,$discount_percentage){
             $result2 = $connect->query($get_job_price);
             $total_price = mysqli_fetch_row($result2);
             $discount_price = ($total_price[0]*(($discount_percentage)/100));
+            $discount_price = -$discount_price;
             $update_discount_price = "UPDATE job set discount_amount = '$discount_price' where job_id = '$payment_id'";
             $update_payment="UPDATE payment set discount_rate = '$discount_percentage',payment_discount ='$discount_price' where payment_id = '$payment_id'";
             $connect->query($update_discount_price);
@@ -43,6 +44,7 @@ function discount($discount_plan,$payment_id,$discount_percentage){
             }else{
                 $discount_price2 = 0;
             }
+            $discount_price2 = -$discount_price2;
             $update_discount_price = "UPDATE job set discount_amount = '$discount_price2' where job_id = '$payment_id'";
             $update_payment="UPDATE payment set discount_rate = '$discount_percentage',payment_discount ='$discount_price2' where payment_id = '$payment_id'";
             $connect->query($update_discount_price);
