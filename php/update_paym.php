@@ -54,21 +54,13 @@
         } else if ($discount_plan == "Fixed" || $discount_plan == "Flexible") {
             discount($discount_plan,$cust_identifier,$discount_rate,$discount_rate_var);
         } else if ($discount_plan == "Variable") {
-            // TODO: put variable function discount here
+            Variable_discount($cust_identifier,$discount_rate_var);
         } 
 
-        // if (!$update_payment_query || !$insert_card_query) {
-        //     echo '<script>
-        //     alert("Payment unsuccessful. Try again!");
-        //     window.history.back();
-        //     </script>';
-        // }
-        // else {
-        //     echo '<script>
-        //     alert("Payment processed successfully!");
-        //     window.location.href = "../payments.php";
-        //     </script>';
-        // }
+        if (!$update_payment_query) {
+            echo '<script>alert("Payment unsuccessful. Try again!");window.history.back();</script>';}
+       else {
+           echo '<script>alert("Payment processed successfully!");window.location.href = "../payments.php";</script>'; }
     }
     else if ($paym_type == "Cash"){
         $paym_type = 0;
@@ -88,21 +80,13 @@
         } else if ($discount_plan == "Fixed" || $discount_plan == "Flexible") {
             discount($discount_plan,$cust_identifier,$discount_rate,$discount_rate_var);
         } else if ($discount_plan == "Variable") {
-            // TODO: put variable function discount here
+            Variable_discount($cust_identifier,$discount_rate_var);
         } 
 
-        // if (!$update_payment_query) {
-        //     echo '<script>
-        //     alert("Payment unsuccessful. Try again!");
-        //     window.history.back();
-        //     </script>';
-        // }
-        // else {
-        //     echo '<script>
-        //     alert("Payment processed successfully!");
-        //     window.location.href = "../payments.php";
-        //     </script>';
-        // }
+        if (!$update_payment_query) {
+             echo '<script>alert("Payment unsuccessful. Try again!");window.history.back();</script>';}
+        else {
+            echo '<script>alert("Payment processed successfully!");window.location.href = "../payments.php";</script>'; }
     }
     else {
         echo "<script>alert('Please enter the card details!');
