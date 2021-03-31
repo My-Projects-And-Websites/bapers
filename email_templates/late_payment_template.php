@@ -471,14 +471,14 @@
                           </tr>
                         </table>
                         <p>For reference, here's the late payment information:</p>
-                        <table class="attributes" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                        <table class="attributes" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="text-align: center;">
                           <tr>
-                            <td class="attributes_content">
-                              <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                            <td class="attributes_content" >
+                              <table width="100%" cellpadding="0" cellspacing="0" role="presentation" >
                                 <tr>
-                                  <td class="attributes_item">
+                                  <td class="attributes_item" >
                                     <span class="f-fallback">
-              <strong>Payment ID</strong><div align="left">
+              <strong>Payment ID</strong><div align="center">
                 {{Payment_id}}
               </div>
             </span>
@@ -487,7 +487,7 @@
                                 <tr>
                                   <td class="attributes_item">
                                     <span class="f-fallback">
-              <strong>Customer ID</strong><div align="left">
+              <strong>Customer ID</strong><div align="center">
                 {{customer_id}}
               </div>
             </span>
@@ -496,7 +496,7 @@
                           <tr>
                             <td class="attributes_item">
                               <span class="f-fallback">
-        <strong>Customer Name</strong> <div align="left">
+        <strong>Customer Name</strong> <div align="center">
           {{cutomer_name}}
         </div>
       </span>
@@ -506,7 +506,7 @@
                             <tr>
                               <td class="attributes_item">
                                 <span class="f-fallback">
-          <strong>Customer Email</strong> <div align="left">
+          <strong>Customer Email</strong> <div align="center">
             {{customer_email}}
           </div>
         </span>
@@ -516,7 +516,7 @@
                               <tr>
                                 <td class="attributes_item">
                                   <span class="f-fallback">
-            <strong>Contact Number</strong> <div align="left">
+            <strong>Contact Number</strong> <div align="center">
               {{customer_number}}
             </div>
           </span></td>
@@ -525,7 +525,7 @@
                               <tr>
                                 <td class="attributes_item">
                                   <span class="f-fallback">
-            <strong>Customer Address</strong> <div align="left">
+            <strong>Customer Address</strong> <div align="center">
               {{customer_add}}
             </div>
           </span>
@@ -534,7 +534,7 @@
           <tr>
             <td class="attributes_item">
               <span class="f-fallback">
-<strong>Total Due</strong> <div align="left">
+<strong>Total Due</strong> <div align="center">
   {{total_due}}
 </div>
 </span>
@@ -543,23 +543,13 @@
   <tr>
     <td class="attributes_item">
       <span class="f-fallback">
-<strong>Due Time</strong> <div align="left">
+<strong>Due Time</strong> <div align="center">
   {{due_time}}
 </div>
 </span>
 </tr>
 <tr>
-  <tr>
-    <td class="attributes_item">
-      <span class="f-fallback">
-<strong>Payment Type</strong> <div align="left">
-  {{payment_type}}
-</div>
-</span>
-        </table>
-      </td>
-    </tr>
-            <tr>
+           <tr>
               <td>
                 <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>

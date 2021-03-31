@@ -16,7 +16,7 @@ function staff_reg_email($email_add,$name,$login_email,$login_pass,$department,$
     $email->Charset = 'UTF-8';
     $email->FromName = 'BAPERS Register System';
     $email->Username = 'admin@bapers.co.uk';
-    $email->Password = 'GROUP20IN2018';
+    $email->Password = '';
     $email->From = 'register@bapers.co.uk';
     $email->isHTML(true);
     
@@ -51,11 +51,12 @@ function job_deadline_email($email_add,$job_id,$job_deadline,$job_SI,$customer_i
     $email->Charset = 'UTF-8';
     $email->FromName = 'BAPERS Alert System';
     $email->Username = 'admin@bapers.co.uk';
-    $email->Password = 'GROUP20IN2018';
+    $email->Password = '';
     $email->From = 'alert@bapers.co.uk';
     $email->isHTML(true);
-    
-    $email->addAddress($email_add);
+    foreach ($email_add as $add_send) {
+        $email->AddAddress($add_send);
+    }
     $email->Subject = "Job Status Alert! [DO NOT REPLY]";
     $template = '../email_templates/job_deadline_template.php';
     $email_send = '../email_templates/job_deadline_email.php';
@@ -71,7 +72,7 @@ function job_deadline_email($email_add,$job_id,$job_deadline,$job_SI,$customer_i
     $email->send();
     unlink($email_send);
 }
-function late_payment_email($email_add,$payment_id,$cust_id,$cust_name,$cust_email,$cust_no,$cust_add,$payment_due,$due_time,$payment_type){
+function late_payment_email($email_add,$payment_id,$cust_id,$cust_name,$cust_email,$cust_no,$cust_add,$payment_due,$due_time){
     require('phpmailer/Exception.php');
     require('phpmailer/PHPMailer.php');
     require('phpmailer/SMTP.php');
@@ -91,7 +92,9 @@ function late_payment_email($email_add,$payment_id,$cust_id,$cust_name,$cust_ema
     $email->From = 'alert@bapers.co.uk';
     $email->isHTML(true);
     
-    $email->addAddress($email_add);
+    foreach ($email_add as $add_send) {
+        $email->AddAddress($add_send);
+    }
     $email->Subject = "Late Payment Alert! [DO NOT REPLY]";
     $template = '../email_templates/late_payment_template.php';
     $email_send = '../email_templates/late_payment_email.php';
@@ -104,7 +107,6 @@ function late_payment_email($email_add,$payment_id,$cust_id,$cust_name,$cust_ema
     file_put_contents($email_send,str_replace('{{customer_add}}',$cust_add,file_get_contents($email_send)));//show customer address
     file_put_contents($email_send,str_replace('{{total_due}}',$payment_due,file_get_contents($email_send)));//show total due amount
     file_put_contents($email_send,str_replace('{{due_time}}',$due_time,file_get_contents($email_send)));//show due time
-    file_put_contents($email_send,str_replace('{{payment_type}}',$payment_type,file_get_contents($email_send)));//show payment type
     $body = file_get_contents($email_send);
     $email->Body = $body;
     $email->send();
