@@ -1,4 +1,5 @@
 <?php
+    // db connection and update late payments
     include "php/connection.php";
     include "php/late.php";
 
@@ -165,7 +166,7 @@
                     echo '<div class="payments-to-process" id="' . $role . '">
                         <div class="tags">
                             <span>Payment ID</span>
-                            <span>Late</span>
+                            <span>Status</span>
                             <span>Total</span>
                         </div>';
                             
@@ -185,7 +186,7 @@
                                 }
 
                                 echo '<div class="details"><span class="paym-id">' . $paym_to_process_row['payment_id_char'] . '</span>' .
-                                '<span class="paym-deadline">' . $paym_to_process_row['payment_late'] . '</span>' .
+                                '<span class="paym-deadline">' . $paym_to_process_row['payment_status'] . '</span>' .
                                 '<span class="paym-urgency">£' . number_format((float)$paym_to_process_row['payment_total'], 2, '.', '') . '</span></div>';
                             }
                         }

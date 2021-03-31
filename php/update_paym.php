@@ -52,7 +52,7 @@
         if($discount_rate>100){
             echo '<script/>alert("Discount Rate cannot be over 100");<script>';
         } else if ($discount_plan == "Fixed" || $discount_plan == "Flexible") {
-            discount($discount_plan,$cust_identifier,$discount_rate,$discount_rate_var);
+            discount($discount_plan,$cust_identifier,$discount_rate);
         } else if ($discount_plan == "Variable") {
             // TODO: put variable function discount here
         } 
@@ -86,7 +86,7 @@
         if($discount_rate>100){
             echo '<script/>alert("Discount Rate cannot be over 100");<script>';
         } else if ($discount_plan == "Fixed" || $discount_plan == "Flexible") {
-            discount($discount_plan,$cust_identifier,$discount_rate,$discount_rate_var);
+            discount($discount_plan,$cust_identifier,$discount_rate);
         } else if ($discount_plan == "Variable") {
             // TODO: put variable function discount here
         } 
