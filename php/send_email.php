@@ -55,7 +55,10 @@ function job_deadline_email($email_add,$job_id,$job_deadline,$job_SI,$customer_i
     $email->From = 'alert@bapers.co.uk';
     $email->isHTML(true);
     
-    $email->addAddress($email_add);
+    foreach ($email_add as $add_send) {
+        $email->AddAddress($add_send);
+    }
+    
     $email->Subject = "Job Status Alert! [DO NOT REPLY]";
     $template = '../email_templates/job_deadline_template.php';
     $email_send = '../email_templates/job_deadline_email.php';

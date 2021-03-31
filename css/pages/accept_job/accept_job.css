@@ -7,8 +7,8 @@
 .content .assign-job-form .create-job {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 35% 1fr;
+      grid-template-columns: 35% 1fr;
   grid-gap: 25px;
   position: relative;
 }
@@ -89,6 +89,9 @@
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1 / 2;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .content .assign-job-form .create-job .right-part-container .right-part-form {
@@ -139,9 +142,28 @@
   font-size: 16px;
 }
 
-.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] select {
-  -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
+.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] .task-amount-input {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] .task-amount-input .task-amount {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+}
+
+.content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"] .task-amount-input select {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
 }
 
 .content .assign-job-form .create-job .right-part-container .right-part-form [class*="checkbox-task"]:hover {

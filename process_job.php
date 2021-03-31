@@ -120,7 +120,7 @@
                 </div>
                 <ul id="job-list">
                     <?php
-                        $job_query = "SELECT *  FROM `Job`";
+                        $job_query = "SELECT job.*, customer.*  FROM `Job` INNER JOIN Customer ON customer.cust_id = job.Customercust_id";
                         $job_result = $connect->query($job_query);
     
                         if (mysqli_num_rows($job_result) != 0) {
@@ -136,14 +136,13 @@
 
                                 $task_query = "SELECT job_task.Tasktask_id, job_task.task_status, task.task_id, task.task_desc, task.task_location, task.task_duration 
                                 FROM Job_Task
-                                INNER JOIN task 
-                                ON job_task.Tasktask_id = task.task_id
+                                INNER JOIN task ON job_task.Tasktask_id = task.task_id
                                 WHERE job_task.Jobjob_id = $job_id_find";
                                 $task_query_results = $connect->query($task_query);
 
                                 echo "<li id=job-" . $row['job_id'] . 
                                 '><span>' . $row['job_id_char'] .
-                                '</span><span>' . $row['Customercust_id'] .
+                                '</span><span>' . $row['cust_id_char'] .
                                 '</span><span>' . $row['job_urgency'] . 
                                 '</span><span>' . $row['job_deadline'] . 
                                 '</span><span>' . $row['actual_finish'] . 

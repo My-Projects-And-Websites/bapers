@@ -3,13 +3,14 @@
     $instructions = $_POST['job-instructions'];
     $urgency = $_POST['job-urgency'];
     $hours = $_POST['urgency-hours'];
+    $times = $_POST['times-amount'];
     $deadline = "";
     $status = "Pending";
     $time_of_order = date('Y-m-d H:i:s');
 
     $task_set = $_POST['task'];
     $staff_set = $_POST['assign-task'];
-    $staff_counter = 0;
+    $staff_counter = $times_counter = 0;
 
     date_default_timezone_set('Europe/London');
 
@@ -63,11 +64,14 @@
     foreach ($task_set as $task) {
         $staff_id = $staff_set[$staff_counter];
 
-        $sql_insert_job_task = "INSERT INTO Job_Task (JobTaskID, Jobjob_id, Tasktask_id, start_time, task_date, task_status, Staffstaff_id)
-        VALUES (null, '$job_id', '$task', null, null, 'Pending', '$staff_id')";
-        $job_task_result = mysqli_query($connect, $sql_insert_job_task);
+        for ($j = 0; $j < $times[$times_counter]; $j++) {
+            $sql_insert_job_task = "INSERT INTO Job_Task (JobTaskID, Jobjob_id, Tasktask_id, start_time, task_date, task_status, Staffstaff_id)
+            VALUES (null, '$job_id', '$task', null, null, 'Pending', '$staff_id')";
+            $job_task_result = mysqli_query($connect, $sql_insert_job_task);
+        }
 
         $staff_counter++;
+        $times_counter++;
     }
 
     $paym_sql = "INSERT INTO Payment (payment_id, payment_id_char, payment_total, payment_late, payment_alert, payment_discount, discount_rate, payment_status, Customercust_id)
