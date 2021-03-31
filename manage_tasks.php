@@ -7,9 +7,9 @@
         session_start(); // start the session if not started yet
     }
 
-    // if role of authenticated user is not office manager, redirect to homepage
+    // if role of authenticated user is not office manager, redirect to dashboard
     if (!isset($_SESSION['email_login']) || !isset($_SESSION['role']) || $_SESSION['role'] != "Office Manager") {
-        header("Location: index.php");
+        header("Location: dashboard.php");
     }
 
     // variable role used as reference for access privileges
@@ -263,15 +263,17 @@
             </div>
 
             <!-- this modal form is opened when the add task button is clicked -->
-            <!--  -->
+            <!-- this form must be filled up to add a new task in the database -->
             <div style="display: none;" class="add-task-form">
                 <form action="php/task/add.php" method="POST" class="create-task">
                     <h2>Add A New Task</h2>
                     <p>Create a new task that can be applied to jobs ordered by customers.</p>
+                    <!-- field to enter description of task -->
                     <div class="input-desc-field">
                         <label for="task-description">Task Description</label>
                         <input type="text" id="task-description" name="task-description">
                     </div>
+                    <!-- field to enter the location the task is performed in -->
                     <div class="input-location-field">
                         <label for="task-location">Task Location</label>
                         <select name="task-location" id="task-location">
@@ -281,17 +283,21 @@
                             <option value="Finishing Room">Finishing Room</option>
                         </select>
                     </div>
+                    <!-- field to enter the price of the task -->
                     <div class="input-price-field">
                         <label for="task-price">Task Price</label>
                         <input type="text" id="task-price" name="task-price">
                     </div>
+                    <!-- field to enter duration of the task -->
                     <div class="input-duration-field">
                         <label for="task-duration">Task Duration (Minutes)</label>
                         <input type="text" id="task-duration" name="task-duration">
                     </div>
+                    <!-- submit button, other fields must be filled out before submitting -->
                     <div class="input-submit-field">
                         <input type="submit" value="Submit">
                     </div>
+                    <!-- this button closes the modal form onclick -->
                     <div class="close-form">
                         <button class="close-form-task-btn" type="button">
                             <ion-icon name="close-outline"></ion-icon>
@@ -302,6 +308,7 @@
         </div>
     </main>
 
+    <!-- javascript functions -->
     <script src="js/open-sidebar-links.js"></script>
     <script src="js/open-task-modal.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>

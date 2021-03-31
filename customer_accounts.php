@@ -7,9 +7,9 @@
         session_start(); // start the session if not started yet
     }
 
-    // if role of authenticated user is not office manager, redirect to homepage
+    // if role of authenticated user is not office manager, redirect to dashboard
     if (!isset($_SESSION['email_login']) || !isset($_SESSION['role']) || $_SESSION['role'] != "Office Manager") {
-        header("Location: index.php");
+        header("Location: dashboard.php");
     }
 
     // variable role used as reference for access privileges

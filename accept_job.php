@@ -7,9 +7,9 @@
         session_start(); // start the session if not started yet
     }
 
-    // if the role of authenticated user is technician, redirect user to login page
+    // if the role of authenticated user is technician, redirect user to dashboard page
     if (!isset($_SESSION['email_login']) || !isset($_SESSION['role']) || $_SESSION['role'] == "Technician") {
-        header("Location: index.php");
+        header("Location: dashboard.php");
     }
 
     // variable used as reference for access privileges
