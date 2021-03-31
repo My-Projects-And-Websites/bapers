@@ -245,6 +245,7 @@
                                     </form>
                                 </div>';
 
+                                // this modal form will open and confirm if the user wants to delete the task
                             echo '<div style="display: none;" class="delete-task-form-' . $task_row['task_id'] . '">
                                     <form action="php/task/delete.php" method="POST" class="delete-task">
                                         <h2>Are you sure you want to delete this?</h2>
@@ -261,6 +262,8 @@
                 </ul>
             </div>
 
+            <!-- this modal form is opened when the add task button is clicked -->
+            <!--  -->
             <div style="display: none;" class="add-task-form">
                 <form action="php/task/add.php" method="POST" class="create-task">
                     <h2>Add A New Task</h2>

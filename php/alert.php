@@ -6,7 +6,7 @@ i.e. if the deadline for the job is not likely to be met; the alerts should be p
 user roles.*/
 function deadline_alert(){
     include ('connection.php');//connect to database
-    $job_status = "SELECT job_id,job_deadline,special_instructions,alert_flag,job_status,order_time,Customercust_id from job where TIMESTAMPDIFF(MINUTE, job_deadline , CURRENT_TIMESTAMP())<=5"; //5 mins left from the deadline 
+    $job_status = "SELECT job_id,job_deadline,special_instructions,alert_flag,job_status,order_time,Customercust_id from job where TIMESTAMPDIFF(MINUTE, job_deadline , CURRENT_TIMESTAMP())<=5 and NOT(job_status = 'Completed') "; //5 mins left from the deadline 
 
 
     $result = $connect->query($job_status);
@@ -43,8 +43,8 @@ at regular intervals of 15 minutes until the Office Manager acknowledges the rec
 No refunds are to be implemented in BAPERS.*/
 function late_payment_alert(){
     include ('connection.php');//connect to database
-    $payment_status = "SELECT payment.payment_id,payment.payment_total,payment_alert,customer.cust_id,customer.cust_fname,cust_sname,cust_email,cust_address,cust_mobile,payment.payment_type from 
-    payment,customer where payment.payment_late = 1 and customer.cust_id = payment.	Customercust_id"; //The flag of payment is late.
+    $payment_status = "SELECT payment.payment_discount,payment.payment_id,payment.payment_total,payment_alert,customer.cust_id,customer.cust_fname,cust_sname,cust_email,cust_address,cust_mobile FROM
+    payment,customer where payment.payment_late = 1 and customer.cust_id = payment.Customercust_id"; //The flag of payment is late.
     $payment_result = $connect->query($payment_status);
     $payment_row = mysqli_fetch_all($payment_result,MYSQLI_ASSOC);
     if ($payment_row != null){ 
@@ -69,8 +69,9 @@ function late_payment_alert(){
             $row_email = mysqli_fetch_all($reuslt3,MYSQLI_ASSOC);
             $email_user = array_column($row_email,'username_login');
             include('send_email.php'); 
+            $payment_due = $payment_row[0]['payment_total'] + $payment_row[0]['payment_discount'];
             late_payment_email($email_user,$payment_row[0]['payment_id'],$payment_row[0]['cust_id'],$payment_row[0]['cust_fname']." ".$payment_row[0]['cust_sname'],$payment_row[0]['cust_email'],$payment_row[0]['cust_mobile']
-           ,$payment_row[0]['cust_address'],$payment_row[0]['payment_total'],date("d/m/Y"),$payment_row[0]['payment_type']);
+           ,$payment_row[0]['cust_address'],$payment_due,date("d/m/Y"));
         }
     }
 ?>
