@@ -15,7 +15,7 @@
     $num_rows = mysqli_num_rows($find_customer_result) + 1;
     $cust_id_char = "ACC#" . strval($num_rows);
 
-    $x = 1;
+    $x = 0;
     while ($find_customer_row = $find_customer_result->fetch_assoc()) {
         
         if ($email == $find_customer_row['cust_email']) {
@@ -26,13 +26,13 @@
             break;
         }
 
-        if ($x == mysqli_num_rows($find_customer_result)) {
-            $sq="INSERT INTO Customer(cust_id,cust_id_char,cust_fname,cust_sname,cust_email,cust_address,cust_type,cust_mobile,discount_plan,payment_type) 
-            VALUES (null,'$cust_id_char','$fname','$sname','$email','$address',0,'$mobile',null, null)";//insert the new customer.
-            $result=mysqli_query($connect,$sq);//run the insert query
-        }
-
         $x++;
+    }
+
+    if ($x == mysqli_num_rows($find_customer_result)) {
+        $sq="INSERT INTO Customer(cust_id,cust_id_char,cust_fname,cust_sname,cust_email,cust_address,cust_type,cust_mobile,discount_plan,payment_type) 
+        VALUES (null,'$cust_id_char','$fname','$sname','$email','$address',0,'$mobile',null, null)";//insert the new customer.
+        $result=mysqli_query($connect,$sq);//run the insert query
     }
     
     if (!$result){

@@ -1,4 +1,6 @@
 <?php
+    include "php/connection.php";
+
     if (!isset($_SESSION)) {
         session_start(); // start the session if not started yet
     }
@@ -8,6 +10,7 @@
     }
 
     $role = $_SESSION['role'];
+    $staff_id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -97,11 +100,106 @@
             <span><?php echo $_SESSION['fname'] . ' ' . $_SESSION['sname']; ?></span>
         </div>
         <div class="content">
-            <h2>content</h2>
+            <h2 id="welcome">Hi, <?php echo $_SESSION['fname']; ?>.</h2>
+            <?php
+                if ($role != "Receptionist") {
+                    echo '<a class="process" href="process_job.php">Process Jobs</a>';
+                }
+                
+                if ($role != "Technician") {
+                    echo '<a class="payments" href="payments.php">Payments</a>';
+                }
+            
+                if ($role == "Office Manager") {
+                    echo '<form action="php/db_restore.php" class="database-util">
+                        <button type="submit">
+                            <span>Backup Database</span>
+                        </button>
+                    </form>
+                    <form action="php/db_backup.php" class="database-util">
+                        <button type="submit">
+                            <span>Import Database</span>
+                        </button>
+                    </form>';
+                }
+            ?>
+
+            <?php
+                if ($role != "Receptionist") {
+                    echo '<div class="jobs-to-process">
+                        <div class="tags">
+                            <span>Job ID</span>
+                            <span>Urgent</span>
+                            <span>Deadline</span>
+                        </div>';
+                            
+                        $jobs_to_process_sql = "SELECT * FROM Job ORDER BY job_deadline DESC";
+                        $jobs_to_process_query = $connect->prepare($jobs_to_process_sql);
+                        $jobs_to_process_query->execute();
+                        $jobs_to_process_result = $jobs_to_process_query->get_result();
+                        
+                        if (mysqli_num_rows($jobs_to_process_result) != 0) {
+
+                            while ($jobs_to_process_row = $jobs_to_process_result->fetch_assoc()) {
+                                if ($jobs_to_process_row['job_urgency'] == 1) {
+                                    $jobs_to_process_row['job_urgency'] = "Yes";
+                                }
+                                else {
+                                    $jobs_to_process_row['job_urgency'] = "No";
+                                }
+
+                                echo '<div class="details"><span class="job-id">' . $jobs_to_process_row['job_id_char'] . '</span>' .
+                                '<span class="job-urgency">' . $jobs_to_process_row['job_urgency'] . '</span>' .
+                                '<span class="job-deadline">' . $jobs_to_process_row['job_deadline'] . '</span></div>';
+                            }
+                        }
+                        else {
+                            echo '<div class="details"><span class=no-jobs>No jobs to process.</span></div>';
+                        }
+
+                        echo '</div>';
+                }
+
+                if ($role != "Technician") {
+                    echo '<div class="payments-to-process" id="' . $role . '">
+                        <div class="tags">
+                            <span>Payment ID</span>
+                            <span>Late</span>
+                            <span>Total</span>
+                        </div>';
+                            
+                        $paym_to_process_sql = "SELECT * FROM Payment";
+                        $paym_to_process_query = $connect->prepare($paym_to_process_sql);
+                        $paym_to_process_query->execute();
+                        $paym_to_process_result = $paym_to_process_query->get_result();
+                        
+                        if (mysqli_num_rows($paym_to_process_result) != 0) {
+
+                            while ($paym_to_process_row = $paym_to_process_result->fetch_assoc()) {
+                                if ($paym_to_process_row['payment_late'] == 1) {
+                                    $paym_to_process_row['payment_late'] = "Late";
+                                }
+                                else {
+                                    $paym_to_process_row['payment_late'] = "No";
+                                }
+
+                                echo '<div class="details"><span class="paym-id">' . $paym_to_process_row['payment_id_char'] . '</span>' .
+                                '<span class="paym-deadline">' . $paym_to_process_row['payment_late'] . '</span>' .
+                                '<span class="paym-urgency">£' . number_format((float)$paym_to_process_row['payment_total'], 2, '.', '') . '</span></div>';
+                            }
+                        }
+                        else {
+                            echo '<div class="details"><span class=no-paym>No payments to process.</span></div>';
+                        }
+
+                        echo '</div>';
+                }
+            ?>
         </div>
     </main>
 
     <script src="js/open-sidebar-links.js"></script>
+    <script src="js/move-paym-process.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>

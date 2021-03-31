@@ -2,6 +2,7 @@
     $customer_id = $_POST['job-customer-id'];
     $instructions = $_POST['job-instructions'];
     $urgency = $_POST['job-urgency'];
+    $hours = $_POST['urgency-hours'];
     $deadline = "";
     $status = "Pending";
     $time_of_order = date('Y-m-d H:i:s');
@@ -13,7 +14,14 @@
     date_default_timezone_set('Europe/London');
 
     if ($urgency == "Yes") {
-        $deadline = date('Y-m-d H:i:s', strtotime('+6 hours'));
+
+        if (empty($hours)) {
+            $deadline = date('Y-m-d H:i:s', strtotime('+6 hours'));
+        }
+        else {
+            $deadline = date('Y-m-d H:i:s', strtotime('+' . $hours . ' hours'));
+        }
+
         $urgency = 1;
     }
     else {

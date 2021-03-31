@@ -27,7 +27,7 @@
     include('../php/connection.php');//connect db
     include('send_email.php');//SEND INFO EMAIL
 
-    $i = 1;
+    $i = 0;
     while ($staff_row = $staff_result->fetch_assoc()) {
 
         if ($login == $staff_row['username_login']) {
@@ -37,15 +37,14 @@
             </script>;';
             break;
         }
-
-        if ($i == mysqli_num_rows($staff_result)) {
-            $sq="insert into staff(staff_id,staff_id_char,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$staff_id_char','$fname','$sname','$role','$dep',0,'$login','$hashed_pword')";//insert the new user.
-            $result=mysqli_query($connect,$sq);//run the insert query
-        }
-
+        
         $i++;
     }
     
+    if ($i == mysqli_num_rows($staff_result)) {
+        $sq="insert into staff(staff_id,staff_id_char,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$staff_id_char','$fname','$sname','$role','$dep',0,'$login','$hashed_pword')";//insert the new user.
+        $result=mysqli_query($connect,$sq);//run the insert query
+    }
 
     if (!$result){
         die('Error: ' . mysqli_error($connect));//if sql query error,then output error

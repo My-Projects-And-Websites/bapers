@@ -120,6 +120,10 @@
                             </select>
                             <ion-icon name="caret-down-outline"></ion-icon>
                         </div>
+                        <div class="input-urgency-hours-field">
+                            <label for="urgency-hours">How many hours should it take?</label>
+                            <input type="text" name="urgency-hours" id="urgency-hours">
+                        </div>
                     </div>
                     <div class="right-part-container">
                         <div class="right-part-form">
@@ -157,6 +161,21 @@
         </section>
     </main>
 
+    <script>
+        $(function() {
+            var hours = $('.input-urgency-hours-field');
+            var urgency = $('#job-urgency');
+
+            urgency.on('change', function() {
+                if ($(this).val() == "Yes") {
+                    hours.slideDown(300);
+                }
+                else {
+                    hours.slideUp(300);
+                }
+            });
+        }); 
+    </script>
     <script src="js/open-sidebar-links.js"></script>
     <script src="js/search.js"></script>
     <script src="js/modal-form.js"></script>

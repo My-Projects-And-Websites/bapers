@@ -21,7 +21,6 @@
       -ms-flex-align: center;
           align-items: center;
   z-index: 10;
-  display: none;
 }
 
 .content .payment-alert .modal-late-payment {
@@ -201,7 +200,7 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  grid-gap: 5%;
+  grid-gap: 7%;
   height: 100%;
 }
 
@@ -363,6 +362,16 @@
   width: 200px;
   cursor: pointer;
   color: #fff;
+}
+
+.content .payment-details #payment-list div[class*="jobs-payment-details-"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #dcdcdc;
+  width: 1px;
+  height: 100%;
 }
 
 .content::after {

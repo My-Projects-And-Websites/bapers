@@ -1,10 +1,10 @@
 function togglePaym(id) {
     var paymContainer = $('.jobs-payment-details-' + id);
     var discPlan = $('.discount-plan-text-' + id);
-    var inputDisable = $('.discount-rate-input-' + id);
+    var inputDisable = $('.discount-rate-' + id);
 
     if (discPlan.text() == "Unavailable") {
-        inputDisable.prop("disabled", true);
+        inputDisable.css("display", 'none');
     }
 
     console.log(discPlan.text());

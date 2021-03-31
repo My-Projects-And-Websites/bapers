@@ -1,38 +1,61 @@
-<?php  
-$db_host='localhost';
-$db_user='root';
-$db_pass='root';
-$db_name='test';
+<?php
+    include "connection.php";
 
-// set the format of the backup file name.
-$filename=date("m-d-Y_H-i-s")."-".$db_name.".sql";  
-// create the folder of the db backup if not exits.
-$db_temp = '../db/temp';
-$db_backup = '../db/backup/';
+    $tables = array();
+    $result = mysqli_query($connect,"SHOW TABLES");
 
-if (!is_dir($db_temp))
-	mkdir($db_temp, 0755, TRUE);
-if (!is_dir($db_backup))
-	mkdir($db_backup, 0755, TRUE);
+    $tables_sql = "SHOW TABLES";
+    $tables_query = $connect->prepare($tables_sql);
+    $tables_query->execute();
+    $tables_result = $tables_query->get_result();
 
-//back up temp folder
-$tmpFile = $db_temp.'/'.$filename;
-// SAVE IT AS FILENAME FORMAT 
-header("Content-disposition:filename=".$filename);  
-header("Content-type:application/octetstream");  
-header("Pragma:no-cache");  
-header("Expires:0");  
+    while($tables_row = $tables_result->fetch_assoc()) {
+        $tables[] = $tables_row['Tables_in_' . $db_name];
+    }
 
-// using mysql dump to output the db info.
-$mysqldump_dir='localhost/www/server/mysql/bin';//change this dir to mysql/bin folder.
-exec("D:\phpstudy_pro\Extensions\MySQL5.7.26\bin\mysqldump -h$db_host -u$db_user -p$db_pass --default-character-set=utf8 $db_name > ".$tmpFile); //*please Note, if want the exec run successfully, need to check 'disable_functions' in php.ini
-$file = fopen($tmpFile, "r"); //open the file.
-fclose($file);
+    $write = '';
+    foreach ($tables as $table) {
+        $get_data = mysqli_query($connect,"SELECT * FROM ".$table);
+        $num_fields = mysqli_num_fields($get_data);
+        
+        $write .= 'DROP TABLE '.$table.';';
+        $get_table = mysqli_fetch_row(mysqli_query($connect, "SHOW CREATE TABLE ".$table));
+        $write .= "\n\n" . $get_table[1] . ";\n\n";
+        
+        for($i = 0; $i < $num_fields; $i++) {
 
-//zip the database.sql file.(Still working on it, unknown reason not working)
-$zip = new ZipArchive();
-$zip_path = $db_backup.date("m-d-Y_H-i-s").'Bapers.zip';
-$zip->open($zip_path, ZipArchive::OVERWRITE);
-$zip->addFile($db_temp.'/'.$filename);
-$zip->close();
-?>  
+            while($row = mysqli_fetch_row($get_data)) {
+                $write .= "INSERT INTO ".$table." VALUES(";
+
+                for ($j=0;$j<$num_fields;$j++) {
+                    $row[$j] = addslashes($row[$j]);
+
+                    if (isset($row[$j])) { 
+                        $write .= '"'.$row[$j].'"';
+                    }
+                    else { 
+                        $write .= '""';
+                    }
+
+                    if ($j<$num_fields-1) { 
+                        $write .= ',';
+                    }
+                }
+                
+                $write .= ");\n";
+            }
+        }
+
+        $write .= "\n\n\n";
+    }
+
+    //save file
+    $handle = fopen("../db/bapers.sql","w+");
+    fwrite($handle,$write);
+    fclose($handle);
+    
+    echo "<script>
+    alert('Database successfully exported!');
+    window.location.href = '../dashboard.php';
+    </script>";
+?>

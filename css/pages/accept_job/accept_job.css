@@ -73,6 +73,10 @@
   color: #EE5757;
 }
 
+.content .assign-job-form .create-job .input-urgency-hours-field {
+  display: none;
+}
+
 .content .assign-job-form .create-job .left-part-form, .content .assign-job-form .create-job .right-part-form {
   padding: 30px 40px;
   background: #fff;
