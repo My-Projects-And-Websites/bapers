@@ -18,24 +18,25 @@
         }
     }
 
-    if (mysqli_connect_errno()) {
+    if (mysqli_connect_errno()) {//CHECK CONNECTION STATUS
         echo "Connection failed! Something went wrong.";
         exit();
     }
     else {
         $login = $_POST['login-email'];
         $pass = $_POST['login-password'];
-
+        // GET USER LOGIN INFO FROM DATABASE
         $sql = "SELECT staff_role, username_login, password_login, staff_fname, staff_sname, staff_id, count(1) from `Staff` where username_login = '$login' and password_login = '$pass'";
         $result = $connect->query($sql);
         $row = mysqli_fetch_row($result);
-
+        // PASSWORD CHECK
         if (!isset($row[1]) || !isset($row[2]) || $login != $row[1] && $pass != $row[2]) {
             echo "<script language='javascript'>
                       alert('Please enter valid credentials.');
                       self.location=document.referrer;
                   </script>";
         }
+        //GET THE INFO AND SET SESSION FOR OTHER PAGES
         else if ($login == $row[1] && $pass == $row[2]) {
             $_SESSION['email_login'] = $login;
             $_SESSION['role'] = $row[0];
