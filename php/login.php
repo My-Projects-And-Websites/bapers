@@ -24,13 +24,8 @@
     }
     else {
         $login = $_POST['login-email'];
-<<<<<<< HEAD
-        $pass = md5($_POST['login-password']);
-
-=======
         $pass = $_POST['login-password'];
-        // GET USER LOGIN INFO FROM DATABASE
->>>>>>> f3aaaeaee2a1b59f1879fe8976b4fadf8454c769
+
         $sql = "SELECT staff_role, username_login, password_login, staff_fname, staff_sname, staff_id, count(1) from `Staff` where username_login = '$login' and password_login = '$pass'";
         $result = $connect->query($sql);
         $row = mysqli_fetch_row($result);

@@ -221,6 +221,7 @@
                 }
             }
 
+            // submit buttons for both forms, change the background colour only
             .input-submit-field {
                 margin-top: 30px;
 
@@ -235,6 +236,7 @@
                 }
             }
 
+            // place the close modal button at the top right of the form
             .close-form, .close-form-valued {
                 position: absolute;
                 top: 4%;
@@ -250,6 +252,7 @@
 
             }
 
+            // search field in the valued customer form
             .input-search-field {
                 position: relative;
                 width: 100%;

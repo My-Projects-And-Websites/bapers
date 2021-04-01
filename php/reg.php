@@ -22,8 +22,6 @@
     $num_rows = mysqli_num_rows($staff_result) + 1;
     $staff_id_char = "STAFF#" . strval($num_rows);
 
-    $hashed_pword = md5($password); // encrypt password for security
-
     include('../php/connection.php');//connect db
     include('send_email.php');//SEND INFO EMAIL
 
@@ -42,7 +40,7 @@
     }
     
     if ($i == mysqli_num_rows($staff_result)) {
-        $sq="insert into staff(staff_id,staff_id_char,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$staff_id_char','$fname','$sname','$role','$dep',0,'$login','$hashed_pword')";//insert the new user.
+        $sq="insert into staff(staff_id,staff_id_char,staff_fname,staff_sname,staff_role,staff_department,total_time,username_login,password_login) values (null,'$staff_id_char','$fname','$sname','$role','$dep',0,'$login','$password')";//insert the new user.
         $result=mysqli_query($connect,$sq);//run the insert query
     }
 
