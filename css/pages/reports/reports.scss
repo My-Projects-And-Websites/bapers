@@ -1,10 +1,14 @@
+// main styles for the reports page
 .content {
     padding: 30px 40px;
+    // set this element to grid and set template columns to two fractions
     display: grid;
     grid-template-columns: 1fr 1fr;
+    // repeat 3 times, auto-fit gets the sizes of the content and scales accordingly
     grid-template-rows: repeat(3, auto-fit);
     grid-gap: 35px;
     overflow: auto;
+    // holds other absolute elements
     position: relative;
 
     h2 {
@@ -14,10 +18,12 @@
     }
 
     p {
+        // sets the height of each line in the paragraph
         line-height: 1.5;
         color: #555;
     }
 
+    // convert span element to block, take up as much space horizontally
     span {
         display: block;
         margin-top: 15px;
@@ -25,16 +31,19 @@
         font-size: 11px;
     }
 
+    // place this in the top left
     .customer-report {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
     }
 
+    // place this in middle row left column
     .staff-report {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
     }
 
+    // place this in last row left column
     .summary-report {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
@@ -44,14 +53,17 @@
         background: #fff;
         padding: 30px 40px;
         border-radius: 5px;
+        // add a drop-shadow on each form
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
 
+        // this label defines what to enter in the input field
         label {
             display: block;
             margin-bottom: 5px;
             width: fit-content;
             font-size: 16px;
 
+            // define importance of input field
             span.star {
                 color: #EE5757;
                 display: inline-block;
@@ -60,6 +72,7 @@
             }
         }
 
+        // style the input field in the forms
         input {
             padding: 10px 15px;
             outline: 0;
@@ -68,6 +81,7 @@
             border-radius: 5px;
         }
 
+        // place both date fields in one line and place a spacing in between
         .input-date-field {
             display: flex;
             justify-content: space-between;
@@ -87,6 +101,7 @@
             }
         }
 
+        // style the submit button
         .input-submit-btn {
 
             input[type="submit"] {
@@ -99,11 +114,13 @@
         }
     }
 
+    // place this generator at the first row at the right columnn
     .customer-report-generate {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
     }
 
+    // place this generator at the second row at the right columnn
     .indi-performance-generate {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
@@ -113,6 +130,7 @@
         }
     }
 
+    // place this generator at the third row at the right columnn
     .sum-performance-generate {
         grid-column: 2 / 3;
         grid-row: 3 / 4;
@@ -123,6 +141,7 @@
     }
 }
 
+// place a spacing underneath the main content
 .content::after {
     content: '';
     width: 100%;

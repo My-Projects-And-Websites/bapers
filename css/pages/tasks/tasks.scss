@@ -1,11 +1,14 @@
+// main styling for the manage tasks page
 .content {
     padding: 30px 40px;
     overflow: auto;
+    // contain any absolute elements
     position: relative;
 
     .add-task-btn {
         margin-bottom: 25px;
 
+        // styles for the button to add a new task
         button.add-task {
             padding: 15px 25px;
             font-size: 18px;
@@ -26,6 +29,7 @@
             }
         }
 
+        // increase the size of button on hover
         button.add-task:hover {
             transform: scale(1.05);
         }
@@ -35,13 +39,17 @@
         background: #fff;
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
         border-radius: 5px;
+        // create spacing around the element
         padding: 30px 40px;
 
+        // set this element to have a grid display, repeat function's first argument is the amount of times it will repeat
+        // second argument is the size of each column
         .task-detail-tags {
             display: grid;
             grid-template-columns: 5% 28% repeat(3, 1fr) 5%;
             grid-gap: 35px;
             padding: 0 15px 10px;
+            // uppercase letters
             text-transform: uppercase;
             color: #9a9a9a;
             letter-spacing: 1px;
@@ -55,8 +63,11 @@
         #task-list {
             
             li {
+                // set the list item display to have a grid
                 display: grid;
+                // set the column template for this element
                 grid-template-columns: 5% 28% repeat(3, 1fr) 5%;
+                // grid spacing for each column
                 grid-gap: 35px;
                 align-items: center;
                 padding: 15px;
@@ -66,34 +77,43 @@
                     color: #333;
                 }
 
+                // display the two buttons as a row...
                 .utility-btn {
                     display: flex;
+                    // then place them at the center.
                     justify-content: center;
                     align-items: center;
 
+                    // style the buttons
                     button {
                         padding: 7px;
+                        // default background colour is set to green
                         background: #3b9b3b;
                         border-radius: 5px;
+                        // removed default properties
                         border: none;
                         cursor: pointer;
+                        // center the icon inside the button
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         transition: .2s;
                         outline: 0;
 
+                        // set the size of the icon inside the button
                         ion-icon {
                             font-size: 18px;
                             color: #fff;
                         }
                     }
 
+                    // override background color and use red instead
                     button.del-btn {
                         background: #EE5757;
                         margin-left: 5px;
                     }
 
+                    // increase size slightly on hover
                     button:hover {
                         transform: scale(1.075);
                     }
@@ -104,32 +124,42 @@
                 background: #fafafa;
             }
 
+            // for each modal container, use these styles
+            // this selector is called the "starts with" selector
             div[class*="delete-task-form-"], div[class*="edit-task-form-"] {
+                // place it starting from the top left corner of the main content section
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
                 background: rgba(0, 0, 0, 0.15);
+                // place the form at the center
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                // apply scrollbars if needed
                 overflow: auto;
                 padding: 30px 0px;
 
+                // for each modal form with edit and delete, apply these styles
                 form.delete-task, form.edit-task {
+                    // set the width to 45% of the container
                     width: 45%;
                     background: #fff;
                     padding: 30px 40px;
                     border-radius: 5px;
+                    // apply a drop shadow effect
                     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
                     position: relative;
 
+                    // set text sizing for the heading of the modal form
                     h2 {
                         font-size: 36px;
                         color: #333;
                     }
         
+                    // set a height for each line in the paragraph
                     p {
                         line-height: 1.5;
                         color: #555;
@@ -137,6 +167,7 @@
                         margin: 10px 0px 25px;
                     }
         
+                    // set a margin at the bottom of each div with a class that starts with "input"
                     div[class*="input"] {
                         margin-bottom: 15px;
                     }
@@ -145,6 +176,7 @@
                         margin-bottom: 0;
                     }
         
+                    // style the input and select tag within the form
                     input, select {
                         width: 100%;
                         padding: 11px 15px;
@@ -155,14 +187,17 @@
                         border-radius: 5px;
                     }
         
+                    // each label is placed above each input field
                     label {
                         font-size: 14px;
                         margin-bottom: 4px;
                         display: block;
                         color: #555;
+                        // width of label is set to width of text
                         width: fit-content;
                     }
         
+                    // style the submit button
                     .input-submit-field {
                         margin-top: 30px;
         
@@ -173,11 +208,14 @@
                         }
                     }
 
+                    // these buttons controls the submission of the form
                     .delete-cancel-btn {
                         text-align: right;
 
+                        // for both buttons, apply these styles
                         button {
                             padding: 10px 20px;
+                            // confirm button will have a red background
                             background: #EE5757;
                             border-radius: 5px;
                             border: none;
@@ -188,11 +226,14 @@
                             color: #fff;
                         }
 
+                        // the cancel button will have a blue background
                         button[class*="cancel-deletion"] {
                             background: #1f9be2;
                         }
                     }
 
+                    // this button is placed on the top right corner of the modal form
+                    // this closes the modal form when clicked
                     .close-form {
                         position: absolute;
                         top: 5%;
@@ -212,20 +253,26 @@
         }
     }
 
+    // this is the modal container for the add a new task form
     .add-task-form {
+        // place in the top left corner of the main content
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        // set the color of the container to black with opacity of 0.15
         background: rgba(0, 0, 0, 0.15);
+        // place the form in the middle
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        // apply scrollbar if necessary
         overflow: auto;
         padding: 30px 0px;
 
         .create-task {
+            // set the form size to 50%
             width: 50%;
             background: #fff;
             padding: 30px 40px;
@@ -245,14 +292,17 @@
                 margin: 10px 0px 25px;
             }
 
+            // apply bottom margins on the input fields
             div[class*="input"] {
                 margin-bottom: 15px;
             }
 
+            // remove margin on the last input field
             div[class*="input"]:last-child {
                 margin-bottom: 0;
             }
 
+            // style the input fields and select tag
             input, select {
                 width: 100%;
                 padding: 11px 15px;
@@ -263,6 +313,7 @@
                 border-radius: 5px;
             }
 
+            // style the label for each input field
             label {
                 font-size: 14px;
                 margin-bottom: 4px;
@@ -271,6 +322,7 @@
                 width: fit-content;
             }
 
+            // style the submit button
             .input-submit-field {
                 margin-top: 30px;
 
@@ -285,6 +337,7 @@
                 }
             }
 
+            // close the form onclick of this button
             .close-form {
                 position: absolute;
                 top: 5%;
@@ -303,6 +356,7 @@
     }
 }
 
+// apply spacing underneath the main content
 .content::after {
     content: '';
     width: 100%;

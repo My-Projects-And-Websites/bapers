@@ -1,24 +1,30 @@
+// content styling for the payments page
 .content {
     padding: 30px 40px;
     overflow: auto;
     position: relative;
 
+    // this alert pops up when there is late payment
     .payment-alert {
+        // this modal container takes over the whole content section
         position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
+        // set the background colour of modal container to black with opacity of 0.15
         background: rgba(0, 0, 0, 0.15);
         display: flex;
         justify-content: center;
         align-items: center;
+        // keep it on the top of all elements
         z-index: 10;
 
         .modal-late-payment {
             background: #fff;
             padding: 30px 40px;
             border-radius: 5px;
+            // drop shadow effect on the form
             box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
 
             h2 {
@@ -38,6 +44,7 @@
                 background: #EE5757;
                 padding: 15px;
                 border-radius: 5px;
+                // remove default properties
                 border: none;
                 outline: 0;
                 color: #fff;
@@ -46,18 +53,21 @@
                 transition: .2s;
             }
 
+            // increase size on hover
             button:hover {
                 transform: scale(1.025);
             }
         }
     }
 
+    // search bar
     .form-search-find {
         margin-bottom: 25px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
+        // set the width of the form to the width of the content
         form.search-field {
             width: fit-content;
     
@@ -66,6 +76,7 @@
                 width: fit-content;
     
                 label {
+                    // place the mganifying glass icon on the left side of the search bar
                     position: absolute;
                     transform: translate(-50%, -50%);
                     font-size: 24px;
@@ -75,6 +86,7 @@
                 }
     
                 input[type="text"] {
+                    // increased padding on the left, icon is there
                     padding: 15px 25px 15px 60px;
                     font-size: 18px;
                     border: none;
@@ -82,6 +94,7 @@
                     border-radius: 5px;
                     width: 500px;
                     background: #fff;
+                    // set a drop shadow effect
                     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
                     color: #333;
                 }
@@ -89,6 +102,7 @@
         }
     }
 
+    // main details of the payments
     .payment-details {
         background: #fff;
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
@@ -96,9 +110,11 @@
         padding: 30px 40px;
 
         .payment-detail-tags {
+            // set display to grid and set column templates
             display: grid;
             grid-template-columns: 17% repeat(5, 1fr) 3%;
             padding: 0 15px 10px;
+            // set the text to uppercase characters
             text-transform: uppercase;
             color: #9a9a9a;
             letter-spacing: 1px;
@@ -109,9 +125,11 @@
             }
         }
 
+        // list of payments
         #payment-list {
 
             li {
+                // set the display to grid and set the column templates
                 display: grid;
                 grid-template-columns: 17% repeat(5, 1fr) 3%;
                 align-items: center;
@@ -122,6 +140,7 @@
                     color: #333;
                 }
 
+                // button at the end of every payment
                 button.open-jobs-payment {
                     background: #fff;
                     border: none;
@@ -129,6 +148,7 @@
                     cursor: pointer;
                     padding: 5px;
                     border-radius: 5px;
+                    // apply a transition to have a smooth change 
                     transition: .2s;
                     display: flex;
                     justify-content: center;
@@ -150,13 +170,17 @@
                 }
             }
 
+            // these are for the dropdown details when the button is clicked
             div[class*="jobs-payment-details-"] {
                 padding: 30px 40px;
                 background: #fbfbfb;
                 position: relative;
+                // smoothen each corners
                 border-radius: 5px;
+                // set default display to none
                 display: none;
 
+                // for every form element inside the dropdown, set a grid display and set two equal columns  for its tempalte
                 form[class*="jobs-payment-form-"], form[class*="jobs-payment-form-variable-"] {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
@@ -169,6 +193,7 @@
                         font-size: 18px;
                     }
 
+                    // style the form fields
                     input, select {
                         padding: 10px;
                         font-size: 16px;
@@ -179,22 +204,26 @@
                         border-radius: 5px;
                     }
 
+                    // left column of the form, also use grid for the display and set two rows and two columns for the template
                     .payment-type-details {
                         display: grid;
                         grid-template-columns: 1fr 1fr;
                         grid-template-rows: 1fr 1fr;
                         grid-gap: 25px;
 
+                        // set everything to no display at default...
                         > * {
                             display: none;
                         }
 
+                        // except for the payment type!
                         .payment-type {
                             display: block;
                         }
                     }
 
                     .discount-details {
+                        // also set a grid display and templates for the right container of the form
                         display: grid;
                         grid-template-columns: 1fr 1fr;
                         grid-template-rows: 1fr 1fr;
@@ -202,6 +231,7 @@
 
                         .discount-plan {
                             
+                            // center the text
                             span {
                                 display: block;
                                 height: 40px;
@@ -211,6 +241,7 @@
                             }
                         }
 
+                        // submit button spans the whole grid of the right container
                         .input-submit-btn {
                             grid-column: 1 / 3;
                             align-self: flex-end;
@@ -224,6 +255,7 @@
                                 transition: .3s;
                             }
 
+                            // increase size and lower down opacity on hover
                             input[type="submit"]:hover {
                                 opacity: 0.6;
                                 transform: scale(1.025);
@@ -232,9 +264,12 @@
                     }
                 }
 
+                // this style is to override any styles from above for the variable form
                 form[class*="jobs-payment-form-variable-"] {
+                    // increased size for the right container
                     grid-template-columns: 1fr 68%;
 
+                    // grid placement on the left for this element
                     .payment-type-details {
                         grid-column: 1 / 2;
                         display: grid;
@@ -243,6 +278,7 @@
                         grid-gap: 25px;
                     }
 
+                    // grid placement on the right for this element
                     .discount-plan-details-paym {
                         grid-column: 2 / 3;
 
@@ -262,14 +298,17 @@
                         .discount-task-details {
                             margin: 15px 0px 35px;
 
+                            // set a grid on the task details within the discount plan area in the parent grid
                             .task-details-discount {
                                 display: grid;
                                 grid-template-columns: 10% 50% 15% 1fr;
+                                // set a spacing around the whole element
                                 padding: 10px;
                                 align-items: center;
                                 border-radius: 5px;
                                 transition: .2s;
 
+                                // set a padding on the input fields
                                 input[type="text"] {
                                     padding: 7px 10px;
                                 }
@@ -281,6 +320,7 @@
                             }
                         }
 
+                        // submit button for the variable discount form
                         .input-submit-btn {
                             grid-column: 2 / 3;
                             text-align: right;
@@ -294,16 +334,6 @@
                         }
                     }
                 }
-            }
-
-            div[class*="jobs-payment-details-"]::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 50%;
-                background: #dcdcdc;
-                width: 1px;
-                height: 100%;
             }
         }
     }

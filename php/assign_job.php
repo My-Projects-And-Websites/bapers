@@ -43,7 +43,7 @@
         $task_query->execute();
         $task_result = $task_query->get_result();
         $task_row = mysqli_fetch_row($task_result);
-        $job_price += $task_row[0]*$times[$i];//times quantities values
+        $job_price += $task_row[0] * (int)$times[$i];//times quantities values
         $i++;
     }
 

@@ -16,7 +16,7 @@ function staff_reg_email($email_add,$name,$login_email,$login_pass,$department,$
     $email->Charset = 'UTF-8';
     $email->FromName = 'BAPERS Register System';
     $email->Username = 'admin@bapers.co.uk';
-    $email->Password = '';
+    $email->Password = 'GROUP20IN2018';
     $email->From = 'register@bapers.co.uk';
     $email->isHTML(true);//SET HTML EMAIL 
     
@@ -51,7 +51,7 @@ function job_deadline_email($email_add,$job_id,$job_deadline,$job_SI,$customer_i
     $email->Charset = 'UTF-8';
     $email->FromName = 'BAPERS Alert System';
     $email->Username = 'admin@bapers.co.uk';
-    $email->Password = '';
+    $email->Password = 'GROUP20IN2018';
     $email->From = 'alert@bapers.co.uk';
     $email->isHTML(true);
     foreach ($email_add as $add_send) {
@@ -88,7 +88,7 @@ function late_payment_email($email_add,$payment_id,$cust_id,$cust_name,$cust_ema
     $email->Charset = 'UTF-8';
     $email->FromName = 'BAPERS Alert System';
     $email->Username = 'admin@bapers.co.uk';
-    $email->Password = '';
+    $email->Password = 'GROUP20IN2018';
     $email->From = 'alert@bapers.co.uk';
     $email->isHTML(true);
     

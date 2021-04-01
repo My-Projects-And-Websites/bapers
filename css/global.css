@@ -1,18 +1,24 @@
+/* Montserrat font imported from Google Fonts library*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+/* setting global values which is to be applied for all pages */
 *,
 *::before,
 *::after {
+    /* remove all default margins */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* default font family for the whole project */
     font-family: 'Montserrat', sans-serif;
 }
 
+/* remove text decoration - underline */
 a {
     text-decoration: none;
 }
 
+/* remove list style buller point */
 li {
     list-style-type: none;
 }

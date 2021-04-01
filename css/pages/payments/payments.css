@@ -364,16 +364,6 @@
   color: #fff;
 }
 
-.content .payment-details #payment-list div[class*="jobs-payment-details-"]::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  background: #dcdcdc;
-  width: 1px;
-  height: 100%;
-}
-
 .content::after {
   content: '';
   width: 100%;

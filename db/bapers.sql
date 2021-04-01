@@ -28,8 +28,9 @@ CREATE TABLE `customer` (
   `discount_plan` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `payment_type` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`cust_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO customer VALUES("1","ACC#1","Jimm","Richard","jimmrichard@gmail.com","32 Somewhere Street, London, United Kingdom, NE10 5YU","0","02012341234","","0");
 
 
 
@@ -51,8 +52,10 @@ CREATE TABLE `job` (
   `Customercust_id` int(10) NOT NULL,
   PRIMARY KEY (`job_id`),
   KEY `Customercust_id` (`Customercust_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO job VALUES("1","JOB#1","1","2021-04-01 18:32:11","Nice","Completed","2021-04-01 22:56:00","2021-04-01 21:35:42","2021-04-01 17:32:11","328","0","0","1");
+INSERT INTO job VALUES("2","JOB#2","1","2021-04-01 23:37:04","make it precise","Completed","2021-04-01 23:39:00","2021-04-01 21:49:05","2021-04-01 22:37:04","303.5","","0","1");
 
 
 
@@ -70,23 +73,27 @@ CREATE TABLE `job_task` (
   PRIMARY KEY (`JobTaskID`),
   KEY `Jobjob_id` (`Jobjob_id`),
   KEY `Tasktask_id` (`Tasktask_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-
-
-DROP TABLE message;
-
-CREATE TABLE `message` (
-  `message_id` int(11) NOT NULL AUTO_INCREMENT,
-  `message_desc` text COLLATE utf8_unicode_ci NOT NULL,
-  `message_status` tinyint(1) NOT NULL,
-  `send_time` datetime NOT NULL,
-  `Staffstaff_id` int(10) NOT NULL,
-  PRIMARY KEY (`message_id`),
-  KEY `Staffstaff_id` (`Staffstaff_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
+INSERT INTO job_task VALUES("1","1","1","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("2","1","1","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("3","1","2","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("4","1","2","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("5","1","2","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("6","1","2","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("7","1","3","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("8","1","3","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("9","1","4","00:00:00","21:35:00","0000-00-00","Completed","1");
+INSERT INTO job_task VALUES("10","2","1","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("11","2","1","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("12","2","2","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("13","2","2","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("14","2","2","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("15","2","2","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("16","2","2","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("17","2","3","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("18","2","3","21:38:00","21:49:00","2021-04-01","Completed","1");
+INSERT INTO job_task VALUES("19","2","3","21:38:00","21:49:00","2021-04-01","Completed","1");
 
 
 
@@ -104,8 +111,10 @@ CREATE TABLE `payment` (
   `Customercust_id` int(10) NOT NULL,
   PRIMARY KEY (`payment_id`),
   KEY `Customercust_id` (`Customercust_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO payment VALUES("1","PAY#1","328","1","0","0","0","Late","1");
+INSERT INTO payment VALUES("2","PAY#2","303.5","0","0","","0","Pending","1");
 
 
 
@@ -118,13 +127,12 @@ CREATE TABLE `staff` (
   `staff_sname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `staff_role` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `staff_department` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `total_time` time NOT NULL,
   `username_login` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password_login` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`staff_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO staff VALUES("1","","Office","Manager","Office Manager"," NULL","00:00:00","office@test.com","office");
+INSERT INTO staff VALUES("1","STAFF#1","Staff","Admin","Office Manager","Copy Room","office@test.com","office");
 
 
 

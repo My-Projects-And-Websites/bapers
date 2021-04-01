@@ -1,3 +1,4 @@
+// content styling for the process jobs page
 .content {
     padding: 30px 40px;
     overflow: auto;
@@ -5,10 +6,12 @@
 
     .form-search-find {
         margin-bottom: 25px;
+        // set a space between its child elements
         display: flex;
         justify-content: space-between;
         align-items: center;
 
+        // set the width of the form based on its content
         form.search-field {
             width: fit-content;
     
@@ -16,6 +19,7 @@
                 position: relative;
                 width: fit-content;
     
+                // usually the center of elements are the top left, use transform: translate() property to set the center somewhere else
                 label {
                     position: absolute;
                     transform: translate(-50%, -50%);
@@ -25,6 +29,7 @@
                     color: #555;
                 }
     
+                // style the text type input
                 input[type="text"] {
                     padding: 15px 25px 15px 60px;
                     font-size: 18px;
@@ -42,16 +47,21 @@
 
     .job-details {
         background: #fff;
+        // drop shadow effect
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+        // smoothen the corners of this element
         border-radius: 5px;
         padding: 30px 40px;
 
         .job-detail-tags {
+            // set the display of this element to grid and specify sizes of each column
             display: grid;
             grid-template-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
             padding: 0 15px 10px;
             text-transform: uppercase;
+            // light grey colour to blend in with the background and reduce contrast
             color: #9a9a9a;
+            // easier reading, apply spacing between each letter
             letter-spacing: 1px;
             border-bottom: 1px solid #eee;
 
@@ -63,6 +73,7 @@
         #job-list {
             
             li {
+                // set the display of this element to grid and specify sizes of each column
                 display: grid;
                 grid-template-columns: 8% 12% 10% 1fr 1fr 1fr 1fr 5%;
                 align-items: center;
@@ -73,7 +84,9 @@
                     color: #333;
                 }
 
+                // styling the button that toggles the job details into view
                 button[class*="drop-details"] {
+                    // cursor, border, outline = modified
                     cursor: pointer;
                     padding: 5px 6px;
                     width: fit-content;
@@ -100,6 +113,7 @@
                     }
                 }
 
+                // this is displayed when there are no jobs and its length is from the first column to the last column
                 span#no-jobs {
                     grid-column: 1 / 6;
                 }
@@ -109,26 +123,32 @@
                 background: #fafafa;
             }
 
+            // design of dropdown details for the jobs
             div[id*="job-details-container-"] {
                 padding: 30px 40px;
                 background: #fafafa;
                 border-radius: 5px;
 
                 form[id*="form-job-details-"] {
+                    // set this element display to grid, set row and column templates
                     display: grid;
                     grid-template-columns: 300px 1fr;
                     grid-template-rows: 1fr 10%;
                     grid-gap: 25px;
                     height: fit-content;
 
+                    // set the display of this element to flex, and arrange it in a column order
                     .input-field-expected-instructions {
                         display: flex;
                         flex-direction: column;
+                        // place this element at the top left corner of the parent container
                         align-items: flex-start;
                         justify-content: flex-start;
                         border-right: 1px solid #dcdcdc;
+                        // spacing on the right
                         padding-right: 25px;
 
+                        // the left column in the grid, displays the special instructions and prompt suer to input expected finish
                         .expected-finish {
                             margin: 15px 0px;
                             padding: 15px 0px 25px;
@@ -142,6 +162,7 @@
                                 font-weight: bold;
                             }
     
+                            // style the datetime input underneath expected finish
                             input[type="datetime-local"] {
                                 padding: 10px 15px;
                                 border: none;
@@ -153,21 +174,26 @@
                             }
                         }
 
+                        // special instructions that are written from the database are display here
                         .special-instructions {
 
+                            // lessen the black tint of the text
                             h3 {
                                 color: #333;
                                 font-size: 22px;
                                 margin-bottom: 5px;
                             }
 
+                            // increase line height between the text
                             p {
                                 line-height: 1.5;
                             }
                         }
                     }
 
+                    // these are the tasks that are for the specific job
                     .tasks-to-do {
+                        // place this element on the right column
                         grid-column: 2 / 3;
                         grid-row: 1 / 2;
                         height: fit-content;
@@ -175,17 +201,22 @@
                         .job-relevant-tasks {
                             
                             .task-details {
+                                // set a grid display and set 3 columns as the template
                                 display: grid;
                                 grid-template-columns: 45% 30% 1fr;
                                 transition: .2s;
                                 padding: 10px 15px;
+                                // smoothen the corners of this element
                                 border-radius: 5px;
+                                // center the child elements of this element
                                 align-items: center;
 
+                                // span will take up as much space horizontally
                                 span {
                                     display: block;
                                 }
     
+                                // place the select tag at the end
                                 select {
                                     justify-self: flex-end;
                                     padding: 5px;
@@ -193,6 +224,7 @@
                                 }
                             }
 
+                            // on hover of the task, set the background to light red and change colour to white
                             .task-details:hover {
                                 background: #EE5757;
 
@@ -203,6 +235,7 @@
                         }
                     }
 
+                    // style the submit button
                     input[type="submit"] {
                         grid-column: 2 / 3;
                         grid-row: 2 / 3;
@@ -227,6 +260,7 @@
     }
 }
 
+// apply spacing underneath the main content
 .content::after {
     content: '';
     width: 100%;

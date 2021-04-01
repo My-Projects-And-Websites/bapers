@@ -133,12 +133,12 @@
             
                 // office managers only, restore and backup database
                 if ($role == "Office Manager") {
-                    echo '<form action="php/db_restore.php" class="database-util">
+                    echo '<form action="php/db_backup.php" class="database-util">
                         <button type="submit">
                             <span>Backup Database</span>
                         </button>
                     </form>
-                    <form action="php/db_backup.php" class="database-util">
+                    <form action="php/db_restore.php" class="database-util">
                         <button type="submit">
                             <span>Restore Database</span>
                         </button>
@@ -158,7 +158,7 @@
                         </div>';
                         
                         // query to use that fetches all jobs in descending order of deadline
-                        $jobs_to_process_sql = "SELECT * FROM Job ORDER BY job_deadline DESC";
+                        $jobs_to_process_sql = "SELECT * FROM Job ORDER BY job_deadline ASC";
                         $jobs_to_process_query = $connect->prepare($jobs_to_process_sql);
                         $jobs_to_process_query->execute();
                         // fetch all rows based on the executed query

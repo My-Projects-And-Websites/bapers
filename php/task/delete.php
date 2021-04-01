@@ -8,5 +8,10 @@
     $delete_task_query->bind_param("i", $task_identifier);
     $delete_task_query->execute();
 
+    $delete_job_task_sql = "DELETE FROM Job_Task WHERE Tasktask_id = ?";
+    $delete_job_task_query = $connect->prepare($delete_job_task_sql);
+    $delete_job_task_query->bind_param('i', $task_identifier);
+    $delete_job_task_query->execute();
+
     header("Location: ../../manage_tasks.php");
 ?>

@@ -266,6 +266,7 @@
                     color: #555;
                 }
     
+                // styling the text input field in the "change to valued" form
                 input[type="text"] {
                     padding: 15px 25px 15px 60px;
                     font-size: 18px;
@@ -279,9 +280,11 @@
                 }
             }
 
+            // list of customers registered in the database
             ul.valued-customer-list {
                 margin: 20px 0px;
 
+                // select tag for the customer to change valued privileges
                 select {
                     padding: 5px;
                     outline: 0;
@@ -291,6 +294,7 @@
                     cursor: pointer;
                 }
 
+                // for every list item with class starting with customer-id-, apply these styles
                 li[class*="customer-id-"] {
                     padding: 10px 15px;
                     margin-bottom: 5px;
@@ -301,6 +305,7 @@
                     align-items: center;
                 }
     
+                // on hover of this element, apply background
                 li[class*="customer-id-"]:hover {
                     background: #fafafa;
                 }
@@ -308,12 +313,14 @@
 
         }
 
+        // width of valued customer form
         .change-valued-customer {
             width: 55%;
         }
     }
 }
 
+// spacing underneath the content class
 .content::after {
     content: '';
     width: 100%;
