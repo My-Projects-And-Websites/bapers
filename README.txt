@@ -46,6 +46,6 @@ The "css" folder contains mroe folders with CSS and SCSS files which are used fo
 
 ====================================================================================================
 
-That's all, thank you for your time. I can gladly say we all had fun doing this project!
+That's all, thank you so much for your time. I can gladly say we all had fun doing this project!
 
 ====================================================================================================
