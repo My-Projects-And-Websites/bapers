@@ -69,7 +69,7 @@
             <ul class="list-of-jobs-ordered">
                 <?php
                     while ($find_customer_row = mysqli_fetch_assoc($find_customer_result)) {
-                        $job_id_join_task = $find_customer_row['job_id'];
+                        $job_id_join_paym = $find_customer_row['job_id'];
 
                         if ($find_customer_row['job_urgency'] == 0) {
                             $find_customer_row['job_urgency'] = "No";
@@ -78,27 +78,20 @@
                             $find_customer_row['job_urgency'] = "Yes";
                         }
 
-                        $task_join_query = "SELECT job_task.Tasktask_id, job_task.task_status, task.task_id, task.task_desc, task.task_location, task.task_price, task.task_duration 
-                        FROM Job_Task
-                        INNER JOIN task 
-                        ON job_task.Tasktask_id = task.task_id
-                        WHERE job_task.Jobjob_id = $job_id_join_task";
-                        $task_join_query_results = $connect->query($task_join_query);
+                        $paym_sql = "SELECT payment_total, payment_discount FROM Payment WHERE payment_id = '$job_id_join_paym'";
+                        $paym_result = $connect->query($paym_sql);
+                        $paym_row = mysqli_fetch_row($paym_result);
 
-                        $task_join_price = 0;
-
-                        echo '<li class=job-' . $job_id_join_task . '>' .
-                        '<span>' . $job_id_join_task .'</span>' . 
+                        echo '<li class=job-' . $job_id_join_paym . '>' .
+                        '<span>' . $job_id_join_paym .'</span>' . 
                         '<span>' . $find_customer_row['job_urgency'] . '</span>' .
                         '<span>' . $find_customer_row['job_deadline'] . '</span>' .
                         '<span>' . $find_customer_row['expected_finish'] . '</span>' .
                         '<span>' . $find_customer_row['actual_finish'] . '</span>';
 
-                        while ($task_join_query_row = mysqli_fetch_assoc($task_join_query_results)) {
-                            $task_join_price += $task_join_query_row['task_price'];
-                        }
+                        $total_price = $paym_row[0] - $paym_row[1];
 
-                        echo "<span class=total-cost>" . number_format((float)$task_join_price, 2, '.', '') . '</span></li>';
+                        echo "<span class=total-cost>" . number_format((float)$total_price, 2, '.', '') . '</span></li>';
                     }
                 ?>
             </ul>
