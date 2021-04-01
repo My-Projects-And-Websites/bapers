@@ -170,8 +170,8 @@
                     <span>Customer</span>
                     <span>Job ID</span>
                     <span>Payment ID</span>
+                    <span>Subtotal</span>
                     <span>Discount</span>
-                    <span>Total</span>
                     <span>Payment Status</span>
                 </div>
                 <!-- list of all payments recorded in the system -->
@@ -211,8 +211,8 @@
                                     while ($paym_row = $paym_result->fetch_assoc()) {
                                         // number_format function gives two decimal points to float numbers
                                         echo '<span>' . $paym_row['payment_id_char'] . '</span>' .
-                                        '<span>£' . number_format((float)$paym_row['payment_discount'], 2, '.', '') . '</span>' .
                                         '<span>£' . number_format((float)$paym_row['payment_total'], 2, '.', '') . '</span>' .
+                                        '<span>£' . number_format((float)$paym_row['payment_discount'], 2, '.', '') . '</span>' .
                                         '<span>' . $paym_row['payment_status'] . '</span>';
                                     }
 

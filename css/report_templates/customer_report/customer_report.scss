@@ -1,5 +1,6 @@
 main {
     background: #fff;
+    // place everything in the middle
     margin: 0 auto;
     width: 100%;
     padding: 25px;
@@ -22,8 +23,10 @@ main {
         margin-top: 50px;
         
         .body-section-tags {
+            // set display to grid and set column templates
             display: grid;
             grid-template-columns: 8% 10% 1fr 1fr 1fr 1fr;
+            // set spacing of grid
             grid-column-gap: 20px;
             padding: 15px 0px;
             border-bottom: 1px solid #f1f1f1;
@@ -41,6 +44,7 @@ main {
         ul.list-of-jobs-ordered {
 
             li {
+                // set display to grid and set column templates
                 display: grid;
                 grid-template-columns: 8% 10% 1fr 1fr 1fr 1fr;
                 grid-column-gap: 20px;
@@ -57,10 +61,12 @@ main {
 
         .total {
             display: grid;
+            // set display to grid and set column templates
             grid-template-columns: 8% 10% 1fr 1fr 1fr 1fr;
             grid-column-gap: 20px;
             padding: 30px 0px;
 
+            // styles for the total cost, bold for pop-out effect
             #pay-cost {
                 grid-column: 6 / 7;
                 font-size: 11px;
@@ -72,15 +78,15 @@ main {
 }
 
 .utility-btn {
+    // place buttons at bottom right
     position: fixed;
     bottom: 20px;
     right: 20px;
     
+    // button styles
     button {
         width: 200px;
         height: fit-content;
-        justify-self: flex-end;
-        align-self: flex-end;
         padding: 15px 10px;
         font-size: 16px;
         border: none;
@@ -91,13 +97,16 @@ main {
         transition: .2s;
         outline: 0;
         cursor: pointer;
+        // send to front 
         z-index: 5;
     }
 
+    // raise the button on hover 
     button:hover {
         transform: translateY(-7px);
     }
 
+    // change the background on the back button
     .back-btn {
         width: 100px;
         background: #333;

@@ -84,6 +84,8 @@
                             $shift_one_get_times_result = $shift_one_get_times_query->get_result();
 
                             $loop_count = 0;
+                            $total_time = 0;
+                            $total_time_hour_count = 0;
 
                             while ($shift_one_get_times_row = $shift_one_get_times_result->fetch_assoc()) {
                                 $start_time_convert = new DateTime($shift_one_get_times_row['start_time']);
@@ -172,13 +174,9 @@
                                     }
                                 }
 
-                                $total_time = 0;
-                                $total_time_hour_count = 0;
-
                                 for ($i = 0; $i < count($time_arr_one); $i++) {
                                     $total_time += $time_arr_one[$i];
                                 }
-
                             }
 
                             array_push($temp_array_one, $total_time);
@@ -245,6 +243,8 @@
                             $shift_two_get_times_result = $shift_two_get_times_query->get_result();
 
                             $loop_count = 0;
+                            $total_time = 0;
+                            $total_time_hour_count = 0;
 
                             while ($shift_two_get_times_row = $shift_two_get_times_result->fetch_assoc()) {
                                 $start_time_convert = new DateTime($shift_two_get_times_row['start_time']);
@@ -334,15 +334,13 @@
                                     }
                                 }
 
-                                $total_time = 0;
-                                $total_time_hour_count = 0;
-
                                 for ($i = 0; $i < count($time_arr_two); $i++) {
                                     $total_time += $time_arr_two[$i];
                                 }
                             }
 
                             array_push($temp_array_two, $total_time);
+
 
                             if ($total_time >= 60) {
                                 $total_time = $total_time - 60;
@@ -406,6 +404,8 @@
                             $shift_three_get_times_result = $shift_three_get_times_query->get_result();
 
                             $loop_count = 0;
+                            $total_time = 0;
+                            $total_time_hour_count = 0;
 
                             while ($shift_three_get_times_row = $shift_three_get_times_result->fetch_assoc()) {
                                 $start_time_convert = new DateTime($shift_three_get_times_row['start_time']);
@@ -494,9 +494,6 @@
                                         echo '<span class="grid-place-4">' . $finishing_total_time . ' min</span>';
                                     }
                                 }
-
-                                $total_time = 0;
-                                $total_time_hour_count = 0;
 
                                 for ($i = 0; $i < count($time_arr_three); $i++) {
                                     $total_time += $time_arr_three[$i];

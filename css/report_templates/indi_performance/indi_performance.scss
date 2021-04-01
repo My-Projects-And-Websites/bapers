@@ -1,5 +1,6 @@
 main {
     background: #fff;
+    // align everything at the center using margin: 0 auto
     margin: 0 auto;
     width: 100%;
     padding: 25px;
@@ -20,9 +21,11 @@ main {
 
     .body-section {
         margin-top: 50px;
+        // align text at center
         text-align: center;
         
         .body-section-tags {
+            // set display to grid and set column templated with spacing in between
             display: grid;
             grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
             grid-column-gap: 20px;
@@ -33,15 +36,12 @@ main {
                 font-size: 11px;
                 color: #333;
             }
-
-            span:last-child {
-                border-right: none;
-            }
         }
 
         ul.body-section-list {
 
             li {
+                // set display to grid and set column templated with spacing in between
                 display: grid;
                 grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 1fr;
                 grid-column-gap: 20px;
@@ -49,6 +49,7 @@ main {
                 border-bottom: 1px solid #f1f1f1;
                 width: 100%;
 
+                // text style
                 span {
                     font-size: 11px;
                     color: #333;
@@ -56,6 +57,7 @@ main {
                     padding: 5px 0px;
                 }
 
+                // grids are placed accordingly into the grid
                 .staff-name {
                     grid-column: 1 / 2;
                 }
@@ -82,6 +84,7 @@ main {
 
                 .grid-place-6 {
                     grid-column: 7 / 8;
+                    // font style set to bold for pop-out effect
                     font-weight: bold;
                 }
             }
@@ -90,15 +93,15 @@ main {
 }
 
 .utility-btn {
+    // place buttons at bottom right
     position: fixed;
     bottom: 20px;
     right: 20px;
     
+    // button styles
     button {
         width: 200px;
         height: fit-content;
-        justify-self: flex-end;
-        align-self: flex-end;
         padding: 15px 10px;
         font-size: 16px;
         border: none;
@@ -109,13 +112,16 @@ main {
         transition: .2s;
         outline: 0;
         cursor: pointer;
+        // send to front 
         z-index: 5;
     }
 
+    // raise the button on hover 
     button:hover {
         transform: translateY(-7px);
     }
 
+    // change the background on the back button
     .back-btn {
         width: 100px;
         background: #333;

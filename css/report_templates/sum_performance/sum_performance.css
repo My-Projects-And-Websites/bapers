@@ -48,10 +48,6 @@ main .body-section .body-section-tags span {
   color: #333;
 }
 
-main .body-section .body-section-tags span:last-child {
-  border-right: none;
-}
-
 main .body-section ul.body-section-shift-one li, main .body-section ul.body-section-shift-two li, main .body-section ul.body-section-shift-three li {
   display: -ms-grid;
   display: grid;
@@ -114,10 +110,6 @@ main .body-section .body-section-tags-last {
 main .body-section .body-section-tags-last span {
   font-size: 11px;
   color: #333;
-}
-
-main .body-section .body-section-tags-last span:last-child {
-  border-right: none;
 }
 
 main .body-section ul.period-date {
@@ -186,9 +178,6 @@ main .body-section ul.period-date div.grid-place-total li {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  justify-self: flex-end;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   padding: 15px 10px;
   font-size: 16px;
   border: none;

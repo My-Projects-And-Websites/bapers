@@ -39,10 +39,6 @@ main .body-section .body-section-tags span {
   color: #333;
 }
 
-main .body-section .body-section-tags span:last-child {
-  border-right: none;
-}
-
 main .body-section ul.body-section-list li {
   display: -ms-grid;
   display: grid;
@@ -115,9 +111,6 @@ main .body-section ul.body-section-list li .grid-place-6 {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  justify-self: flex-end;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   padding: 15px 10px;
   font-size: 16px;
   border: none;

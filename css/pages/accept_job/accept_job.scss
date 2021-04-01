@@ -1,11 +1,14 @@
+// styling the main content when accepting a job
 .content {
     padding: 30px 40px;
     overflow: auto;
+    // set position to relative to contain absolute elements
     position: relative;
 
     .assign-job-form {
 
         .create-job {
+            // set display to grid to have two sides of the forms
             display: grid;
             grid-template-columns: 35% 1fr;
             grid-gap: 25px;
@@ -23,14 +26,17 @@
                 margin: 10px 0px 25px;
             }
 
+            // set a margin at the bottom for every div element that has a class starting with input
             div[class*="input"] {
                 margin-bottom: 15px;
             }
 
+            // for the last div element with class starting with input, remove bottom margin
             div[class*="input"]:last-child {
                 margin-bottom: 0;
             }
 
+            // style the input fields
             input, textarea, select {
                 width: 100%;
                 padding: 11px 15px;
@@ -41,11 +47,13 @@
                 border-radius: 5px;
             }
 
+            // disable resizing of this element
             textarea {
                 resize: none;
                 height: 200px;
             }
 
+            // style the label that defines what to input for the fields
             label {
                 font-size: 14px;
                 margin-bottom: 4px;
@@ -53,15 +61,19 @@
                 color: #555;
             }
 
+            // style the select tags
             .input-urgency-field, .input-staff-id-field {
                 position: relative;
 
+                // remove the default arrow on select tag
                 select {
                     appearance: none;
                 }
 
                 ion-icon {
+                    // remove pointer-events to click the select tag through the icon
                     pointer-events: none;
+                    // place the arrow icon at the right side
                     position: absolute;
                     top: 55%;
                     right: 15px;
@@ -69,30 +81,37 @@
                 }
             }
 
+            // set the urgency hours input field to no display
             .input-urgency-hours-field {
                 display: none;
             }
 
+            // apply styling to both sides of the form
             .left-part-form, .right-part-form {
                 padding: 30px 40px;
                 background: #fff;
+                // shadow effect on the form
                 box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
                 border-radius: 5px;
             }
     
+            // place the left part of the form on the first column
             .left-part-form {
                 grid-column: 1 / 2;
                 height: fit-content;
             }
 
             .right-part-container {
-
+                
+                // place the left part of the form on the first column
                 .right-part-form {
                     grid-column: 2 / 3;
                     height: fit-content;
         
+                    // for every div that has a class starting with checkbox-task, apply these styles
                     [class*="checkbox-task"] {
                         transition: .2s;
+                        // smoothen the corners of the input field
                         border-radius: 5px;
                         display: flex;
                         justify-content: space-between;
@@ -100,11 +119,13 @@
                         margin-bottom: 8px;
         
                         label {
+                            // set the child elements into a row and place it at the left side
                             display: flex;
                             justify-content: flex-start;
                             align-items: center;
                             padding: 10px 15px;
                             
+                            // for every checkbox apply these styles
                             input[type="checkbox"] {
                                 width: 20px;
                                 height: 20px;
@@ -117,6 +138,7 @@
                         }
 
                         .task-amount-input {
+                            // flex-basis, the width used to specify for flex elements
                             flex-basis: 40%;
                             display: flex;
                             justify-content: center;
@@ -133,22 +155,18 @@
         
                     }
         
+                    // when hovering over the div, change background colour
                     [class*="checkbox-task"]:hover {
                         background: #eee;
                     }
                 }
         
-                .close-form {
-                    top: -5px;
-                    background: #fff;
-                    padding: 5px;
-                    border-radius: 5px 5px 0px 0px;
-                }
-        
+                // button to submit the form
                 .input-submit-field {
                     grid-column: 2 / 3;
                     margin-top: 15px;
         
+                    // apply styles to the submit button
                     input[type="submit"] {
                         background: #EE5757;
                         color: #fff;
@@ -160,6 +178,7 @@
     }
 }
 
+// place spacing at the bottom using pseudo-element
 .content::after {
     content: '';
     width: 100%;

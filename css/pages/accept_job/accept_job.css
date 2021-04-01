@@ -170,13 +170,6 @@
   background: #eee;
 }
 
-.content .assign-job-form .create-job .right-part-container .close-form {
-  top: -5px;
-  background: #fff;
-  padding: 5px;
-  border-radius: 5px 5px 0px 0px;
-}
-
 .content .assign-job-form .create-job .right-part-container .input-submit-field {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;

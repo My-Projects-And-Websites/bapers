@@ -87,9 +87,6 @@ main .body-section .total #pay-cost {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  justify-self: flex-end;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   padding: 15px 10px;
   font-size: 16px;
   border: none;

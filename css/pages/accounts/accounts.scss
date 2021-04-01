@@ -1,17 +1,22 @@
+// styles for the content of user accounts
 .content {
     padding: 30px 40px;
+    // set this element to display grid and set column templates
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 25px;
     padding-bottom: 30px;
     overflow: auto;
+    // hold absolute elements
     position: relative;
 
     .add-account {
         background: #fff;
+        // drop shadow effect
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
         padding: 30px 40px;
         border-radius: 5px;
+        // set the height of this element based on the height of its content
         height: fit-content;
         
         form {
@@ -28,14 +33,17 @@
                 margin: 10px 0px 25px;
             }
 
+            // apply bottom margin for all divs with a class that starts with input
             div[class*="input"] {
                 margin-bottom: 15px;
             }
 
+            // for the last element that starts with this class, remove bottom amrgin
             div[class*="input"]:last-child {
                 margin-bottom: 0;
             }
 
+            // apply styles on each input and select field
             input, select {
                 width: 100%;
                 padding: 11px 15px;
@@ -46,10 +54,12 @@
                 border-radius: 5px;
             }
 
+            // remove the default arrow on the select tag
             select {
                 appearance: none;
             }
 
+            // apply styles to each label
             label {
                 font-size: 14px;
                 margin-bottom: 4px;
@@ -57,11 +67,13 @@
                 color: #555;
             }
 
+            // set the display property of this element to flex to separate the fields of last name and first name
             .input-name-field {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
+                // width for both input fields
                 .staff-fname {
                     flex-basis: 48.5%;
                 }
@@ -71,18 +83,21 @@
                 }
             }
 
+            // select fields, style the arrow icon
             .input-role-field, .input-department-field {
                 position: relative;
 
                 ion-icon {
                     pointer-events: none;
                     position: absolute;
+                    // place at the right of the select element
                     top: 55%;
                     right: 15px;
                     color: #EE5757;
                 }
             }
 
+            // apply margin at the top of submit button
             .input-submit-field {
                 margin-top: 30px;
 
@@ -95,16 +110,20 @@
         }
     }
 
+    // the element that contains details about all the registered users in the database
     .user-list {
         background: #fff;
+        // drop shadow effect
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
         padding: 30px 40px;
         border-radius: 5px;
         height: fit-content;
 
+        // apply a bottom margin to the heading 
         .user-list-text {
             margin-bottom: 20px;
     
+            // style the text on the right container of the main content
             h2 {
                 font-size: 36px;
                 margin-bottom: 5px;
@@ -118,6 +137,7 @@
             }
         }
 
+        // apply styles to list of users
         ul.list-of-users {
 
             li {
@@ -128,10 +148,12 @@
                 justify-content: space-between;
                 align-items: center;
 
+                // on the first child, set its size to 18px
                 span:nth-child(1) {
                     font-size: 18px;
                 }
 
+                // on the second child, set its size to 14px
                 span:nth-child(2) {
                     font-size: 14px;
                 }
@@ -146,6 +168,7 @@
     }
 }
 
+// apply spacing at the bottom using pseudo-element
 .content::after {
     content: '';
     width: 100%;

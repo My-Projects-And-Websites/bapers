@@ -1,4 +1,5 @@
 main {
+    // place everything in the middle
     background: #fff;
     margin: 0 auto;
     width: 100%;
@@ -19,6 +20,7 @@ main {
     }
 
     .body-section {
+        // spacing between heading and generated data
         margin-top: 50px;
         text-align: center;
 
@@ -32,25 +34,25 @@ main {
         }
 
         .body-section-tags {
+            // set display to grid and set column templates with spacing in between
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-column-gap: 20px;
             padding: 15px 0px;
+            // set a border at the bottom only
             border-bottom: 1px solid #f1f1f1;
     
             span {
                 font-size: 11px;
                 color: #333;
             }
-    
-            span:last-child {
-                border-right: none;
-            }
         }
 
+        // stylings for all the shifts specified
         ul.body-section-shift-one, ul.body-section-shift-two, ul.body-section-shift-three {
 
             li {
+                // set display to grid and set column templates with spacing in between
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
                 grid-column-gap: 20px;
@@ -65,6 +67,7 @@ main {
                     border-right: none;
                 }
 
+                // place data in this grid columns
                 .grid-place-1 {
                     grid-column: 2 / 3;
                 }
@@ -89,23 +92,23 @@ main {
         }
 
         .body-section-tags-last {
+            // set display to grid and set column templates with spacing in between
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             grid-column-gap: 20px;
             padding: 15px 0px;
+            // set a border at the bottom only
             border-bottom: 1px solid #f1f1f1;
     
             span {
                 font-size: 11px;
                 color: #333;
             }
-    
-            span:last-child {
-                border-right: none;
-            }
         }
 
+        // styling for the summary of all performance 
         ul.period-date {
+            // set display to grid and set column templates with spacing in between
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             grid-column-gap: 20px;
@@ -117,10 +120,12 @@ main {
                 width: 100%;
             }
 
+            // all divs are set to first row of the grid
             div {
                 grid-row: 1 / 2;
             }
 
+            // place these div elements acordingly in the grid
             div.date-shift {
                 grid-column: 1 / 2;
             }
@@ -140,6 +145,7 @@ main {
             div.grid-place-total {
                 grid-column: 5 / 6;
 
+                // bold font for pop-out effect
                 li {
                     font-weight: bold;
                 }
@@ -149,15 +155,15 @@ main {
 }
 
 .utility-btn {
+    // place buttons at bottom right
     position: fixed;
     bottom: 20px;
     right: 20px;
     
+    // button styles
     button {
         width: 200px;
         height: fit-content;
-        justify-self: flex-end;
-        align-self: flex-end;
         padding: 15px 10px;
         font-size: 16px;
         border: none;
@@ -168,13 +174,16 @@ main {
         transition: .2s;
         outline: 0;
         cursor: pointer;
+        // send to front 
         z-index: 5;
     }
 
+    // raise the button on hover 
     button:hover {
         transform: translateY(-7px);
     }
 
+    // change the background on the back button
     .back-btn {
         width: 100px;
         background: #333;

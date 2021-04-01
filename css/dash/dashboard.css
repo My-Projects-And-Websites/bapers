@@ -85,11 +85,6 @@
   width: 100%;
 }
 
-.content form.database-util button[type="submit"] ion-icon {
-  font-size: 22px;
-  margin-right: 10px;
-}
-
 .content form.database-util button[type="submit"]:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);

@@ -1,14 +1,17 @@
+// styles for the content of customer accounts
 .content {
     padding: 30px 40px;
     overflow: auto;
     position: relative;
 
+    // search field element
     .form-search-create {
         margin-bottom: 25px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
+        // the form field that contains a text type input
         form.search-field {
             width: fit-content;
     
@@ -16,6 +19,7 @@
                 position: relative;
                 width: fit-content;
     
+                // this is the icon, placed on the left side
                 label {
                     position: absolute;
                     transform: translate(-50%, -50%);
@@ -25,12 +29,14 @@
                     color: #555;
                 }
     
+                // appropriate paddings applied to ensure there are no crossovers on the label and the query
                 input[type="text"] {
                     padding: 15px 25px 15px 60px;
                     font-size: 18px;
                     border: none;
                     outline: 0;
                     border-radius: 5px;
+                    // set a specific width
                     width: 500px;
                     background: #fff;
                     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
@@ -39,28 +45,37 @@
             }
         }
 
+        // these are the buttons placed on the top right of the corner
+        // apply thse styles for both buttons
         button {
             padding: 15px 25px;
             font-size: 18px;
+            // remove default border
             border: none;
+            // set cursor to pointer on hover
             cursor: pointer;
+            // remove default outline
             outline: 0;
             background: #EE5757;
             border-radius: 5px;
+            // add a drop-shadow effect
             box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
             color: #fff;
             transition: .2s;
         }
 
+        // set background colour of this button to light blue
         button.change-valued-btn {
             background: #1f9be2;
         }
 
+        // on hover for both buttons, set opacity to  0.8
         button:hover {
             opacity: 0.8;
         }
     }
 
+    // body section that contains the data fetched from database
     .customer-details {
         background: #fff;
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
@@ -68,11 +83,13 @@
         padding: 30px 40px;
 
         .customer-detail-tags {
+            // set display to grid and set column templates
             display: grid;
             grid-template-columns: 8% 1fr 1fr 30% 10% 1fr;
             padding: 0 15px 10px;
             text-transform: uppercase;
             color: #9a9a9a;
+            // set spacing between letters
             letter-spacing: 1px;
             border-bottom: 1px solid #eee;
 
@@ -81,11 +98,14 @@
             }
         }
         
+        // list of customers
         #customer-list {
             
             li {
+                // set display to grid and set column templates
                 display: grid;
                 grid-template-columns: 8% 1fr 1fr 30% 10% 1fr;
+                // align the child elements at the center
                 align-items: center;
                 padding: 15px;
                 transition: .2s;
@@ -94,12 +114,15 @@
                     color: #333;
                 }
 
+                // the width of this span tag takes over the whole grid row
                 span#none-registered {
                     grid-column: 1 / 6;
                 }
 
+                // form that contains a select tag to set the discount for the customer
                 form[class*="set-discount-to-cust-"] {
                     
+                    // this select tag sets the discount
                     select[id*="discount-select-"] {
                         padding: 5px;
                         border: 1px solid #dcdcdc;
@@ -107,49 +130,43 @@
                         outline: 0;
                         font-size: 14px;
                     }
-
-                    button {
-                        background: #1f9be2;
-                        color: #fff;
-                        border: none;
-                        border-radius: 5px;
-                        margin-left: 5px;
-                        padding: 5px;
-                        cursor: pointer;
-                        outline: 0;
-                        transition: .2s;
-                    }
-
-                    button:hover {
-                        transform: scale(1.1);
-                    }
                 }
             }
 
+            // set a background on the list item on hover
             li:hover {
                 background: #fafafa;
             }
         }
     }
 
+    // modal forms, absolute elements that are on top of other elements
     .create-customer-form, .change-valued-form {
         position: absolute;
+        // placed from the top left corner of the parent element
         top: 0;
         left: 0;
+        // setting width and height properties
         width: 100%;
         height: 100%;
+        // black background with opacity set to 0.15
         background: rgba(0, 0, 0, 0.15);
+        // place the form in the center of this modal form
         display: flex;
         justify-content: center;
         align-items: flex-start;
+        // set a scrollbar if needed
         overflow: auto;
         padding: 30px 0px;
 
+        // this is the form itself
         .create-customer, .change-valued-customer {
+            // width of the form is set to 50% of the modal
             width: 50%;
             background: #fff;
             padding: 30px 40px;
             border-radius: 5px;
+            // drop-effect shadow
             box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
             position: relative;
 
@@ -165,6 +182,7 @@
                 margin: 10px 0px 25px;
             }
 
+            // for all divs with class starting with inputs, set a bottom margin
             div[class*="input"] {
                 margin-bottom: 15px;
             }
@@ -173,6 +191,7 @@
                 margin-bottom: 0;
             }
 
+            // apply styles on the input
             input {
                 width: 100%;
                 padding: 11px 15px;
@@ -191,15 +210,13 @@
             }
 
             .input-name-field {
+                // place the name input fields next to each other
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
-                .customer-fname {
-                    flex-basis: 48.5%;
-                }
-
-                .customer-lname {
+                // set the width of both name input fields to 48.5%
+                .customer-fname, .customer-lname {
                     flex-basis: 48.5%;
                 }
             }

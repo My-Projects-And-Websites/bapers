@@ -212,10 +212,13 @@
 
                         // loop through all the payment data
                         while ($paym_to_process_row = $paym_to_process_result->fetch_assoc()) {
+                            // calculate the total by subtracting the discount from the total
+                            $total_price = $paym_to_process_row['payment_total'] - $paym_to_process_row['payment_discount'];
+
                             // display payment_id, status and total
                             echo '<div class="details"><span class="paym-id">' . $paym_to_process_row['payment_id_char'] . '</span>' .
                             '<span class="paym-deadline">' . $paym_to_process_row['payment_status'] . '</span>' .
-                            '<span class="paym-urgency">£' . number_format((float)$paym_to_process_row['payment_total'], 2, '.', '') . '</span></div>';
+                            '<span class="paym-urgency">£' . number_format((float)$total_price, 2, '.', '') . '</span></div>';
                         }
                     }
                     // if there are no payments to process, return "No payments to process."

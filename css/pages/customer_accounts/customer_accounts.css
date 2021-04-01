@@ -131,24 +131,6 @@
   font-size: 14px;
 }
 
-.content .customer-details #customer-list li form[class*="set-discount-to-cust-"] button {
-  background: #1f9be2;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  margin-left: 5px;
-  padding: 5px;
-  cursor: pointer;
-  outline: 0;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.content .customer-details #customer-list li form[class*="set-discount-to-cust-"] button:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
 .content .customer-details #customer-list li:hover {
   background: #fafafa;
 }
@@ -232,12 +214,7 @@
           align-items: center;
 }
 
-.content .create-customer-form .create-customer .input-name-field .customer-fname, .content .create-customer-form .change-valued-customer .input-name-field .customer-fname, .content .change-valued-form .create-customer .input-name-field .customer-fname, .content .change-valued-form .change-valued-customer .input-name-field .customer-fname {
-  -ms-flex-preferred-size: 48.5%;
-      flex-basis: 48.5%;
-}
-
-.content .create-customer-form .create-customer .input-name-field .customer-lname, .content .create-customer-form .change-valued-customer .input-name-field .customer-lname, .content .change-valued-form .create-customer .input-name-field .customer-lname, .content .change-valued-form .change-valued-customer .input-name-field .customer-lname {
+.content .create-customer-form .create-customer .input-name-field .customer-fname, .content .create-customer-form .create-customer .input-name-field .customer-lname, .content .create-customer-form .change-valued-customer .input-name-field .customer-fname, .content .create-customer-form .change-valued-customer .input-name-field .customer-lname, .content .change-valued-form .create-customer .input-name-field .customer-fname, .content .change-valued-form .create-customer .input-name-field .customer-lname, .content .change-valued-form .change-valued-customer .input-name-field .customer-fname, .content .change-valued-form .change-valued-customer .input-name-field .customer-lname {
   -ms-flex-preferred-size: 48.5%;
       flex-basis: 48.5%;
 }

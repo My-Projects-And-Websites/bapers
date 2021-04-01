@@ -24,7 +24,7 @@
     }
     else {
         $login = $_POST['login-email'];
-        $pass = $_POST['login-password'];
+        $pass = md5($_POST['login-password']);
 
         $sql = "SELECT staff_role, username_login, password_login, staff_fname, staff_sname, staff_id, count(1) from `Staff` where username_login = '$login' and password_login = '$pass'";
         $result = $connect->query($sql);
