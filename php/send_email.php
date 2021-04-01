@@ -1,6 +1,6 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-function staff_reg_email($email_add,$name,$login_email,$login_pass,$department,$role){
+use PHPMailer\PHPMailer\PHPMailer; //initial the "PHPMAILER" plugin
+function staff_reg_email($email_add,$name,$login_email,$login_pass,$department,$role){ //send email for staff registeration
     require('phpmailer/Exception.php');
     require('phpmailer/PHPMailer.php');
     require('phpmailer/SMTP.php');
@@ -9,7 +9,7 @@ function staff_reg_email($email_add,$name,$login_email,$login_pass,$department,$
     $email->SMTPDebug = 1;
     $email->isSMTP();
     $email->SMTPAuth = true;
-    $email->Host = 'smtpout.secureserver.net';
+    $email->Host = 'smtpout.secureserver.net';//SMTP SERVER ADD
     if ($email-> port == 587){
         $email->SMTPSecure = 'TLS';
     }
@@ -18,7 +18,7 @@ function staff_reg_email($email_add,$name,$login_email,$login_pass,$department,$
     $email->Username = 'admin@bapers.co.uk';
     $email->Password = '';
     $email->From = 'register@bapers.co.uk';
-    $email->isHTML(true);
+    $email->isHTML(true);//SET HTML EMAIL 
     
     $email->addAddress($email_add);
     $email->Subject = "Welcome to BAPERS [DO NOT REPLY]";
@@ -35,7 +35,7 @@ function staff_reg_email($email_add,$name,$login_email,$login_pass,$department,$
     $email->send();
     unlink($email_send);
 }
-function job_deadline_email($email_add,$job_id,$job_deadline,$job_SI,$customer_id,$oder_time,$last_status){
+function job_deadline_email($email_add,$job_id,$job_deadline,$job_SI,$customer_id,$oder_time,$last_status){// SEND EMAIL ALERT THE STAFF OF JOB DEADLINE
     require('phpmailer/Exception.php');
     require('phpmailer/PHPMailer.php');
     require('phpmailer/SMTP.php');
@@ -72,7 +72,7 @@ function job_deadline_email($email_add,$job_id,$job_deadline,$job_SI,$customer_i
     $email->send();
     unlink($email_send);
 }
-function late_payment_email($email_add,$payment_id,$cust_id,$cust_name,$cust_email,$cust_no,$cust_add,$payment_due,$due_time){
+function late_payment_email($email_add,$payment_id,$cust_id,$cust_name,$cust_email,$cust_no,$cust_add,$payment_due,$due_time){// SEND EMAIL ALERT THE STAFF THAT HAS LATEPAYMENT
     require('phpmailer/Exception.php');
     require('phpmailer/PHPMailer.php');
     require('phpmailer/SMTP.php');

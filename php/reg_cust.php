@@ -16,7 +16,7 @@
     $cust_id_char = "ACC#" . strval($num_rows);
 
     $x = 0;
-    while ($find_customer_row = $find_customer_result->fetch_assoc()) {
+    while ($find_customer_row = $find_customer_result->fetch_assoc()) {// see if the customer exist, then not allow to register
         
         if ($email == $find_customer_row['cust_email']) {
             echo '<script language="JavaScript">;

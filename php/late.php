@@ -1,12 +1,12 @@
 <?php
     include "connection.php";
 
-    $view_jobs_sql = "SELECT * FROM Job";
+    $view_jobs_sql = "SELECT * FROM Job";// GET THE JOBS INFO FROM THE DATABASE
     $view_jobs_query = $connect->prepare($view_jobs_sql);
     $view_jobs_query->execute();
     $view_jobs_result = $view_jobs_query->get_result();
 
-    $isLate = 1;
+    $isLate = 1;// SET THE PAYMENT STATUS CODE(1 = LATE 0 = NOT LATE)
     while ($view_jobs_row = $view_jobs_result->fetch_assoc()) {
         $job_id = $view_jobs_row['job_id'];
         $view_paym_sql = "SELECT * FROM Payment WHERE payment_id = ?";
@@ -17,11 +17,11 @@
 
         $deadline = date_create($view_jobs_row['actual_finish']);
         $now = date_create(date("Y-m-d H:i:s"));
-        $interval = date_diff($deadline, $now);
+        $interval = date_diff($deadline, $now);// CALCULATE THE TIME DIFFERENT, IF IT'S OVER THEN UPDATE THE STATUS.
 
         while ($view_paym_row = $view_paym_result->fetch_assoc()) {
 
-            if ($view_paym_row['payment_status'] != "Paid" && $interval->format('%d') > 1) {
+            if ($view_paym_row['payment_status'] != "Paid" && $interval->format('%d') > 1) {//UPDATE PAYMENT STATUS//
                 $late_paym_sql = "UPDATE Payment SET payment_late = ?, payment_status = 'Late' WHERE payment_id = ?";
                 $late_paym_query = $connect->prepare($late_paym_sql);
                 $late_paym_query->bind_param("ii", $isLate, $job_id);

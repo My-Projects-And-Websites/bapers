@@ -1,5 +1,5 @@
 <?php
-
+//Third Party Plug in "PHPMailer" <OPEN SOURCE>
 /**
  * PHPMailer Exception class.
  * PHP Version 5.5.

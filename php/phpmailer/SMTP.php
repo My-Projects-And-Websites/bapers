@@ -1,5 +1,5 @@
 <?php
-
+//Third Party Plug in "PHPMailer" <OPEN SOURCE>
 /**
  * PHPMailer RFC821 SMTP email transport class.
  * PHP Version 5.5.
